@@ -26,3 +26,13 @@ Suggested functionality:
 The platform should enable users to create, read, comment and vote on content.
 Content should be searchable and categorised.
 Search results can be filtered on username, popularity, date created, title, content keywords and category.
+
+### Initial Terminal commands
+
+npm install
+
+npx create-react-app my-app --use-npm
+
+cd mom-network
+
+npm start
