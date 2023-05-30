@@ -27,6 +27,15 @@ The platform should enable users to create, read, comment and vote on content.
 Content should be searchable and categorised.
 Search results can be filtered on username, popularity, date created, title, content keywords and category.
 
+### Wireframes
+
+<img width="70%" alt="wireframe" src="mom-network/src/wireframes/homepage-public.png">
+<img width="70%" alt="wireframe" src="mom-network/src/wireframes/homepage-logged-in.png">
+<img width="70%" alt="wireframe" src="mom-network/src/wireframes/post.png">
+<img width="70%" alt="wireframe" src="mom-network/src/wireframes/group.png">
+<img width="70%" alt="wireframe" src="mom-network/src/wireframes/profile.png">
+
+
 ### Initial Terminal commands
 
 npm install
