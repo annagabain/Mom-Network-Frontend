@@ -1,4 +1,4 @@
-#LIVE LINK: https://mom-network.herokuapp.com/
+# LIVE LINK: https://mom-network-frontend.herokuapp.com/
 
 # Mom-Network
 Portfolio Project nr. 5 for Code Institute Assessment. Mom Network - Communication Tool for Busy Mothers.
