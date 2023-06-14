@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import logo from "./mom_network_logo.png";
 import "./App.css";
+import TestApiComponent from "./components/TestApiComponent";
 
 function App() {
   return (
@@ -24,12 +25,11 @@ function App() {
         <a className="App-link">Groups</a>
         <a className="App-link">My network</a>
       </header>
-      <br/>
-      <br/>
-      <br/>
-      <h1>
-          Hello Mom Network!
-        </h1>
+      <br />
+      <br />
+      <br />
+      <h1>Hello Mom Network!</h1>
+      <TestApiComponent />
     </div>
   );
 }
