@@ -4,7 +4,7 @@ const TestApiComponent = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://mom-network-backend.herokuapp.com/')
+    fetch('https://mom-network-backend.herokuapp.com')
       .then(response => response.json())
       .then(data => {
         setData(data);

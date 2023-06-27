@@ -2,6 +2,7 @@
 import logo from "./mom_network_logo.png";
 import "./App.css";
 import TestApiComponent from "./components/TestApiComponent";
+import ProfilesApiComponent from "./components/ProfilesApiComponent";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <br />
       <h1>Hello Mom Network!</h1>
       <TestApiComponent />
+      <ProfilesApiComponent />
     </div>
   );
 }
