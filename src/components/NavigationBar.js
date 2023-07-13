@@ -14,15 +14,11 @@ function BasicExample() {
             <Nav.Link href="#">Home</Nav.Link>
             <Nav.Link href="#">Feed</Nav.Link>
             <NavDropdown title="Groups" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#">Action</NavDropdown.Item>
-              {/* <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item> */}
+              <NavDropdown.Item href="#">Baby</NavDropdown.Item>
+              <NavDropdown.Item href="#">Toddler</NavDropdown.Item>
+              <NavDropdown.Item href="#">Small Child</NavDropdown.Item>
+              <NavDropdown.Item href="#">Healthcare</NavDropdown.Item>
+              <NavDropdown.Item href="#">Activities</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#">My Network</Nav.Link>
           </Nav>

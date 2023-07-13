@@ -38,6 +38,11 @@ Search results can be filtered on username, popularity, date created, title, con
 <img width="78%" alt="wireframe" src="src/wireframes/profile.png">
 
 
+### UX and UI
+
+User Stories: https://github.com/users/annagabain/projects/10/views/1
+
+
 ### Initial Terminal commands
 
 npx create-react-app . --use-npm
