@@ -18,7 +18,7 @@ const PostsApiComponent = () => {
   return (
     <div>
       <h2>Posts</h2>
-      <pre>{JSON.stringify(posts, null, 2)}</pre>
+      <pre style={{color: "green"}}>{JSON.stringify(posts, null, 2)}</pre>
     </div>
   );
 };
