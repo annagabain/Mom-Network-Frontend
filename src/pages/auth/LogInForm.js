@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
 
 import { useHistory } from "react-router-dom";
 
@@ -14,14 +15,16 @@ function LogInForm() {
     username: "",
     password: "",
   });
+  const { username, password } = logInData;
+  const [errors, setErrors] = useState({});
+
   const history = useHistory();
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setLogInData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setLogInData({
+      ...logInData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = async (event) => {
@@ -30,7 +33,7 @@ function LogInForm() {
       await axios.post("/dj-rest-auth/login/", logInData);
       history.push("/");
     } catch (err) {
-      console.log(err);
+      setErrors(err.response?.data);
     }
   };
 
@@ -46,7 +49,7 @@ function LogInForm() {
                 type="text"
                 name="username"
                 placeholder="Enter username"
-                value={logInData.username}
+                value={username}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -57,10 +60,15 @@ function LogInForm() {
                 type="password"
                 name="password"
                 placeholder="Password"
-                value={logInData.password}
+                value={password}
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.password?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
             <Button variant="primary" type="submit">
               Login
             </Button>
