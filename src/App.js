@@ -6,6 +6,8 @@ import TestApiComponent from "./components/TestApiComponent";
 import PostsApiComponent from "./components/PostsApiComponent";
 import NavigationBar from "./components/NavigationBar";
 import Button from "react-bootstrap/Button";
+import "./api/axiosDefaults";
+import RegisterForm from "./pages/auth/RegisterForm";
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
       <Button className="register-login-button" variant="primary">
         Register
       </Button>
+      <RegisterForm />
       <br />
       <br />
       <br />
