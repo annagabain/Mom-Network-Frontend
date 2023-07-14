@@ -10,6 +10,8 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 
+
+
 const RegisterForm = () => {
   const [registerData, setRegisterData] = useState({
     username: "",
@@ -39,6 +41,7 @@ const RegisterForm = () => {
     }
   };
 
+  
   return (
     <Row>
       <Col className="my-auto py-2 p-md-2" md={6}>

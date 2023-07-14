@@ -8,6 +8,7 @@ import NavigationBar from "./components/NavigationBar";
 import Button from "react-bootstrap/Button";
 import "./api/axiosDefaults";
 import RegisterForm from "./pages/auth/RegisterForm";
+import LogInForm from "./pages/auth/LogInForm"
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         Register
       </Button>
       <RegisterForm />
+      <LogInForm />
       <br />
       <br />
       <br />
