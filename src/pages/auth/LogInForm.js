@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 function LogInForm() {
   const [logInData, setLogInData] = useState({
@@ -18,7 +18,7 @@ function LogInForm() {
   const { username, password } = logInData;
   const [errors, setErrors] = useState({});
 
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleChange = (event) => {
     setLogInData({
@@ -31,7 +31,7 @@ function LogInForm() {
     event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/login/", logInData);
-      history.push("/");
+      // history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -53,6 +53,11 @@ function LogInForm() {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.username?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label className="d-none">Password</Form.Label>

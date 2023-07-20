@@ -1,8 +1,6 @@
-// import logo from './logo.svg';
-import logo from "./mom_network_logo.png";
 import "./App.css";
 import TestApiComponent from "./components/TestApiComponent";
-// import ProfilesApiComponent from "./components/ProfilesApiComponent";
+import ProfilesApiComponent from "./components/ProfilesApiComponent";
 import PostsApiComponent from "./components/PostsApiComponent";
 import NavigationBar from "./components/NavigationBar";
 import Button from "react-bootstrap/Button";
@@ -15,7 +13,6 @@ function App() {
     <>
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <NavigationBar />
       </header>
       <br />
@@ -35,10 +32,10 @@ function App() {
       <br />
       <br />
       <br />
-      {/* <ProfilesApiComponent /> */}
     </div>
     <TestApiComponent />
     <PostsApiComponent />
+    <ProfilesApiComponent />
 
     </>
   );

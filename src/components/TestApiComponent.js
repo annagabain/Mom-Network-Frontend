@@ -18,7 +18,7 @@ const TestApiComponent = () => {
 
   return (
     <div>
-      <h3>General Api Connection Test</h3>
+      <h2>General Api Connection Test</h2>
       <p style={{color: "green"}}>{data.message}</p>
     </div>
   );

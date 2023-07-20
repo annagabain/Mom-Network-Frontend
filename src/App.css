@@ -18,12 +18,10 @@
   background-color:  #45535990;
   font-size: calc(10px + 2vmin);
   color: #0d0d0d;
-  padding: 1rem;
+  padding: 0.1rem;
 }
 .App-logo {
-  height: 15vmin;
-  height: 5rem;
-  /* pointer-events: none; */
+  height: 4rem;
   float: left;
 }
 
