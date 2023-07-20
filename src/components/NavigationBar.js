@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
+// import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 // import NavDropdown from "react-bootstrap/NavDropdown";
@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 const NavigationBar = () => {
   return (
     <Navbar expand="lg">
-      <Container>
+      {/* <Container> */}
         <NavLink to="/">
           <Navbar.Brand>
             <img src={logo} className="App-logo left" alt="logo" />
@@ -44,7 +44,7 @@ const NavigationBar = () => {
         <NavLink exact to="/login"  activeClassName="Active">
           Log In
         </NavLink>
-      </Container>
+      {/* </Container> */}
     </Navbar>
   );
 };
