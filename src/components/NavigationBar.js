@@ -1,16 +1,28 @@
-import React from "react";
-// import Container from "react-bootstrap/Container";
+import "../App.css";
+import React, { useContext } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../mom_network_logo_11.png";
 import { NavLink } from "react-router-dom";
+import { CurrentUserContext } from "../App";
 
 const NavigationBar = () => {
+  const currentUser = useContext(CurrentUserContext);
+  const loggedInIcons = <>hello {currentUser?.username}</>;
+  const loggedOutIcons = (
+    <>
+      <NavLink exact to="/login" activeClassName="Active">
+        Login
+      </NavLink>
+      <NavLink exact to="/register" activeClassName="Active">
+        Register
+      </NavLink>
+    </>
+  );
+
   return (
     <Navbar expand="lg">
-      {/* <Container> */}
-
       <Navbar.Brand>
         <img src={logo} className="App-logo left" alt="logo" />
       </Navbar.Brand>
@@ -26,14 +38,7 @@ const NavigationBar = () => {
             Feed
           </NavLink>
 
-          <NavDropdown
-            title="Groups"
-            id="basic-nav-dropdown"
-            activeClassName="Active"
-            style={{
-              position: "-5px",
-            }}
-          >
+          <NavDropdown title="Groups" id="basic-nav-dropdown" activeClassName="Active">
             <NavLink exact to="/groups/baby" activeClassName="active">
               Baby
             </NavLink>
@@ -58,16 +63,12 @@ const NavigationBar = () => {
           <NavLink exact to="/network" activeClassName="Active">
             Network
           </NavLink>
+
+          <div className="ms-auto">
+            {currentUser ? loggedInIcons : loggedOutIcons}
+          </div>
         </Nav>
       </Navbar.Collapse>
-
-      <NavLink exact to="/login" activeClassName="Active">
-        Log In
-      </NavLink>
-      <NavLink exact to="/register" activeClassName="Active">
-        Register
-      </NavLink>
-      {/* </Container> */}
     </Navbar>
   );
 };

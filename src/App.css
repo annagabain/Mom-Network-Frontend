@@ -15,6 +15,7 @@ body {
   font-size: calc(10px + 2vmin);
   color: #0d0d0d;
   padding-left: 0.5rem;
+  display: flex;
 }
 
 .App-logo {
@@ -65,16 +66,11 @@ h2 {
   font-family: "Lemonada", sans-serif;
 }
 
-/* .App-link {
-  padding-left: 2rem;
-  float: left;
-  color: #0d0d0d;
-} */
 
 .right {
-  float: right;
+  float: right !important;
 }
 
 .left {
-  float: left;
+  float: left !important;
 }
