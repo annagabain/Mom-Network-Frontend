@@ -99,7 +99,7 @@ const RegisterForm = () => {
               ))}
             </Form.Group>
 
-            <Button type="submit">Register</Button>
+            <Button type="submit" className="button">Register</Button>
 
             {errors && errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">

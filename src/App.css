@@ -1,30 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Lemonada:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
 
+body {
+  background-color: #faf7f4;
+}
+
 .App {
   text-align: center;
   font-family: "Open Sans", sans-serif;
-  background-color: #faf7f4;
-}
+  }
 
 .App-header {
   background-color: #45535936;
   font-size: calc(10px + 2vmin);
   color: #0d0d0d;
-  padding: 0.1rem;
-}
-.App-logo {
-  height: 4rem;
+  padding-left: 0.5rem;
 }
 
-.register-login-button {
+.App-logo {
+  /* height: 4rem; */
+  padding: 0.1rem;
+}
+
+.nav-link {
+  display: inline;
+  color: #0d0d0d;
+}
+
+.button {
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 100%;
   letter-spacing: 4px;
   background-color: #6a4c39;
-  margin: 1rem;
 }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -41,8 +51,9 @@ a:hover {
 }
 
 .Active {
-  color: red !important;
+  font-weight: 700;
 }
+
 h1 {
   font-weight: 900;
   font-size: 400%;

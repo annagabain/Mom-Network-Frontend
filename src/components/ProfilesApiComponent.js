@@ -18,6 +18,8 @@ const ProfilesApiComponent = () => {
 
   return (
     <div>
+      <br/>
+      <br/>
       <h2>Profiles</h2>
       {/* {profiles.map(profile => (
         <div key={profile.id}>
