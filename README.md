@@ -54,4 +54,5 @@ npm start
 <img width="68%" alt="wireframe" src="src/readme-images/test_api_in_postman.png">
 <img width="68%" alt="wireframe" src="src/readme-images/Screenshot 2023-07-11 110116.png">
 
-- rendering bug ->>>> solved with index.js reactDOM
+- rendering bug ->>>> solved with index.js react DOM
+- refresh token bug -->>>>> logs out upon page refresh 
