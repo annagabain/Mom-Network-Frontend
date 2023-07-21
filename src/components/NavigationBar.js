@@ -1,14 +1,15 @@
 import "../App.css";
-import React, { useContext } from "react";
+import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../mom_network_logo_11.png";
 import { NavLink } from "react-router-dom";
-import { CurrentUserContext } from "../App";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const NavigationBar = () => {
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useCurrentUser();
+  
   const loggedInIcons = <>hello {currentUser?.username}</>;
   const loggedOutIcons = (
     <>

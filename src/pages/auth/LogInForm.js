@@ -1,14 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
-import { useHistory } from "react-router-dom";
-import { SetCurrentUserContext } from "../../App";
+import { Link, useHistory } from "react-router-dom";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { Container } from "react-bootstrap";
 
 
 function LogInForm() {
-  const setCurrentUser = useContext(SetCurrentUserContext);
+  const setCurrentUser = useSetCurrentUser();
 
   const [logInData, setLogInData] = useState({
     username: "",
@@ -77,6 +78,11 @@ function LogInForm() {
           Login
         </Button>
       </Form>
+      <Container className="mt-3">
+        <Link to="/register">
+          Don't have an account? <span>Register</span>
+        </Link>{" "}
+      </Container>
     </>
   );
 }
