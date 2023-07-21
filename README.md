@@ -48,3 +48,10 @@ User Stories: https://github.com/users/annagabain/projects/10/views/1
 npx create-react-app . --use-npm
 
 npm start
+
+### Testing and Debugging
+
+<img width="68%" alt="wireframe" src="src/readme-images/test_api_in_postman.png">
+<img width="68%" alt="wireframe" src="src/readme-images/Screenshot 2023-07-11 110116.png">
+
+- rendering bug ->>>> solved with index.js reactDOM
