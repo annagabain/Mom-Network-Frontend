@@ -1,20 +1,38 @@
 import "../App.css";
 import React from "react";
-// import React, {useContext} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../mom_network_logo_11.png";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
-// import { CurrentUserContext } from "../App";
+import {  useCurrentUser, useSetCurrentUser, } from "../contexts/CurrentUserContext";
+
+import axios from "axios";
+
 
 const NavigationBar = () => {
   const currentUser = useCurrentUser();
-  // const currentUser = useContext(CurrentUserContext)
+  const setCurrentUser = useSetCurrentUser();
 
-  const loggedInIcons = <>Hello {currentUser?.username}</>;
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const loggedInIcons = (
+    <>
+      Hello {currentUser?.username}
+      <br></br>
+      <NavLink to="/" onClick={handleSignOut}>
+        Log out
+      </NavLink>
+    </>
+  );
   const loggedOutIcons = (
     <>
       <NavLink exact to="/login" activeClassName="Active">
