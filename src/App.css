@@ -16,11 +16,20 @@ body {
   color: #0d0d0d;
   padding-left: 0.5rem;
   display: flex;
+  width: 100%;
 }
 
 .App-logo {
   /* height: 4rem; */
   padding: 0.1rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  /* justify-content: flex-start; */
+
 }
 
 .nav-link {
@@ -39,16 +48,20 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-  padding-right: 5%;
-  padding-left: 5%;
+  padding-right: 2%;
+  padding-left: 2%;
 }
 
 a:hover {
   background-color: #6a4c39;
-  border-radius: 5%;
+  /* border-radius: 5%; */
   padding-top: 1%;
   padding-bottom: 1%;
   color: #faf7f4 !important;
+}
+
+.text-same-line {
+  white-space: nowrap; /* Prevent text from wrapping to a new line */
 }
 
 .Active {
