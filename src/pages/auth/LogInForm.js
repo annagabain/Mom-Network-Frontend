@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+// import React, { useContext, useState } from "react";
 import axios from "axios";
+import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import { Link, useHistory } from "react-router-dom";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
-import { Container } from "react-bootstrap";
-
+// import { SetCurrentUserContext } from "../../App";
 
 function LogInForm() {
   const setCurrentUser = useSetCurrentUser();
+  // const setCurrentUser = useContext(SetCurrentUserContext);
 
   const [logInData, setLogInData] = useState({
     username: "",

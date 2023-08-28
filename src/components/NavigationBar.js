@@ -1,5 +1,6 @@
 import "../App.css";
 import React from "react";
+// import React, {useContext} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,9 +8,11 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../mom_network_logo_11.png";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
+// import { CurrentUserContext } from "../App";
 
 const NavigationBar = () => {
   const currentUser = useCurrentUser();
+  // const currentUser = useContext(CurrentUserContext)
 
   const loggedInIcons = <>Hello {currentUser?.username}</>;
   const loggedOutIcons = (
@@ -34,21 +37,21 @@ const NavigationBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Row>
             <Nav className="me-auto">
-              <Col sm={12} className="text-same-line left">
-                <NavLink exact to="/create" activeClassName="Active">
-                  + New Post
-                </NavLink>
-
+              <Col sm={6} className="text-same-line">
                 <NavLink exact to="/" activeClassName="Active">
                   Home
                 </NavLink>
-
                 <NavLink exact to="/feed" activeClassName="Active">
                   Feed
                 </NavLink>
+                <NavLink exact to="/network" activeClassName="Active">
+                  Network
+                </NavLink>
+              </Col>
 
-                {/* <NavDropdown
-                  title="Groups"
+              <Col sm={4} className="text-same-line">
+                <NavDropdown
+                  title="Social Groups"
                   id="basic-nav-dropdown"
                   activeClassName="Active"
                 >
@@ -83,15 +86,22 @@ const NavigationBar = () => {
                   >
                     Activities
                   </NavLink>
-                </NavDropdown> */}
+                </NavDropdown>
+              </Col>
 
-                <NavLink exact to="/network" activeClassName="Active">
-                  Network
+              <Col sm={4}>
+                <NavLink
+                  exact
+                  to="/create"
+                  activeClassName="Active"
+                  className="text-same-line"
+                >
+                  + New Post
                 </NavLink>
               </Col>
-              {/* <div className="ms-auto"> */}
-              <Col sm={12} className="text-same-line right">
-                  <h5>{currentUser ? loggedInIcons : loggedOutIcons}</h5>
+
+              <Col sm={4} className="text-same-line">
+                <h5>{currentUser ? loggedInIcons : loggedOutIcons}</h5>
               </Col>
             </Nav>
           </Row>
