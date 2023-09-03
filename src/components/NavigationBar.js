@@ -75,7 +75,7 @@ const NavigationBar = () => {
                   Feed
                 </NavLink>
                 <NavLink exact to="/network" activeClassName="Active">
-                  Network
+                  Mom-Network
                 </NavLink>
               </Col>
 
