@@ -7,6 +7,7 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function CreateNewPost() {
+
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -14,7 +15,7 @@ function CreateNewPost() {
   });
 
   const { content } = postData;
-
+  
   const history = useHistory();
 
   const handleChange = (event) => {
@@ -32,7 +33,8 @@ function CreateNewPost() {
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
-      history.push(`/posts/${data.id}`);
+      // history.push(`/posts/${data.id}`);
+      history.push(`/feed`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {

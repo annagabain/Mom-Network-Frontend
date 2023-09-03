@@ -6,10 +6,12 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../mom_network_logo_11.png";
 import { NavLink } from "react-router-dom";
-import {  useCurrentUser, useSetCurrentUser, } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
 
 import axios from "axios";
-
 
 const NavigationBar = () => {
   const currentUser = useCurrentUser();
@@ -28,6 +30,16 @@ const NavigationBar = () => {
     <>
       Hello {currentUser?.username}
       <br></br>
+      {currentUser?.profile_image && (
+        <img
+          src={currentUser?.profile_image}
+          style={{
+            borderRadius: "50%",
+            width: "30px",
+            height: "30px",
+          }}
+        />
+      )}
       <NavLink to="/" onClick={handleSignOut}>
         Log out
       </NavLink>
@@ -110,7 +122,7 @@ const NavigationBar = () => {
               <Col sm={4}>
                 <NavLink
                   exact
-                  to="/create"
+                  to="/createnewpost"
                   activeClassName="Active"
                   className="text-same-line"
                 >

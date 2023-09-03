@@ -48,7 +48,7 @@ function App() {
           <Container>
             <Switch>
               <Route exact path="/feed" render={() => <PostsApiComponent />} />
-              <Route exact path="/create" render={() => <CreateNewPost />} />
+              <Route exact path="/createnewpost" render={() => <CreateNewPost />} />
               <Route
                 exact
                 path="/network"
