@@ -32,10 +32,9 @@ const PostsApiComponent = () => {
         <p>The Posts are Loading...</p>
       ) : (
         posts.map((post) => (
-          <Link to={`/posts/${post.id}`} className="post-link">
-            <Card key={post.id} className="mb-3" style={{ width: "66%" }}>
+          <Card key={post.id} className="mb-3" style={{ width: "66%" }}>
+            <Link to={`/posts/${post.id}`} className="post-link" key={post.id}>
               <Card.Body>
-                
                 {post.post_image && (
                   <img
                     src={post.post_image}
@@ -58,12 +57,13 @@ const PostsApiComponent = () => {
                     />
                   )}
                 </div>
+
                 <span>
                   {post.owner} shared on {post.updated_at}
                 </span>
               </Card.Body>
-            </Card>
-          </Link>
+            </Link>
+          </Card>
         ))
       )}
     </div>

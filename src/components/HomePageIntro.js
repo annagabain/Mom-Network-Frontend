@@ -5,19 +5,27 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
-
 import homepageImageSrc from "../images/pexels-pixabay-51953.jpg";
+import "../App.css";
 
 const HomePageIntro = () => {
   const currentUser = useCurrentUser(); // Get the current user
   return (
-    <>
+    <div className="home-page-intro">
       <br />
       <br />
       <br />
-      <h1>Mom Network</h1>
-      <h2>share ideas with other parents</h2>
       <br />
+      <br />
+
+      <div className="title">
+        <h1>Mom Network</h1>
+        <h2>Share ideas with other parents</h2>
+      </div>
+      <br />
+      <br />
+      <br />
+
       {/* Conditionally render the buttons */}
       {!currentUser ? ( // If there's no logged-in user
         <>
@@ -34,19 +42,25 @@ const HomePageIntro = () => {
           <br />
         </>
       ) : null}
+      <br />
+      <br />
+      <br />
 
       <Container>
         <Row>
-          <Col xs={12} md={8}>
-            <img
-              src={homepageImageSrc}
-              alt="Mother holding a child at sunset"
-              style={{ width: "100%" }}
-            />
+          <Col xs={8} md={6}>
+            <div className="background-image">
+              <img
+                src={homepageImageSrc}
+                alt="Mother holding a child at sunset"
+              />
+            </div>
           </Col>
-          <Col xs={6} md={4}>
+          <Col xs={8} md={6}>
             <p>
-              In this project, you will design and build a content-sharing web
+              Portfolio Project nr. 5 for Code Institute Assessment. Mom Network
+              - Communication Tool for Busy Mothers. Project purpose: In this
+              project, you will design and build a content-sharing web
               application with React and an API (Django Rest Framework)
               Back-End. This will allow your users to browse and comment/ like
               each other's content as well as add, edit and delete their own.
@@ -69,7 +83,7 @@ const HomePageIntro = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 
