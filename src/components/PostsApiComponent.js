@@ -30,6 +30,13 @@ const PostsApiComponent = () => {
         posts.map(post => (
           <div key={post.id}>
             <p>Author: {post.owner}</p>
+            {post.post_image && (
+              <img
+                src={post.post_image}
+                alt={`Content for ${post.id}`}
+                style={{ maxWidth: '100%', maxHeight: '300px' }} // Adjust the style as needed
+              />
+            )}
             <h4>{post.content}</h4>
             <p>Created At: {post.created_at}, Updated At: {post.updated_at}</p>
             <hr />
