@@ -42,6 +42,12 @@ Search results can be filtered on username, popularity, date created, title, con
 
 User Stories: https://github.com/users/annagabain/projects/10/views/1
 
+Conditional rendering - experience flow:
+
+<img width="78%" alt="wireframe" src="src/readme-images/conditional_rendering-homepage2.png">
+
+<img width="78%" alt="wireframe" src="src/readme-images/conditional_rendering-homepage1.png">
+
 
 ### Initial Terminal commands
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const PageApiComponent = () => {
   const [pages, setPages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://mom-network-backend.herokuapp.com/page/")
@@ -12,6 +13,7 @@ const PageApiComponent = () => {
 
         // Set the "results" array to the pages state
         setPages(pagesData);
+        setIsLoading(false); // Set isLoading to false once data is fetched
       })
       .catch((error) => {
         // Handle any error that occurred during the request
@@ -19,6 +21,7 @@ const PageApiComponent = () => {
           "Could not fetch the Mom Network API because of this error: ",
           error.message
         );
+        setIsLoading(false); // Set isLoading to false in case of an error
       });
   }, []);
 
@@ -47,28 +50,32 @@ const PageApiComponent = () => {
       <br />
       <br />
 
-      <div className="row">
-        {columns.map((column, columnIndex) => (
-          <div className="col-md-4" key={columnIndex}>
-            {column.map((page) => (
-              <div key={page.id} style={{ marginBottom: "20px" }}>
-                <h4>{page.title}</h4>
-                {page.image && (
-                  <img
-                    src={page.image}
-                    alt={`Page: ${page.title}`}
-                    style={{
-                      width: "400px",
-                      height: "200px", // Make the image square
-                      objectFit: "cover", // Maintain aspect ratio and cover the entire container
-                    }}
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+      {isLoading ? (
+        <p>The Page is Loading...</p>
+      ) : (
+        <div className="row">
+          {columns.map((column, columnIndex) => (
+            <div className="col-md-4" key={columnIndex}>
+              {column.map((page) => (
+                <div key={page.id} style={{ marginBottom: "20px" }}>
+                  <h4>{page.title}</h4>
+                  {page.image && (
+                    <img
+                      src={page.image}
+                      alt={`Page: ${page.title}`}
+                      style={{
+                        width: "400px",
+                        height: "200px", // Make the image square
+                        objectFit: "cover", // Maintain aspect ratio and cover the entire container
+                      }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const ProfilesApiComponent = () => {
   const [profiles, setProfiles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://mom-network-backend.herokuapp.com/profiles")
@@ -12,6 +13,7 @@ const ProfilesApiComponent = () => {
 
         // Set the "results" array to the profiles state
         setProfiles(profilesData);
+        setIsLoading(false); // Set isLoading to false once data is fetched
       })
       .catch((error) => {
         // Handle any error that occurred during the request
@@ -19,6 +21,7 @@ const ProfilesApiComponent = () => {
           "Could not fetch the Mom Network API because of this error: ",
           error.message
         );
+        setIsLoading(false); // Set isLoading to false in case of an error
       });
   }, []);
 
@@ -47,29 +50,33 @@ const ProfilesApiComponent = () => {
       <br />
       <br />
 
-      <div className="row">
-        {columns.map((column, columnIndex) => (
-          <div className="col-md-4" key={columnIndex}>
-            {column.map((profile) => (
-              <div key={profile.id} style={{ marginBottom: "20px" }}>
-                <h4>{profile.owner}</h4>
-                {profile.image && (
-                  <img
-                    src={profile.image}
-                    alt={`Profile of ${profile.owner}`}
-                    style={{
-                      borderRadius: "50%",
-                      width: "80px",
-                      height: "80px",
-                    }}
-                  />
-                )}
-                <p>Bio: {profile.bio}</p>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="row">
+          {columns.map((column, columnIndex) => (
+            <div className="col-md-4" key={columnIndex}>
+              {column.map((profile) => (
+                <div key={profile.id} style={{ marginBottom: "20px" }}>
+                  <h4>{profile.owner}</h4>
+                  {profile.image && (
+                    <img
+                      src={profile.image}
+                      alt={`Profile of ${profile.owner}`}
+                      style={{
+                        borderRadius: "50%",
+                        width: "80px",
+                        height: "80px",
+                      }}
+                    />
+                  )}
+                  <p>Bio: {profile.bio}</p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

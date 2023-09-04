@@ -32,6 +32,7 @@ const NavigationBar = () => {
       <br></br>
       {currentUser?.profile_image && (
         <img
+          alt="profile"
           src={currentUser?.profile_image}
           style={{
             borderRadius: "50%",
@@ -47,10 +48,10 @@ const NavigationBar = () => {
   );
   const loggedOutIcons = (
     <>
-      <NavLink exact to="/login" activeClassName="Active">
+      <NavLink exact to="/login" activeclassname="Active">
         Login
       </NavLink>
-      <NavLink exact to="/register" activeClassName="Active">
+      <NavLink exact to="/register" activeclassname="Active">
         Register
       </NavLink>
     </>
@@ -68,13 +69,13 @@ const NavigationBar = () => {
           <Row>
             <Nav className="me-auto">
               <Col sm={6} className="text-same-line">
-                <NavLink exact to="/" activeClassName="Active">
+                <NavLink exact to="/" activeclassname="Active">
                   Home
                 </NavLink>
-                <NavLink exact to="/feed" activeClassName="Active">
+                <NavLink exact to="/feed" activeclassname="Active">
                   Feed
                 </NavLink>
-                <NavLink exact to="/network" activeClassName="Active">
+                <NavLink exact to="/network" activeclassname="Active">
                   Mom-Network
                 </NavLink>
               </Col>
@@ -83,20 +84,20 @@ const NavigationBar = () => {
                 <NavDropdown
                   title="Social Groups"
                   id="basic-nav-dropdown"
-                  activeClassName="Active"
+                  activeclassname="Active"
                 >
-                  <NavLink exact to="/groups/baby" activeClassName="active">
+                  <NavLink exact to="/groups/baby" activeclassname="active">
                     Baby
                   </NavLink>
                   <br />
-                  <NavLink exact to="/groups/toddler" activeClassName="active">
+                  <NavLink exact to="/groups/toddler" activeclassname="active">
                     Toddler
                   </NavLink>
                   <br />
                   <NavLink
                     exact
                     to="/groups/small-child"
-                    activeClassName="active"
+                    activeclassname="active"
                   >
                     Small Child
                   </NavLink>
@@ -104,7 +105,7 @@ const NavigationBar = () => {
                   <NavLink
                     exact
                     to="/groups/healthcare"
-                    activeClassName="active"
+                    activeclassname="active"
                   >
                     Healthcare
                   </NavLink>
@@ -112,7 +113,7 @@ const NavigationBar = () => {
                   <NavLink
                     exact
                     to="/groups/activities"
-                    activeClassName="active"
+                    activeclassname="active"
                   >
                     Activities
                   </NavLink>
@@ -123,7 +124,7 @@ const NavigationBar = () => {
                 <NavLink
                   exact
                   to="/createnewpost"
-                  activeClassName="Active"
+                  activeclassname="Active"
                   className="text-same-line"
                 >
                   + New Post
