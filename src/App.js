@@ -16,11 +16,8 @@ import LogInForm from "./pages/auth/LogInForm";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
 
-
 function App() {
-
   return (
-
     <div className="App">
       <header className="App-header">
         <NavigationBar />
@@ -41,21 +38,49 @@ function App() {
           <Route exact path="/register" render={() => <RegisterForm />} />
           <Route exact path="/" render={() => <HomePageIntro />} />
 
-          <Route exact path="/groups/baby" render={() => <InterestGroupsApiComponent />} />
-          <Route exact path="/groups/toddler" render={() => <InterestGroupsApiComponent />} />
-          <Route exact path="/groups/small-child" render={() => <InterestGroupsApiComponent />} />
-          <Route exact path="/groups/healthcare" render={() => <InterestGroupsApiComponent />} />
-          <Route exact path="/groups/activities" render={() => <InterestGroupsApiComponent />} />
+          <Route
+            exact
+            path="/groups/baby"
+            render={() => <InterestGroupsApiComponent />}
+          />
+          <Route
+            exact
+            path="/groups/toddler"
+            render={() => <InterestGroupsApiComponent />}
+          />
+          <Route
+            exact
+            path="/groups/small-child"
+            render={() => <InterestGroupsApiComponent />}
+          />
+          <Route
+            exact
+            path="/groups/healthcare"
+            render={() => <InterestGroupsApiComponent />}
+          />
+          <Route
+            exact
+            path="/groups/activities"
+            render={() => <InterestGroupsApiComponent />}
+          />
           <Route exact path="/posts/:postId" component={SinglePost} />
-          <Route exact path="/edit-post/:postId" component={EditMyPost}/>
-
-
+          <Route exact path="/edit-post/:postId" component={EditMyPost} />
 
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
+      <footer className="footer">
+        <div>
+          <div>
+            <p>
+              Created by Anna Gabain as a Final Portfolio Project for
+              CodeInstitute Fullstack Web Development diploma Prgramme,
+              Educational purposes only
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
-
   );
 }
 
