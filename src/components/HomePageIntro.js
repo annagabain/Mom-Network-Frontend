@@ -11,41 +11,11 @@ import "../App.css";
 const HomePageIntro = () => {
   const currentUser = useCurrentUser(); // Get the current user
   return (
+    <>
+    <br />
+    <br />
+    <br />
     <div className="home-page-intro">
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <div className="title">
-        <h1>Mom Network</h1>
-        <h2>Share ideas with other parents</h2>
-      </div>
-      <br />
-      <br />
-      <br />
-
-      {/* Conditionally render the buttons */}
-      {!currentUser ? ( // If there's no logged-in user
-        <>
-          <NavLink exact to="/login">
-            <Button className="button">Log In</Button>
-          </NavLink>
-          <span>or</span>
-          <NavLink exact to="/register">
-            <Button className="button" variant="primary">
-              Register
-            </Button>
-          </NavLink>
-          <br />
-          <br />
-        </>
-      ) : null}
-      <br />
-      <br />
-      <br />
-
       <Container>
         <Row>
           <Col xs={8} md={6}>
@@ -57,6 +27,30 @@ const HomePageIntro = () => {
             </div>
           </Col>
           <Col xs={8} md={6}>
+            <div className="title">
+              <h1>Mom Network</h1>
+              <h2>Share ideas with other parents</h2>
+            </div>
+            <br />
+            <br />
+            <br />
+
+            {/* Conditionally render the buttons */}
+            {!currentUser ? ( // If there's no logged-in user
+              <>
+                <NavLink exact to="/login">
+                  <Button className="button">Log In</Button>
+                </NavLink>
+                <span>or</span>
+                <NavLink exact to="/register">
+                  <Button className="button" variant="primary">
+                    Register
+                  </Button>
+                </NavLink>
+                <br />
+                <br />
+              </>
+            ) : null}
             <p>
               Portfolio Project nr. 5 for Code Institute Assessment. Mom Network
               - Communication Tool for Busy Mothers. Project purpose: In this
@@ -84,6 +78,7 @@ const HomePageIntro = () => {
         </Row>
       </Container>
     </div>
+    </>
   );
 };
 

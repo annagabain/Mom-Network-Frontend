@@ -76,13 +76,13 @@ const NavigationBar = () => {
                   Feed
                 </NavLink>
                 <NavLink exact to="/network" activeclassname="Active">
-                  Mom-Network
+                  Network
                 </NavLink>
               </Col>
 
               <Col sm={4} className="text-same-line">
                 <NavDropdown
-                  title="Social Groups"
+                  title="Groups"
                   id="basic-nav-dropdown"
                   activeclassname="Active"
                 >

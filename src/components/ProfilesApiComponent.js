@@ -65,12 +65,17 @@ const ProfilesApiComponent = () => {
                       alt={`Profile of ${profile.owner}`}
                       style={{
                         borderRadius: "50%",
-                        width: "80px",
-                        height: "80px",
+                        width: "180px",
+                        height: "180px",
                       }}
                     />
                   )}
-                  <p>Bio: {profile.bio}</p>
+                  {/* <p>Bio: {profile.bio}</p>
+                  <hr></hr> */}
+                  <br></br>
+                  <br></br>
+                  <br></br>
+
                 </div>
               ))}
             </div>
