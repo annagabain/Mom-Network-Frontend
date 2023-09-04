@@ -2,6 +2,7 @@ import "./App.css";
 import TestApiComponent from "./components/TestApiComponent";
 import ProfilesApiComponent from "./components/ProfilesApiComponent";
 import PostsApiComponent from "./components/PostsApiComponent";
+import SinglePost from "./pages/posts/SinglePost";
 import InterestGroupsApiComponent from "./components/InterestGroupsApiComponent";
 import CreateNewPost from "./pages/posts/CreateNewPost";
 import NavigationBar from "./components/NavigationBar";
@@ -62,6 +63,7 @@ function App() {
           <Route exact path="/groups/small-child" render={() => <InterestGroupsApiComponent />} />
           <Route exact path="/groups/healthcare" render={() => <InterestGroupsApiComponent />} />
           <Route exact path="/groups/activities" render={() => <InterestGroupsApiComponent />} />
+          <Route exact path="/posts/:postId" component={SinglePost} />
 
 
           <Route render={() => <p>Page not found!</p>} />
