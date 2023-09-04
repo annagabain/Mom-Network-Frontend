@@ -6,6 +6,7 @@ import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
+
 function CreateNewPost() {
   const [errors, setErrors] = useState({});
   const [postData, setPostData] = useState({

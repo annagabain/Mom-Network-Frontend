@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form"; 
 
 const PostsApiComponent = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     fetch("https://mom-network-backend.herokuapp.com/posts/")
@@ -24,18 +26,39 @@ const PostsApiComponent = () => {
       });
   }, []);
 
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredPosts = posts.filter((post) =>
+    post.content.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div>
       <br />
       <br />
       <h2>Posts</h2>
+      <br />
+      <br />
+      <Form.Group>
+        <Form.Control
+          type="text"
+          placeholder="Search posts"
+          style={{width: '30%'}}
+          value={searchQuery}
+          onChange={handleSearchInputChange}
+        />
+      </Form.Group>
 
+      <br />
+      <br />
       <Row>
         <Col md={8}>
           {isLoading ? (
             <p>The Posts are Loading...</p>
           ) : (
-            posts.map((post) => (
+            filteredPosts.map((post) => (
               <Card key={post.id} className="mb-3" style={{ width: "100%" }}>
                 <Link
                   to={`/posts/${post.id}`}
@@ -47,12 +70,10 @@ const PostsApiComponent = () => {
                       <img
                         src={post.post_image}
                         alt={`Content for ${post.id}`}
-                        // style={{ maxWidth: "100%", maxHeight: "300px" }}
                         style={{
                           maxWidth: "100%",
-                          // maxHeight: "300px",
                           width: "100%",
-                          height: "600px", // Set the height to 300px
+                          height: "600px",
                           objectFit: "cover",
                         }}
                       />
