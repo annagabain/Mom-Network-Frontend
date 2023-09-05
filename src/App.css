@@ -8,14 +8,14 @@ body {
 .App {
   text-align: center;
   font-family: "Open Sans", sans-serif;
-  }
+}
 
 .App-header {
-  background-color: #D8CBC4;
-  font-size: calc(10px + 2vmin);
+  background-color: #d8cbc4;
+  /* font-size: calc(10px + 2vmin);
   color: #0d0d0d;
   padding-left: 0.5rem;
-  display: flex;
+  /* display: flex; */
   width: 100%;
 }
 
@@ -25,24 +25,40 @@ body {
 }
 
 .nav {
-  display: flex;
+  /* display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row; */
+  /* justify-content: space-between; */
+}
+.navbar-collapse a {
+  /* Display the links as block elements (one below the other) */
+  display: block; 
+
+    /* display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  /* justify-content: space-between; */
-
+  justify-content: space-between; */
+ 
 }
 
-.nav-link {
+
+/* .nav-link {
   display: inline;
   color: #0d0d0d;
-}
+} */
 
 .title {
   background-color: #455359;
   color: #faf7f4;
-  display: inline-block; 
+  /* display: inline-block;  */
   background-size: auto;
   padding: 30px;
+}
+
+.green {
+  background-color: #455359;
+  background-size: auto;
+  padding: 50px 0 10px 10px;
 }
 
 .button {
@@ -62,8 +78,8 @@ a {
 
 a:hover {
   background-color: #6a4c39;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  /* padding-top: 1%;
+  padding-bottom: 1%; */
   color: #faf7f4 !important;
 }
 
@@ -81,11 +97,14 @@ h1 {
   letter-spacing: 0.5rem;
 }
 
-h2 {
-  font-size: 190%;
+h2,
+h6 {
   font-family: "Lemonada", sans-serif;
 }
 
+h2 {
+  font-size: 190%;
+}
 
 .right {
   float: right !important;
@@ -103,7 +122,7 @@ h2 {
   width: 100%;
   height: 100%;
   z-index: -1; /* Place the image behind other content */
-  opacity: 0.1; 
+  opacity: 0.1;
 }
 
 .background-image img {

@@ -1,5 +1,5 @@
 import "./App.css";
-import TestApiComponent from "./components/TestApiComponent";
+// import TestApiComponent from "./components/TestApiComponent";
 import ProfilesApiComponent from "./components/ProfilesApiComponent";
 
 import PostsApiComponent from "./components/PostsApiComponent";
@@ -16,28 +16,44 @@ import LogInForm from "./pages/auth/LogInForm";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
 
+import { useCurrentUser } from "./contexts/CurrentUserContext";
+
 function App() {
+  const currentUser = useCurrentUser();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <NavigationBar />
-      </header>
+      {currentUser && ( // Render the header and the Navigation bar only if a user is logged in
+        <header className="App-header">
+          <NavigationBar />
+        </header>
+      )}
+      
 
-      <TestApiComponent />
+
+      {/* <TestApiComponent /> */}
 
       <Container>
         <Switch>
+          {!currentUser && ( // Render the Intro and with the Login form as a Homepage if there is no logged in user yet
+            <Route exact path="/" render={() => <HomePageIntro />} />
+          )}
+          :
+          {
+            // Render the Feed as a Homepage if a user is  logged in
+            <Route exact path="/" render={() => <PostsApiComponent />} />
+          }
+          <Route exact path="/login" render={() => <LogInForm />} />
+          <Route exact path="/register" render={() => <RegisterForm />} />
           <Route exact path="/feed" render={() => <PostsApiComponent />} />
-          <Route exact path="/createnewpost" render={() => <CreateNewPost />} />
           <Route
             exact
             path="/network"
             render={() => <ProfilesApiComponent />}
           />
-          <Route exact path="/login" render={() => <LogInForm />} />
-          <Route exact path="/register" render={() => <RegisterForm />} />
-          <Route exact path="/" render={() => <HomePageIntro />} />
-
+          <Route exact path="/createnewpost" render={() => <CreateNewPost />} />
+          <Route exact path="/posts/:postId" component={SinglePost} />
+          <Route exact path="/edit-post/:postId" component={EditMyPost} />
           <Route
             exact
             path="/groups/baby"
@@ -63,9 +79,6 @@ function App() {
             path="/groups/activities"
             render={() => <InterestGroupsApiComponent />}
           />
-          <Route exact path="/posts/:postId" component={SinglePost} />
-          <Route exact path="/edit-post/:postId" component={EditMyPost} />
-
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

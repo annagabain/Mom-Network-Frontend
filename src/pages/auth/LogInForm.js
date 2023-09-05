@@ -43,7 +43,7 @@ function LogInForm() {
   return (
     <>
       <br />
-      <h3>Login</h3>
+      {/* <h3>Login</h3> */}
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicUsername">
           <Form.Label className="d-none">Username</Form.Label>

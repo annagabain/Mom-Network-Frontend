@@ -1,7 +1,8 @@
 import "../App.css";
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Nav from "react-bootstrap/Nav";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../mom_network_logo_11.png";
@@ -12,6 +13,7 @@ import {
 } from "../contexts/CurrentUserContext";
 
 import axios from "axios";
+import { Container } from "react-bootstrap";
 
 const NavigationBar = () => {
   const currentUser = useCurrentUser();
@@ -29,7 +31,6 @@ const NavigationBar = () => {
   const loggedInIcons = (
     <>
       Hello {currentUser?.username}
-      <br></br>
       {currentUser?.profile_image && (
         <img
           alt="profile"
@@ -38,6 +39,7 @@ const NavigationBar = () => {
             borderRadius: "50%",
             width: "30px",
             height: "30px",
+            marginLeft: "10px",
           }}
         />
       )}
@@ -48,97 +50,68 @@ const NavigationBar = () => {
   );
   const loggedOutIcons = (
     <>
-      <NavLink exact to="/login" activeclassname="Active">
+      <NavLink exact to="/login">
         Login
       </NavLink>
-      <NavLink exact to="/register" activeclassname="Active">
+      <NavLink exact to="/register">
         Register
       </NavLink>
     </>
   );
 
   return (
-    <Navbar expand="lg">
+    <>
       <Container>
-        <Navbar.Brand href="/">
-          <img src={logo} className="App-logo left" alt="logo" />
-        </Navbar.Brand>
+        <Row>
+          <Col md={8}>
+            <Navbar expand="lg">
+              <Navbar.Brand>
+                <img src={logo} className="App-logo" alt="logo" />
+              </Navbar.Brand>
+              <div className="green"></div>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Row>
-            <Nav className="me-auto">
-              <Col sm={6} className="text-same-line">
-                <NavLink exact to="/" activeclassname="Active">
-                  Home
-                </NavLink>
-                <NavLink exact to="/feed" activeclassname="Active">
+              <Navbar.Toggle />
+
+              <Navbar.Collapse>
+                <NavLink exact to="/feed">
                   Feed
                 </NavLink>
-                <NavLink exact to="/network" activeclassname="Active">
+                <NavLink exact to="/network">
                   Network
                 </NavLink>
-              </Col>
-
-              <Col sm={4} className="text-same-line">
-                <NavDropdown
-                  title="Groups"
-                  id="basic-nav-dropdown"
-                  activeclassname="Active"
-                >
-                  <NavLink exact to="/groups/baby" activeclassname="active">
+                <NavDropdown title="Groups" id="basic-nav-dropdown">
+                  <NavLink exact to="/groups/baby">
                     Baby
                   </NavLink>
                   <br />
-                  <NavLink exact to="/groups/toddler" activeclassname="active">
+                  <NavLink exact to="/groups/toddler">
                     Toddler
                   </NavLink>
                   <br />
-                  <NavLink
-                    exact
-                    to="/groups/small-child"
-                    activeclassname="active"
-                  >
+                  <NavLink exact to="/groups/small-child">
                     Small Child
                   </NavLink>
                   <br />
-                  <NavLink
-                    exact
-                    to="/groups/healthcare"
-                    activeclassname="active"
-                  >
+                  <NavLink exact to="/groups/healthcare">
                     Healthcare
                   </NavLink>
                   <br />
-                  <NavLink
-                    exact
-                    to="/groups/activities"
-                    activeclassname="active"
-                  >
+                  <NavLink exact to="/groups/activities">
                     Activities
                   </NavLink>
                 </NavDropdown>
-              </Col>
-
-              <Col sm={4}>
-                <NavLink
-                  exact
-                  to="/createnewpost"
-                  activeclassname="Active"
-                  className="text-same-line"
-                >
+                <NavLink exact to="/createnewpost">
                   + New Post
                 </NavLink>
-              </Col>
-
-              <Col sm={4} className="text-same-line">
-                <h5>{currentUser ? loggedInIcons : loggedOutIcons}</h5>
-              </Col>
-            </Nav>
-          </Row>
-        </Navbar.Collapse>
+              </Navbar.Collapse>
+            </Navbar>
+          </Col>
+          <Col md={4} style={{ padding: "1.5rem" }}>
+            {currentUser ? loggedInIcons : loggedOutIcons}
+          </Col>
+        </Row>
       </Container>
-    </Navbar>
+    </>
   );
 };
 
