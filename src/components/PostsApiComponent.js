@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Form from "react-bootstrap/Form"; 
+import Form from "react-bootstrap/Form";
 
 const PostsApiComponent = () => {
   const [posts, setPosts] = useState([]);
@@ -45,7 +45,7 @@ const PostsApiComponent = () => {
         <Form.Control
           type="text"
           placeholder="Search posts"
-          style={{width: '30%'}}
+          style={{ width: "30%" }}
           value={searchQuery}
           onChange={handleSearchInputChange}
         />
@@ -53,6 +53,7 @@ const PostsApiComponent = () => {
 
       <br />
       <br />
+      
       <Row>
         <Col md={8}>
           {isLoading ? (
@@ -103,8 +104,15 @@ const PostsApiComponent = () => {
           )}
         </Col>
         <Col md={4}>
-          {/* Placeholder for My Groups */}
+          {/* Placeholder for Create New Post */}
+          <div>
+            <h3> + NEW POST</h3>
+            <div>button here</div>
+          </div>
+          <br></br>
+          <br></br>
 
+          {/* Placeholder for My Groups */}
           <div className="my-groups">
             <h3>My Groups</h3>
             <div>
@@ -124,10 +132,12 @@ const PostsApiComponent = () => {
             <p> Activities</p>
           </div>
 
-          {/* Placeholder for My Network */}
+          <br></br>
+          <br></br>
 
+          {/* Placeholder for My Network */}
           <div className="my-network">
-            <h3>My Network</h3>
+            <h3>Following</h3>
             <div>
               <span>
                 Henry{" "}
