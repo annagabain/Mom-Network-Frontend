@@ -11,6 +11,7 @@ body {
 }
 
 .App-header {
+  /* position: fixed; */
   background-color: #d8cbc4;
   /* font-size: calc(10px + 2vmin);
   color: #0d0d0d;
@@ -20,16 +21,9 @@ body {
 }
 
 .App-logo {
-  /* height: 4rem; */
   padding: 0.1rem;
 }
 
-.nav {
-  /* display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row; */
-  /* justify-content: space-between; */
-}
 .navbar-collapse a {
   /* Display the links as block elements (one below the other) */
   display: block; 
@@ -40,12 +34,6 @@ body {
   justify-content: space-between; */
  
 }
-
-
-/* .nav-link {
-  display: inline;
-  color: #0d0d0d;
-} */
 
 .title {
   background-color: #455359;
@@ -78,8 +66,6 @@ a {
 
 a:hover {
   background-color: #6a4c39;
-  /* padding-top: 1%;
-  padding-bottom: 1%; */
   color: #faf7f4 !important;
 }
 
@@ -132,10 +118,8 @@ h2 {
 }
 
 .footer {
-  position: fixed;
   bottom: 0;
   left: 0;
-  /* background-color: #f0f0f0; */
   padding: 5px 10px;
   font-size: x-small;
 }

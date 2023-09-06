@@ -30,9 +30,12 @@ const PostsApiComponent = () => {
     setSearchQuery(event.target.value);
   };
 
-  const filteredPosts = posts.filter((post) =>
-    post.content.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredPosts = posts.filter((post) => {
+    const contentMatch = post.content.toLowerCase().includes(searchQuery.toLowerCase());
+    const ownerMatch = post.owner.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    return contentMatch || ownerMatch;
+  });
 
   return (
     <div>
@@ -45,7 +48,7 @@ const PostsApiComponent = () => {
         <Form.Control
           type="text"
           placeholder="Search posts"
-          style={{ width: "30%" }}
+          style={{ width: "33%" }}
           value={searchQuery}
           onChange={handleSearchInputChange}
         />
@@ -53,7 +56,7 @@ const PostsApiComponent = () => {
 
       <br />
       <br />
-      
+
       <Row>
         <Col md={8}>
           {isLoading ? (
