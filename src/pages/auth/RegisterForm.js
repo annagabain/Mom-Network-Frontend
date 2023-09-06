@@ -39,7 +39,11 @@ const RegisterForm = () => {
       <br />
       <br />
 
-      <h3>Register</h3>
+      {/* <h3>Register</h3> */}
+      <Container className="mt-3">
+        Don't have an account?
+      </Container>
+      <br></br>
 
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="username">
@@ -105,11 +109,11 @@ const RegisterForm = () => {
           ))}
       </Form>
 
-      <Container className="mt-3">
+      {/* <Container className="mt-3">
         <Link to="/login">
           Already have an account? <span>Log in</span>
         </Link>{" "}
-      </Container>
+      </Container> */}
     </>
   );
 };

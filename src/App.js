@@ -84,9 +84,15 @@ function App() {
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
-      <footer className="footer">
+      <footer className="footer left">
         <div>
           <div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
             <p>
               Created by Anna Gabain as a Final Portfolio Project for
               CodeInstitute Fullstack Web Development diploma Prgramme,

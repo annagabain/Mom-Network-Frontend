@@ -77,9 +77,10 @@ function CreateNewPost() {
           {message}
         </Alert>
       ))}
-      <Button onClick={() => history.goBack()} className="button">
-        Cancel
-      </Button>
+      {/* <Button onClick={() => history.goBack()} className="button">
+        Cancel 
+      </Button> */}
+      <span> </span>
       <Button type="submit" className="button">
         Post
       </Button>
@@ -88,15 +89,18 @@ function CreateNewPost() {
 
   return (
     <>
+      {/* <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-      <h2>Create a Post</h2>
+      <br></br> */}
+      <h2>+ Create a Post</h2>
       <Form onSubmit={handleSubmit}>
         <Container>
           <div>{textFields}</div>
         </Container>
       </Form>
+      <br></br>
+      <br></br>
+
     </>
   );
 }

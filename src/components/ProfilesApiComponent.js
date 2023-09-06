@@ -46,7 +46,7 @@ const ProfilesApiComponent = () => {
     <div>
       <br />
       <br />
-      <h2>Profiles</h2>
+      {/* <h2>Profiles</h2> */}
       <br />
       <br />
 

@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
+import CreateNewPost from "../pages/posts/CreateNewPost"
 
 const PostsApiComponent = () => {
   const [posts, setPosts] = useState([]);
@@ -33,22 +34,21 @@ const PostsApiComponent = () => {
   const filteredPosts = posts.filter((post) => {
     const contentMatch = post.content.toLowerCase().includes(searchQuery.toLowerCase());
     const ownerMatch = post.owner.toLowerCase().includes(searchQuery.toLowerCase());
-    
     return contentMatch || ownerMatch;
   });
 
   return (
     <div>
-      <br />
-      <br />
-      <h2>Posts</h2>
+      {/* <br />
+      <br /> */}
+      {/* <h2>Posts</h2> */}
       <br />
       <br />
       <Form.Group>
         <Form.Control
           type="text"
           placeholder="Search posts"
-          style={{ width: "33%" }}
+          style={{ width: "18rem" }}
           value={searchQuery}
           onChange={handleSearchInputChange}
         />
@@ -107,10 +107,8 @@ const PostsApiComponent = () => {
           )}
         </Col>
         <Col md={4}>
-          {/* Placeholder for Create New Post */}
           <div>
-            <h3> + NEW POST</h3>
-            <div>button here</div>
+            <CreateNewPost/>
           </div>
           <br></br>
           <br></br>

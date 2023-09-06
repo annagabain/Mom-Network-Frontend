@@ -30,22 +30,53 @@ const NavigationBar = () => {
 
   const loggedInIcons = (
     <>
-      Hello {currentUser?.username}
-      {currentUser?.profile_image && (
-        <img
-          alt="profile"
-          src={currentUser?.profile_image}
-          style={{
-            borderRadius: "50%",
-            width: "30px",
-            height: "30px",
-            marginLeft: "10px",
-          }}
-        />
-      )}
-      <NavLink to="/" onClick={handleSignOut}>
-        Log out
-      </NavLink>
+      <NavDropdown
+        title={
+          currentUser ? (
+            <>
+              Hello {currentUser.username}
+              {currentUser.profile_image && (
+                <img
+                  alt="profile"
+                  src={currentUser.profile_image}
+                  style={{
+                    borderRadius: "50%",
+                    width: "30px",
+                    height: "30px",
+                    marginLeft: "10px",
+                  }}
+                />
+              )}
+            </>
+          ) : (
+            "Guest"
+          )
+        }
+      >
+        <NavLink to="/" onClick={handleSignOut}>
+          Log out
+        </NavLink>
+      </NavDropdown>
+
+      {/* Hello {currentUser?.username}
+        {currentUser?.profile_image && (
+          <img
+            alt="profile"
+            src={currentUser?.profile_image}
+            style={{
+              borderRadius: "50%",
+              width: "30px",
+              height: "30px",
+              marginLeft: "10px",
+            }}
+          />
+        )}
+
+      <NavDropdown title= "">
+        <NavLink to="/" onClick={handleSignOut}>
+          Log out
+        </NavLink>
+      </NavDropdown> */}
     </>
   );
   const loggedOutIcons = (
@@ -77,9 +108,9 @@ const NavigationBar = () => {
                   Feed
                 </NavLink>
                 <NavLink exact to="/network">
-                  Network
+                  Mom-Network
                 </NavLink>
-                <NavDropdown title="Groups" id="basic-nav-dropdown">
+                <NavDropdown title="Thematic-Groups" id="basic-nav-dropdown">
                   <NavLink exact to="/groups/baby">
                     Baby
                   </NavLink>
@@ -97,10 +128,15 @@ const NavigationBar = () => {
                   </NavLink>
                   <br />
                   <NavLink exact to="/groups/activities">
-                    Activities
+                    General Activities
                   </NavLink>
                 </NavDropdown>
-                <NavLink exact to="/createnewpost">
+                {/* Conditionally show "+ New Post" NavLink only on xs screens */}
+                <NavLink
+                  exact
+                  to="/createnewpost"
+                  className="d-md-none" // This class hides the NavLink on screens larger than xs
+                >
                   + New Post
                 </NavLink>
               </Navbar.Collapse>

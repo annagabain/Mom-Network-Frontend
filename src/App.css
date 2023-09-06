@@ -26,13 +26,12 @@ body {
 
 .navbar-collapse a {
   /* Display the links as block elements (one below the other) */
-  display: block; 
+  display: block;
 
-    /* display: flex;
+  /* display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-between; */
- 
 }
 
 .title {
@@ -55,18 +54,28 @@ body {
   font-size: 100%;
   letter-spacing: 4px;
   background-color: #6a4c39;
+  color: #faf7f4 !important;
+  border-color: #6a4c39;
+}
+.btn:hover {
+  background-color: #faf7f4 !important;
+  color: #6a4c39 !important;
+  border-color: #6a4c39;
 }
 
-a {
+a,
+.dropdown {
   text-decoration: none;
   color: inherit;
-  padding-right: 2%;
-  padding-left: 2%;
+  padding: 1%;
+  margin: 1%;
 }
 
-a:hover {
+a:hover,
+.dropdown:hover {
   background-color: #6a4c39;
   color: #faf7f4 !important;
+  border-radius: 5%;
 }
 
 .text-same-line {
@@ -118,8 +127,13 @@ h2 {
 }
 
 .footer {
+  /* position: fixed; */
   bottom: 0;
   left: 0;
-  padding: 5px 10px;
+  padding: 10px 5px 0px 5px;
   font-size: x-small;
+}
+
+.fixed {
+  position: fixed;
 }

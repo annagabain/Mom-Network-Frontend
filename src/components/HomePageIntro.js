@@ -6,6 +6,7 @@ import homepageImageSrc from "../images/pexels-pixabay-51953.jpg";
 import "../App.css";
 
 import LogInForm from "../pages/auth/LogInForm";
+import RegisterForm from "../pages/auth/RegisterForm";
 
 const HomePageIntro = () => {
   return (
@@ -44,12 +45,12 @@ const HomePageIntro = () => {
               <br />
               <br />
               <LogInForm />
+              <RegisterForm />
             </Col>
           </Row>
         </Container>
       </div>
-      <footer className="footer">
-        <br></br>
+      <footer className="footer left fixed">
         <div>Image credit: pexels-pixabay-51953</div>
       </footer>
     </>
