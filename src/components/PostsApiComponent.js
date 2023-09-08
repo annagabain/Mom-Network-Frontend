@@ -1,31 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
-import CreateNewPost from "../pages/posts/CreateNewPost"
+import CreateNewPost from "../pages/posts/CreateNewPost";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const PostsApiComponent = () => {
   const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
-  useEffect(() => {
-    fetch("https://mom-network-backend.herokuapp.com/posts/")
+  const fetchData = useCallback(() => {
+    fetch(`https://mom-network-backend.herokuapp.com/posts/?page=${page}`)
       .then((response) => response.json())
       .then((data) => {
-        setPosts(data.results);
-        setIsLoading(false);
+        if (data.results.length === 0) {
+          setHasMore(false);
+        } else {
+          setPosts((prevPosts) => [...prevPosts, ...data.results]);
+          setPage(page + 1);
+        }
       })
       .catch((error) => {
-        console.log(
-          "Could not fetch the Mom Network API because of this error: ",
-          error.message
-        );
-        setIsLoading(false);
+        console.log("Could not fetch the Mom Network API because of this error: ", error.message);
       });
-  }, []);
+  }, [page]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -39,9 +45,6 @@ const PostsApiComponent = () => {
 
   return (
     <div>
-      {/* <br />
-      <br /> */}
-      {/* <h2>Posts</h2> */}
       <br />
       <br />
       <Form.Group>
@@ -59,16 +62,16 @@ const PostsApiComponent = () => {
 
       <Row>
         <Col md={8}>
-          {isLoading ? (
-            <p>The Posts are Loading...</p>
-          ) : (
-            filteredPosts.map((post) => (
+          <InfiniteScroll
+            dataLength={filteredPosts.length}
+            next={fetchData}
+            hasMore={hasMore}
+            loader={hasMore ? <p>The Posts are Loading...</p> : null} // Display "Loading..." only when there are more posts to load
+            endMessage={<p>No more posts to show</p>} // Display "No more posts to show" when no more posts are available
+          >
+            {filteredPosts.map((post) => (
               <Card key={post.id} className="mb-3" style={{ width: "100%" }}>
-                <Link
-                  to={`/posts/${post.id}`}
-                  className="post-link"
-                  key={post.id}
-                >
+                <Link to={`/posts/${post.id}`} className="post-link" key={post.id}>
                   <Card.Body>
                     {post.post_image && (
                       <img
@@ -103,29 +106,20 @@ const PostsApiComponent = () => {
                   </Card.Body>
                 </Link>
               </Card>
-            ))
-          )}
+            ))}
+          </InfiniteScroll>
         </Col>
         <Col md={4}>
           <div>
-            <CreateNewPost/>
+            <CreateNewPost />
           </div>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
 
           {/* Placeholder for My Groups */}
           <div className="my-groups">
             <h3>My Groups</h3>
-            <div>
-              {/* <img
-                src={require("../wireframes/group.png")}
-                alt={`groups placeholder`}
-                style={{
-                  width: "200px",
-                  marginRight: "10px",
-                }}
-              /> */}
-            </div>
+            <div></div>
             <p>Baby </p>
             <p> Toddler </p>
             <p> Small Child </p>
@@ -133,8 +127,8 @@ const PostsApiComponent = () => {
             <p> Activities</p>
           </div>
 
-          <br></br>
-          <br></br>
+          <br />
+          <br />
 
           {/* Placeholder for My Network */}
           <div className="my-network">
@@ -179,8 +173,7 @@ const PostsApiComponent = () => {
                 />
               </span>
             </div>
-            <br></br>
-
+            <br />
             <div>
               <span>
                 {" "}
