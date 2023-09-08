@@ -103,6 +103,11 @@ const PostsApiComponent = () => {
                     <span>
                       {post.owner} shared on {post.updated_at}
                     </span>
+                    <br></br>
+                    <br></br>
+                    <p>
+                    This post has {post.comments_count} comments and {post.likes_count} likes
+                    </p>
                   </Card.Body>
                 </Link>
               </Card>
