@@ -6,7 +6,6 @@ import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
-
 function CreateNewPost() {
   const [errors, setErrors] = useState({});
   const [postData, setPostData] = useState({
@@ -59,18 +58,24 @@ function CreateNewPost() {
   const textFields = (
     <div className="text-center">
       <Form.Group className="mb-3">
-        <Form.Label>Content</Form.Label>
+        <Form.Label htmlFor="content">Content</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
           name="content"
+          id="content"
           value={content}
           onChange={handleChange}
         />
       </Form.Group>
       <Form.Group className="mb-3">
-        <Form.Label>Image</Form.Label>
-        <Form.Control type="file" name="image" onChange={handleChange} />
+        <Form.Label htmlFor="image">Image</Form.Label>
+        <Form.Control
+          type="file"
+          name="image"
+          id="image" // Add an "id" matching the "htmlFor" attribute in the label
+          onChange={handleChange}
+        />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
@@ -100,7 +105,6 @@ function CreateNewPost() {
       </Form>
       <br></br>
       <br></br>
-
     </>
   );
 }

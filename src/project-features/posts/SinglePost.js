@@ -29,6 +29,9 @@ function SinglePost() {
   }, [postId]);
 
   const handleDelete = () => {
+    // Close the delete modal
+    setShowDeleteModal(false);
+
     axiosReq.delete(`/posts/${postId}`).then(() => {
       history.push("/feed");
     });
@@ -79,7 +82,7 @@ function SinglePost() {
             )}
             <h4>{post.content}</h4>
 
-            {/* Edit and Delete Options */}
+            {/* Conditionally render the Delete button */}
             {post.is_owner && (
               <div>
                 <Button

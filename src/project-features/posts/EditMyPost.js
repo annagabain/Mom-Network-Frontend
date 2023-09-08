@@ -116,19 +116,6 @@ function EditMyPost() {
     </div>
   );
 
-  // // Render comments
-  // const commentList = (
-  //   <div>
-  //     <h3>Comments</h3>
-  //     {comments.map((comment) => (
-  //       <div key={comment.id}>
-  //         <p>{comment.owner} says:</p>
-  //         <p>{comment.comment_text}</p>
-  //       </div>
-  //     ))}
-  //   </div>
-  // );
-
   return (
     <>
       <br />
@@ -138,18 +125,6 @@ function EditMyPost() {
       <Form onSubmit={handleSubmit}>
         <Container>
           <div>{textFields}</div>
-
-          {/* <h3>Comments</h3>
-          {comments.map((comment) => (
-            <Card>
-              <Card.Body>
-                <div key={comment.id}>
-                  <p>{comment.owner} says:</p>
-                  <p>{comment.comment_text}</p>
-                </div>
-              </Card.Body>
-            </Card>
-          ))} */}
         </Container>
       </Form>
     </>

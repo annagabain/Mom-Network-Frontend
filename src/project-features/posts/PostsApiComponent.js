@@ -59,6 +59,7 @@ const PostsApiComponent = () => {
         <Form.Control
           type="text"
           placeholder="Search posts"
+          id="searchform"
           style={{ width: "18rem" }}
           value={searchQuery}
           onChange={handleSearchInputChange}
