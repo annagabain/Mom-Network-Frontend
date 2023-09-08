@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+// import Card from "react-bootstrap/Card";
 import Alert from "react-bootstrap/Alert";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -12,6 +13,7 @@ function EditMyPost() {
     content: "",
   });
   const [imageFile, setImageFile] = useState(null);
+  const [comments, setComments] = useState([]); // Initialize comments as an empty array
 
   const { content } = postData;
   const history = useHistory();
@@ -28,9 +30,22 @@ function EditMyPost() {
         });
       })
       .catch((error) => {
-        console.log(error);
+        console.log("Error fetching post data:", error);
+      });
+
+    // Fetch comments associated with the post
+    axiosReq
+      .get(`/comments/?post=${postId}`)
+      .then((response) => {
+        console.log("Fetched comments:", response.data); // Debugging: Log the fetched comments
+        setComments(response.data.results); // Assign the 'results' array to comments
+      })
+      .catch((error) => {
+        console.log("Error fetching comments:", error);
       });
   }, [postId]);
+
+  console.log("Comments state:", comments); // Debugging: Log the comments state
 
   const handleChange = (event) => {
     if (event.target.name === "image") {
@@ -101,6 +116,19 @@ function EditMyPost() {
     </div>
   );
 
+  // // Render comments
+  // const commentList = (
+  //   <div>
+  //     <h3>Comments</h3>
+  //     {comments.map((comment) => (
+  //       <div key={comment.id}>
+  //         <p>{comment.owner} says:</p>
+  //         <p>{comment.comment_text}</p>
+  //       </div>
+  //     ))}
+  //   </div>
+  // );
+
   return (
     <>
       <br />
@@ -110,6 +138,18 @@ function EditMyPost() {
       <Form onSubmit={handleSubmit}>
         <Container>
           <div>{textFields}</div>
+
+          {/* <h3>Comments</h3>
+          {comments.map((comment) => (
+            <Card>
+              <Card.Body>
+                <div key={comment.id}>
+                  <p>{comment.owner} says:</p>
+                  <p>{comment.comment_text}</p>
+                </div>
+              </Card.Body>
+            </Card>
+          ))} */}
         </Container>
       </Form>
     </>

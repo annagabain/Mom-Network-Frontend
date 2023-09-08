@@ -4,6 +4,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 
 function SinglePost() {
   const { postId } = useParams();
@@ -15,6 +16,13 @@ function SinglePost() {
   // State to manage the confirmation modal
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
+  // State to manage the new comment
+  const [newComment, setNewComment] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // State to store existing comments
+  const [comments, setComments] = useState([]);
+
   useEffect(() => {
     axiosReq
       .get(`/posts/${postId}`)
@@ -25,7 +33,42 @@ function SinglePost() {
       .catch((error) => {
         console.log(error);
       });
+
+    // Fetch existing comments for this post
+    axiosReq
+      .get(`/comments/?post=${postId}`)
+      .then((response) => {
+        setComments(response.data.results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [postId]);
+
+  const handleCommentSubmit = () => {
+    setIsSubmitting(true);
+
+    // Create the comment object to send to the API
+    const commentData = {
+      post: postId,
+      comment_text: newComment,
+    };
+
+    axiosReq
+      .post("/comments/", commentData)
+      .then(() => {
+        // Refresh the comments after adding a new comment
+        axiosReq.get(`/comments/?post=${postId}`).then((response) => {
+          setComments(response.data.results);
+          setIsSubmitting(false);
+          setNewComment(""); // Clear the comment input field
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsSubmitting(false);
+      });
+  };
 
   const handleDelete = () => {
     axiosReq.delete(`/posts/${postId}`).then(() => {
@@ -37,9 +80,7 @@ function SinglePost() {
     <div>
       <br />
       <br />
-
       <h2>Single Post</h2>
-
       <Button
         className="button left"
         onClick={() => {
@@ -51,7 +92,6 @@ function SinglePost() {
       <br />
       <br />
       <br />
-
       {isLoading ? (
         <p>Loading...</p>
       ) : (
@@ -129,6 +169,44 @@ function SinglePost() {
           </Card.Body>
         </Card>
       )}
+      {/* Display existing comments */}
+      <h3>Comments</h3>
+      {comments.map((comment) => (
+        <Card className="mb-3" key={comment.id} style={{ width: "66%" }}>
+          <Card.Body>
+            <div>
+              <p>{comment.owner} says:</p>
+              <p>{comment.comment_text}</p>
+            </div>
+          </Card.Body>
+        </Card>
+      ))}
+
+      {/* Comment Form */}
+      <Card className="mb-3" style={{ width: "66%" }}>
+        <Card.Body>
+          <Form>
+            <Form.Group controlId="comment">
+              <Form.Control
+                as="textarea"
+                rows={4}
+                placeholder="Write a comment..."
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+              />
+            </Form.Group>
+            <br></br>
+            <Button
+              className="button"
+              type="submit"
+              onClick={handleCommentSubmit}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Submit Comment"}
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
     </div>
   );
 }
