@@ -20,7 +20,7 @@ function SinglePost() {
   const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // State to store existing comments
+  // State to store comments for the current post
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function SinglePost() {
         console.log(error);
       });
 
-    // Fetch existing comments for this post
+    // Fetch comments for the current post
     axiosReq
       .get(`/comments/?post=${postId}`)
       .then((response) => {
@@ -143,7 +143,7 @@ function SinglePost() {
               </div>
             )}
 
-            {/* Delete Confirmation Modal */}
+            {/* POST Delete Confirmation Modal */}
             <Modal
               show={showDeleteModal}
               onHide={() => setShowDeleteModal(false)}
@@ -169,18 +169,45 @@ function SinglePost() {
           </Card.Body>
         </Card>
       )}
-      {/* Display existing comments */}
+
+      {/* // Display existing comments for the current post */}
       <h3>Comments</h3>
-      {comments.map((comment) => (
-        <Card className="mb-3" key={comment.id} style={{ width: "66%" }}>
-          <Card.Body>
-            <div>
-              <p>{comment.owner} says:</p>
-              <p>{comment.comment_text}</p>
-            </div>
-          </Card.Body>
-        </Card>
-      ))}
+      {comments.map((comment) => {
+        if (comment.post === parseInt(postId)) {
+          return (
+            <Card className="mb-3" key={comment.id} style={{ width: "66%" }}>
+              <Card.Body>
+                <div>
+                  <p>{comment.owner} says:</p>
+                  <p>{comment.comment_text}</p>
+                </div>
+                {/* COMMENT Edit and Delete Options */}
+                {comment.is_owner && (
+                  <div>
+                    <Button
+                      className="button right"
+                      // onClick={() => {
+                      //   // Navigate to the edit page for this post
+                      //   history.push(`/edit-post/${post.id}`);
+                      // }}
+                    >
+                      E
+                    </Button>{" "}
+                    <Button
+                      variant="danger"
+                      className="right"
+                      // onClick={() => setShowDeleteModal(true)}
+                    >
+                      D
+                    </Button>
+                  </div>
+                )}
+              </Card.Body>
+            </Card>
+          );
+        }
+        return null;
+      })}
 
       {/* Comment Form */}
       <Card className="mb-3" style={{ width: "66%" }}>
