@@ -46,7 +46,6 @@ function CommentApiComponent({ postId }) {
       });
   };
 
-  // Rest of your comment-related code
 
   return (
     <div>

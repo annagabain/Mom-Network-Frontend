@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const ProfilesApiComponent = () => {
   const [profiles, setProfiles] = useState([]);
@@ -58,24 +59,26 @@ const ProfilesApiComponent = () => {
             <div className="col-md-4" key={columnIndex}>
               {column.map((profile) => (
                 <div key={profile.id} style={{ marginBottom: "20px" }}>
+                  {/* Wrap each profile card with a Link */}
                   <h4>{profile.owner}</h4>
-                  {profile.image && (
-                    <img
-                      src={profile.image}
-                      alt={`Profile of ${profile.owner}`}
-                      style={{
-                        borderRadius: "50%",
-                        width: "180px",
-                        height: "180px",
-                      }}
-                    />
-                  )}
+                  <Link to={`/profiles/${profile.id}`}>
+                    {profile.image && (
+                      <img
+                        src={profile.image}
+                        alt={`Profile of ${profile.owner}`}
+                        style={{
+                          borderRadius: "50%",
+                          width: "180px",
+                          height: "180px",
+                        }}
+                      />
+                    )}
+                  </Link>
                   {/* <p>Bio: {profile.bio}</p>
                   <hr></hr> */}
                   <br></br>
                   <br></br>
                   <br></br>
-
                 </div>
               ))}
             </div>

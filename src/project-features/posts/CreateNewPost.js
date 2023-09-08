@@ -63,7 +63,7 @@ function CreateNewPost() {
           as="textarea"
           rows={6}
           name="content"
-          id="content"
+          // id="content"
           value={content}
           onChange={handleChange}
         />
