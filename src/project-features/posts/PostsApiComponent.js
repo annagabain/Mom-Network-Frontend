@@ -4,8 +4,9 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
-import CreateNewPost from "../pages/posts/CreateNewPost";
+import CreateNewPost from "./CreateNewPost";
 import InfiniteScroll from "react-infinite-scroll-component";
+import groupImage from "../../wireframes/group.png";
 
 const PostsApiComponent = () => {
   const [posts, setPosts] = useState([]);
@@ -17,15 +18,18 @@ const PostsApiComponent = () => {
     fetch(`https://mom-network-backend.herokuapp.com/posts/?page=${page}`)
       .then((response) => response.json())
       .then((data) => {
-        if (data.results.length === 0) {
+        if (data && data.results && data.results.length === 0) {
           setHasMore(false);
-        } else {
+        } else if (data && data.results) {
           setPosts((prevPosts) => [...prevPosts, ...data.results]);
           setPage(page + 1);
         }
       })
       .catch((error) => {
-        console.log("Could not fetch the Mom Network API because of this error: ", error.message);
+        console.log(
+          "Could not fetch the Mom Network API because of this error: ",
+          error.message
+        );
       });
   }, [page]);
 
@@ -38,8 +42,12 @@ const PostsApiComponent = () => {
   };
 
   const filteredPosts = posts.filter((post) => {
-    const contentMatch = post.content.toLowerCase().includes(searchQuery.toLowerCase());
-    const ownerMatch = post.owner.toLowerCase().includes(searchQuery.toLowerCase());
+    const contentMatch = post.content
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const ownerMatch = post.owner
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
     return contentMatch || ownerMatch;
   });
 
@@ -69,9 +77,17 @@ const PostsApiComponent = () => {
             loader={hasMore ? <p>The Posts are Loading...</p> : null} // Display "Loading..." only when there are more posts to load
             endMessage={<p>No more posts to show</p>} // Display "No more posts to show" when no more posts are available
           >
-            {filteredPosts.map((post) => (
-              <Card key={post.id} className="mb-3" style={{ width: "100%" }}>
-                <Link to={`/posts/${post.id}`} className="post-link" key={post.id}>
+            {filteredPosts.map((post, index) => (
+              <Card
+                key={`${post.id}-${index}`}
+                className="mb-3"
+                style={{ width: "100%" }}
+              >
+                <Link
+                  to={`/posts/${post.id}`}
+                  className="post-link"
+                  key={post.id}
+                >
                   <Card.Body>
                     {post.post_image && (
                       <img
@@ -106,7 +122,8 @@ const PostsApiComponent = () => {
                     <br></br>
                     <br></br>
                     <p>
-                    This post has {post.comments_count} comments and {post.likes_count} likes
+                      This post has {post.comments_count} comments and{" "}
+                      {post.likes_count} likes
                     </p>
                   </Card.Body>
                 </Link>
@@ -142,7 +159,7 @@ const PostsApiComponent = () => {
               <span>
                 Henry{" "}
                 <img
-                  src={require("../wireframes/group.png")}
+                  src={groupImage}
                   alt={`Profile of `}
                   style={{
                     borderRadius: "50%",
@@ -155,7 +172,7 @@ const PostsApiComponent = () => {
                 {" "}
                 Jane{" "}
                 <img
-                  src={require("../wireframes/group.png")}
+                  src={groupImage}
                   alt={`Profile of `}
                   style={{
                     borderRadius: "50%",
@@ -168,7 +185,7 @@ const PostsApiComponent = () => {
                 {" "}
                 UserTwo{" "}
                 <img
-                  src={require("../wireframes/group.png")}
+                  src={groupImage}
                   alt={`Profile of `}
                   style={{
                     borderRadius: "50%",
@@ -184,7 +201,7 @@ const PostsApiComponent = () => {
                 {" "}
                 Jane{" "}
                 <img
-                  src={require("../wireframes/group.png")}
+                  src={groupImage}
                   alt={`Profile of `}
                   style={{
                     borderRadius: "50%",
@@ -197,7 +214,7 @@ const PostsApiComponent = () => {
                 {" "}
                 Jane{" "}
                 <img
-                  src={require("../wireframes/group.png")}
+                  src={groupImage}
                   alt={`Profile of `}
                   style={{
                     borderRadius: "50%",
@@ -210,7 +227,7 @@ const PostsApiComponent = () => {
                 {" "}
                 Jane{" "}
                 <img
-                  src={require("../wireframes/group.png")}
+                  src={groupImage}
                   alt={`Profile of `}
                   style={{
                     borderRadius: "50%",

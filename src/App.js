@@ -1,18 +1,18 @@
 import "./App.css";
 // import TestApiComponent from "./components/TestApiComponent";
-import ProfilesApiComponent from "./components/ProfilesApiComponent";
+import ProfilesApiComponent from "./project-features/profiles/ProfilesApiComponent";
 
-import PostsApiComponent from "./components/PostsApiComponent";
-import SinglePost from "./pages/posts/SinglePost";
-import CreateNewPost from "./pages/posts/CreateNewPost";
-import EditMyPost from "./pages/posts/EditMyPost";
+import PostsApiComponent from "./project-features/posts/PostsApiComponent";
+import SinglePost from "./project-features/posts/SinglePost";
+import CreateNewPost from "./project-features/posts/CreateNewPost";
+import EditMyPost from "./project-features/posts/EditMyPost";
 
-import InterestGroupsApiComponent from "./components/InterestGroupsApiComponent";
+import InterestGroupsApiComponent from "./project-features/interest-groups/InterestGroupsApiComponent";
 import NavigationBar from "./components/NavigationBar";
 import HomePageIntro from "./components/HomePageIntro";
 import "./api/axiosDefaults";
-import RegisterForm from "./pages/auth/RegisterForm";
-import LogInForm from "./pages/auth/LogInForm";
+import RegisterForm from "./components/auth/RegisterForm";
+import LogInForm from "./components/auth/LogInForm";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
 
@@ -50,7 +50,7 @@ function App() {
           <Route exact path="/feed" render={() => <PostsApiComponent />} />
           <Route
             exact
-            path="/network"
+            path="/mom-network"
             render={() => <ProfilesApiComponent />}
           />
           <Route exact path="/createnewpost" render={() => <CreateNewPost />} />

@@ -5,8 +5,8 @@ import Col from "react-bootstrap/Col";
 import homepageImageSrc from "../images/pexels-pixabay-51953.jpg";
 import "../App.css";
 
-import LogInForm from "../pages/auth/LogInForm";
-import RegisterForm from "../pages/auth/RegisterForm";
+import LogInForm from "../components/auth/LogInForm";
+import RegisterForm from "../components/auth/RegisterForm";
 
 const HomePageIntro = () => {
   return (
