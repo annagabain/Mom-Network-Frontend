@@ -57,26 +57,6 @@ const NavigationBar = () => {
           Log out
         </NavLink>
       </NavDropdown>
-
-      {/* Hello {currentUser?.username}
-        {currentUser?.profile_image && (
-          <img
-            alt="profile"
-            src={currentUser?.profile_image}
-            style={{
-              borderRadius: "50%",
-              width: "30px",
-              height: "30px",
-              marginLeft: "10px",
-            }}
-          />
-        )}
-
-      <NavDropdown title= "">
-        <NavLink to="/" onClick={handleSignOut}>
-          Log out
-        </NavLink>
-      </NavDropdown> */}
     </>
   );
   const loggedOutIcons = (
@@ -110,30 +90,30 @@ const NavigationBar = () => {
                 <NavLink exact to="/mom-network">
                   Mom-Network
                 </NavLink>
-                <NavLink exact to="/pages">
-                  Thematic-Pages
-                </NavLink>
-                {/* <NavDropdown title="Pages" id="basic-nav-dropdown">
-                  <NavLink exact to="/pages/baby">
+                <NavDropdown title="Thematic-Pages" id="basic-nav-dropdown">
+                  <NavLink exact to="/pages">
+                    All
+                  </NavLink>
+                  <NavLink exact to="/pages/1">
                     Baby
                   </NavLink>
-                  <br />
-                  <NavLink exact to="/pages/toddler">
+
+                  <NavLink exact to="/pages/2">
                     Toddler
                   </NavLink>
-                  <br />
-                  <NavLink exact to="/pages/small-child">
+
+                  <NavLink exact to="/pages/3">
                     Small Child
                   </NavLink>
-                  <br />
-                  <NavLink exact to="/pages/healthcare">
+
+                  <NavLink exact to="/pages/4">
                     Healthcare
                   </NavLink>
-                  <br />
-                  <NavLink exact to="/pages/activities">
+
+                  <NavLink exact to="/pages/5">
                     General Activities
                   </NavLink>
-                </NavDropdown> */}
+                </NavDropdown>
                 {/* Conditionally show "+ New Post" NavLink only on xs screens */}
                 <NavLink
                   exact

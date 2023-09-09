@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
 const SinglePage = ({ match }) => {
@@ -28,30 +29,53 @@ const SinglePage = ({ match }) => {
 
   return (
     <div>
-      <h2>Page Details</h2>
+      <br></br>
+      <br></br>
+
+      <button className="button left" onClick={goBackToPages}>
+        Go to pages overview
+      </button>
+      <br></br>
+      <br></br>
+
+      {/* <h2>Page Details</h2> */}
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <div>
-<button onClick={goBackToPages}>Go Back to pages overview</button>
           {page.image && (
             <img
               src={page.image}
               alt={`Page: ${page.title}`}
               style={{
-                width: "400px",
-                height: "200px",
+                width: "100%",
+                height: "400px",
                 objectFit: "cover",
               }}
             />
           )}
           <h2>{page.title}</h2>
-
-          <p>id{page.id}</p>
+          {/* 
+          <p>id{page.id}</p> */}
           <p>Admin: {page.admin_username}</p>
           <h4>{page.description}</h4>
           {/* <h2>followers{page.followers}</h2> */}
           <p>This page has {page.followers_count} followers</p>
+          <br></br>
+          <h4 className="left">Related Posts:</h4>
+          <br></br>
+          <br></br>
+          <Card>
+            {page.posts.map((post) => (
+              <div key={post.id}>
+                <h5>{post.title}</h5>
+                <p>
+                  {post.owner} says: {post.content}
+                </p>
+                {/* Render other post details as needed */}
+              </div>
+            ))}
+          </Card>
         </div>
       )}
     </div>
