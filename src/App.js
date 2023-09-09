@@ -8,7 +8,9 @@ import SinglePost from "./project-features/posts/SinglePost";
 import CreateNewPost from "./project-features/posts/CreateNewPost";
 import EditMyPost from "./project-features/posts/EditMyPost";
 
-import InterestGroupsApiComponent from "./project-features/interest-groups/InterestGroupsApiComponent";
+import PagesApiComponent from "./project-features/pages/PagesApiComponent";
+import SinglePage from "./project-features/pages/SinglePage";
+
 import NavigationBar from "./components/NavigationBar";
 import HomePageIntro from "./components/HomePageIntro";
 import "./api/axiosDefaults";
@@ -16,6 +18,7 @@ import RegisterForm from "./components/auth/RegisterForm";
 import LogInForm from "./components/auth/LogInForm";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
+
 
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 
@@ -30,13 +33,10 @@ function App() {
         </header>
       )}
 
-      
-      
-
-
       {/* <TestApiComponent /> */}
 
       <Container>
+
         <Switch>
           {!currentUser && ( // Render the Intro and with the Login form as a Homepage if there is no logged in user yet
             <Route exact path="/" render={() => <HomePageIntro />} />
@@ -55,37 +55,16 @@ function App() {
             render={() => <ProfilesApiComponent />}
           />
           <Route exact path="/profiles/:profileId" component={SingleProfile} />
-
           <Route exact path="/createnewpost" render={() => <CreateNewPost />} />
           <Route exact path="/posts/:postId" component={SinglePost} />
           <Route exact path="/edit-post/:postId" component={EditMyPost} />
-          <Route
-            exact
-            path="/groups/baby"
-            render={() => <InterestGroupsApiComponent />}
-          />
-          <Route
-            exact
-            path="/groups/toddler"
-            render={() => <InterestGroupsApiComponent />}
-          />
-          <Route
-            exact
-            path="/groups/small-child"
-            render={() => <InterestGroupsApiComponent />}
-          />
-          <Route
-            exact
-            path="/groups/healthcare"
-            render={() => <InterestGroupsApiComponent />}
-          />
-          <Route
-            exact
-            path="/groups/activities"
-            render={() => <InterestGroupsApiComponent />}
-          />
+
+          <Route exact path="/pages" component={PagesApiComponent} />
+          <Route exact path="/pages/:pageId" component={SinglePage} />
+          
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
+
       </Container>
       <footer className="footer left">
         <div>

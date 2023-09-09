@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const PageApiComponent = () => {
   const [pages, setPages] = useState([]);
@@ -25,28 +26,11 @@ const PageApiComponent = () => {
       });
   }, []);
 
-  // Function to group pages into columns
-  const groupPagesIntoColumns = (pages, columnsCount) => {
-    const pagesPerColumn = Math.ceil(pages.length / columnsCount);
-    const columns = [];
-
-    for (let i = 0; i < columnsCount; i++) {
-      const startIndex = i * pagesPerColumn;
-      const endIndex = startIndex + pagesPerColumn;
-      columns.push(pages.slice(startIndex, endIndex));
-    }
-
-    return columns;
-  };
-
-  // Group pages into three columns
-  const columns = groupPagesIntoColumns(pages, 3);
-
   return (
     <div>
       <br />
       <br />
-      <h2>Groups of Interest (Pages)</h2>
+      <h2>Pages</h2>
       <br />
       <br />
 
@@ -54,10 +38,10 @@ const PageApiComponent = () => {
         <p>The Page is Loading...</p>
       ) : (
         <div className="row">
-          {columns.map((column, columnIndex) => (
-            <div className="col-md-4" key={columnIndex}>
-              {column.map((page) => (
-                <div key={page.id} style={{ marginBottom: "20px" }}>
+          {pages.map((page) => (
+            <div className="col-md-4" key={page.id}>
+              <Link to={`/pages/${page.id}`}>
+                <div style={{ marginBottom: "20px", cursor: "pointer" }}>
                   <h4>{page.title}</h4>
                   {page.image && (
                     <img
@@ -65,13 +49,13 @@ const PageApiComponent = () => {
                       alt={`Page: ${page.title}`}
                       style={{
                         width: "400px",
-                        height: "200px", // Make the image square
-                        objectFit: "cover", // Maintain aspect ratio and cover the entire container
+                        height: "200px",
+                        objectFit: "cover",
                       }}
                     />
                   )}
                 </div>
-              ))}
+              </Link>
             </div>
           ))}
         </div>

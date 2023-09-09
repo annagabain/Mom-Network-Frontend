@@ -139,9 +139,9 @@ const PostsApiComponent = () => {
           <br />
           <br />
 
-          {/* Placeholder for My Groups */}
-          <div className="my-groups">
-            <h3>My Groups</h3>
+          {/* Placeholder for My pages */}
+          <div className="my-pages">
+            <h3>My pages</h3>
             <div></div>
             <p>Baby </p>
             <p> Toddler </p>

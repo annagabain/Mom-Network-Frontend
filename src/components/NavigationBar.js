@@ -110,27 +110,30 @@ const NavigationBar = () => {
                 <NavLink exact to="/mom-network">
                   Mom-Network
                 </NavLink>
-                <NavDropdown title="Thematic-Groups" id="basic-nav-dropdown">
-                  <NavLink exact to="/groups/baby">
+                <NavLink exact to="/pages">
+                  Thematic-Pages
+                </NavLink>
+                {/* <NavDropdown title="Pages" id="basic-nav-dropdown">
+                  <NavLink exact to="/pages/baby">
                     Baby
                   </NavLink>
                   <br />
-                  <NavLink exact to="/groups/toddler">
+                  <NavLink exact to="/pages/toddler">
                     Toddler
                   </NavLink>
                   <br />
-                  <NavLink exact to="/groups/small-child">
+                  <NavLink exact to="/pages/small-child">
                     Small Child
                   </NavLink>
                   <br />
-                  <NavLink exact to="/groups/healthcare">
+                  <NavLink exact to="/pages/healthcare">
                     Healthcare
                   </NavLink>
                   <br />
-                  <NavLink exact to="/groups/activities">
+                  <NavLink exact to="/pages/activities">
                     General Activities
                   </NavLink>
-                </NavDropdown>
+                </NavDropdown> */}
                 {/* Conditionally show "+ New Post" NavLink only on xs screens */}
                 <NavLink
                   exact
