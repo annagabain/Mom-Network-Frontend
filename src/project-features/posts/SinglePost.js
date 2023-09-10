@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import CommentApiComponent from "../comments/CommentApiComponent";
+import TestPostsWithComments from "./TestPostsWithComments";
 
 function SinglePost() {
   const { postId } = useParams();
@@ -39,6 +40,7 @@ function SinglePost() {
 
   return (
     <div>
+      <TestPostsWithComments postId={postId} />
       <br />
       <br />
       <h2>Single Post</h2>
@@ -130,6 +132,7 @@ function SinglePost() {
           </Card.Body>
         </Card>
       )}
+      {/* contains create  comment form */}
       <CommentApiComponent postId={postId} />
     </div>
   );

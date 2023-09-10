@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
@@ -8,6 +6,7 @@ import CreateNewPost from "./CreateNewPost";
 import InfiniteScroll from "react-infinite-scroll-component";
 import MyNetworkPlaceholder from "./MyNetworkPlaceholder";
 import MyPagesPlaceholder from "./MyPagesPlaceholder";
+import PostCard from "./PostCard"; 
 
 const PostsApiComponent = () => {
   const [posts, setPosts] = useState([]);
@@ -76,60 +75,11 @@ const PostsApiComponent = () => {
             dataLength={filteredPosts.length}
             next={fetchData}
             hasMore={hasMore}
-            loader={hasMore ? <p>The Posts are Loading...</p> : null} // Display "Loading..." only when there are more posts to load
-            endMessage={<p>No more posts to show</p>} // Display "No more posts to show" when no more posts are available
+            loader={hasMore ? <p>The Posts are Loading...</p> : null}
+            endMessage={<p>No more posts to show</p>}
           >
             {filteredPosts.map((post, index) => (
-              <Card
-                key={`${post.id}-${index}`}
-                className="mb-3"
-                style={{ width: "100%" }}
-              >
-                <Link
-                  to={`/posts/${post.id}`}
-                  className="post-link"
-                  key={post.id}
-                >
-                  <Card.Body>
-                    {post.post_image && (
-                      <img
-                        src={post.post_image}
-                        alt={`Content for ${post.id}`}
-                        style={{
-                          maxWidth: "100%",
-                          width: "100%",
-                          height: "600px",
-                          objectFit: "cover",
-                        }}
-                      />
-                    )}
-                    <h4>{post.content}</h4>
-                    <div>
-                      {post.profile_image && (
-                        <img
-                          src={post.profile_image}
-                          alt={`face ${post.owner.username}`}
-                          style={{
-                            width: "40px",
-                            height: "40px",
-                            borderRadius: "50%",
-                            marginRight: "10px",
-                          }}
-                        />
-                      )}
-                    </div>
-                    <span>
-                      {post.owner} shared on {post.updated_at}
-                    </span>
-                    <br></br>
-                    <br></br>
-                    <p>
-                      This post has {post.comments_count} comments and{" "}
-                      {post.likes_count} likes
-                    </p>
-                  </Card.Body>
-                </Link>
-              </Card>
+              <PostCard key={`${post.id}-${index}`} post={post} />
             ))}
           </InfiniteScroll>
         </Col>
