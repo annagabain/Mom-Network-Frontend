@@ -6,7 +6,8 @@ import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import CreateNewPost from "./CreateNewPost";
 import InfiniteScroll from "react-infinite-scroll-component";
-import groupImage from "../../wireframes/group.png";
+import MyNetworkPlaceholder from "./MyNetworkPlaceholder";
+import MyPagesPlaceholder from "./MyPagesPlaceholder";
 
 const PostsApiComponent = () => {
   const [posts, setPosts] = useState([]);
@@ -140,105 +141,13 @@ const PostsApiComponent = () => {
           <br />
 
           {/* Placeholder for My pages */}
-          <div className="my-pages">
-            <h3>My pages</h3>
-            <div></div>
-            <p>Baby </p>
-            <p> Toddler </p>
-            <p> Small Child </p>
-            <p> Healthcare </p>
-            <p> Activities</p>
-          </div>
+          <MyPagesPlaceholder />
 
           <br />
           <br />
 
           {/* Placeholder for My Network */}
-          <div className="my-network">
-            <h3>Following</h3>
-            <div>
-              <span>
-                Henry{" "}
-                <img
-                  src={groupImage}
-                  alt={`Profile of `}
-                  style={{
-                    borderRadius: "50%",
-                    width: "20px",
-                    height: "20px",
-                  }}
-                />
-              </span>
-              <span>
-                {" "}
-                Jane{" "}
-                <img
-                  src={groupImage}
-                  alt={`Profile of `}
-                  style={{
-                    borderRadius: "50%",
-                    width: "20px",
-                    height: "20px",
-                  }}
-                />
-              </span>
-              <span>
-                {" "}
-                UserTwo{" "}
-                <img
-                  src={groupImage}
-                  alt={`Profile of `}
-                  style={{
-                    borderRadius: "50%",
-                    width: "20px",
-                    height: "20px",
-                  }}
-                />
-              </span>
-            </div>
-            <br />
-            <div>
-              <span>
-                {" "}
-                Jane{" "}
-                <img
-                  src={groupImage}
-                  alt={`Profile of `}
-                  style={{
-                    borderRadius: "50%",
-                    width: "20px",
-                    height: "20px",
-                  }}
-                />
-              </span>
-              <span>
-                {" "}
-                Jane{" "}
-                <img
-                  src={groupImage}
-                  alt={`Profile of `}
-                  style={{
-                    borderRadius: "50%",
-                    width: "20px",
-                    height: "20px",
-                  }}
-                />
-              </span>
-              <span>
-                {" "}
-                Jane{" "}
-                <img
-                  src={groupImage}
-                  alt={`Profile of `}
-                  style={{
-                    borderRadius: "50%",
-                    width: "20px",
-                    height: "20px",
-                  }}
-                />
-              </span>
-            </div>
-          </div>
+          <MyNetworkPlaceholder />
         </Col>
       </Row>
     </div>
