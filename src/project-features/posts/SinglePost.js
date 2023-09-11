@@ -31,13 +31,13 @@ function SinglePost() {
       });
   }, [postId]);
 
-  const handleDeletePost = () => {
-    setShowDeletePostModal(false);
+  // const handleDeletePost = () => {
+  //   setShowDeletePostModal(false);
 
-    axiosReq.delete(`/posts/${postId}`).then(() => {
-      history.push("/feed");
-    });
-  };
+  //   axiosReq.delete(`/posts/${postId}`).then(() => {
+  //     history.push("/feed");
+  //   });
+  // };
 
   const handleDeleteComment = (commentId) => {
     // Open the delete modal and set the commentToDelete
@@ -94,8 +94,7 @@ function SinglePost() {
       ) : (
         <Card className="mb-3" style={{ width: "66%" }}>
           <Card.Body>
-            <p>
-              {post.owner} {"  "}
+            <p className="left">
               {post.profile_image && (
                 <img
                   src={post.profile_image}
@@ -109,14 +108,8 @@ function SinglePost() {
                 />
               )}
             </p>
-            {post.post_image && (
-              <img
-                src={post.post_image}
-                alt={`Content for ${post.id}`}
-                style={{ maxWidth: "100%", maxHeight: "300px" }}
-              />
-            )}
-            <h4>{post.content}</h4>
+            <br></br>
+            <p className="left">{post.owner}</p>
 
             {post.is_owner && (
               <div>
@@ -126,7 +119,7 @@ function SinglePost() {
                     history.push(`/edit-post/${post.id}`);
                   }}
                 >
-                  Edit
+                  Edit Post
                 </Button>{" "}
                 <Button
                   variant="danger"
@@ -141,6 +134,26 @@ function SinglePost() {
               </div>
             )}
 
+            {post.post_image && (
+              <img
+                src={post.post_image}
+                alt={`Content for ${post.id}`}
+                style={{
+                  maxWidth: "100%",
+                  width: "100%",
+                  height: "600px",
+                  objectFit: "cover",
+                }}
+              />
+            )}
+            <br></br>
+            <br></br>
+            <br></br>
+
+            <h4>{post.content}</h4>
+
+
+
             <Modal
               show={showDeletePostModal}
               onHide={() => setShowDeletePostModal(false)}
@@ -148,7 +161,9 @@ function SinglePost() {
               <Modal.Header closeButton>
                 <Modal.Title>Confirm Deletion</Modal.Title>
               </Modal.Header>
-              <Modal.Body>Are you sure you want to delete this post?</Modal.Body>
+              <Modal.Body>
+                Are you sure you want to delete this post?
+              </Modal.Body>
               <Modal.Footer>
                 <Button
                   variant="secondary"
@@ -169,7 +184,9 @@ function SinglePost() {
               <Modal.Header closeButton>
                 <Modal.Title>Confirm Deletion</Modal.Title>
               </Modal.Header>
-              <Modal.Body>Are you sure you want to delete this comment?</Modal.Body>
+              <Modal.Body>
+                Are you sure you want to delete this comment?
+              </Modal.Body>
               <Modal.Footer>
                 <Button
                   variant="secondary"

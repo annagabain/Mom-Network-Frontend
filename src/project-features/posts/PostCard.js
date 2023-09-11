@@ -13,7 +13,7 @@ const PostCard = ({ post }) => {
             style={{
               maxWidth: "100%",
               width: "100%",
-              height: "600px",
+              height: "400px",
               objectFit: "cover",
             }}
           />

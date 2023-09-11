@@ -2,9 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext"; // Import the CurrentUserContext
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function CommentsApiComponent({ postId, onDeleteComment }) {
+  const history = useHistory();
   const [comments, setComments] = useState([]);
   const [filteredComments, setFilteredComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -64,24 +65,29 @@ function CommentsApiComponent({ postId, onDeleteComment }) {
             <Card className="mb-3" key={comment.id} style={{ width: "66%" }}>
               <Card.Body>
                 <div>
-                  <p>ID: {comment.id}</p>
-                  <p>{comment.owner} says:</p>
-                  <p>{comment.comment_text}</p>
                   {currentUser?.username === comment.owner && (
                     <div>
-                      <Link to={`/edit-comment/${comment.id}`}>
-                        <Button className="button right">Edit</Button>
-                      </Link>
+                      <Button
+                        className="button right"
+                        onClick={() =>
+                          history.push(`/edit-comment/${comment.id}`)
+                        }
+                      >
+                        &#9998;
+                      </Button>
                       {/* {console.log(comment.id)} */}
                       <Button
                         variant="danger"
                         className="right"
                         onClick={() => onDeleteComment(comment.id)}
                       >
-                        D
+                        &#10005;
                       </Button>
                     </div>
                   )}
+                  {/* <p>ID: {comment.id}</p> */}
+                  <p>{comment.owner} says:</p>
+                  <p>{comment.comment_text}</p>
                 </div>
               </Card.Body>
             </Card>
