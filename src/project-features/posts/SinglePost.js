@@ -4,8 +4,11 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import CommentApiComponent from "../comments/CommentApiComponent";
-import TestPostsWithComments from "./TestPostsWithComments";
+import CreateNewComment from "../comments/CreateNewComment";
+import CommentsApiComponent from "../comments/CommentsApiComponent";
+
+
+// import TestPostsWithComments from "./TestPostsWithComments";
 
 function SinglePost() {
   const { postId } = useParams();
@@ -40,10 +43,9 @@ function SinglePost() {
 
   return (
     <div>
-      <TestPostsWithComments postId={postId} />
       <br />
       <br />
-      <h2>Single Post</h2>
+      {/* <h2>Single Post</h2> */}
       <Button
         className="button left"
         onClick={() => {
@@ -132,8 +134,13 @@ function SinglePost() {
           </Card.Body>
         </Card>
       )}
+      
       {/* contains create  comment form */}
-      <CommentApiComponent postId={postId} />
+      <CreateNewComment postId={postId} />
+
+      {/* contains all comments to this post */}
+      <CommentsApiComponent postId={postId} />
+
     </div>
   );
 }

@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-function CommentApiComponent({ postId }) {
+function CreateNewComment({ postId }) {
   const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [comments, setComments] = useState([]);
+  // const [comments, setComments] = useState([]);
 
-  useEffect(() => {
-    // Fetch comments for the current post
-    axiosReq
-      .get(`/comments/?post=${postId}`)
-      .then((response) => {
-        setComments(response.data.results);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [postId]);
+  // useEffect(() => {
+  //   // Fetch comments for the current post
+  //   axiosReq
+  //     .get(`/comments/?post=${postId}`)
+  //     .then((response) => {
+  //       setComments(response.data.results);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, [postId]);
 
   const handleCommentSubmit = () => {
     setIsSubmitting(true);
@@ -35,7 +35,7 @@ function CommentApiComponent({ postId }) {
       .then(() => {
         // Refresh the comments after adding a new comment
         axiosReq.get(`/comments/?post=${postId}`).then((response) => {
-          setComments(response.data.results);
+          // setComments(response.data.results);
           setIsSubmitting(false);
           setNewComment(""); // Clear the comment input field
         });
@@ -49,33 +49,7 @@ function CommentApiComponent({ postId }) {
 
   return (
     <div>
-      {/* Display existing comments for the current post */}
-      <h3>Comments</h3>
-      {comments.map((comment) => {
-        if (comment.post === parseInt(postId)) {
-          return (
-            <Card className="mb-3" key={comment.id} style={{ width: "66%" }}>
-              <Card.Body>
-                <div>
-                  <p>{comment.owner} says:</p>
-                  <p>{comment.comment_text}</p>
-                </div>
-
-                {/* Placeholder for Edit and Delete Options */}
-                {comment.is_owner && (
-                  <div>
-                    <Button className="button right">E</Button>{" "}
-                    <Button variant="danger" className="right">
-                      D
-                    </Button>
-                  </div>
-                )}
-              </Card.Body>
-            </Card>
-          );
-        }
-        return null;
-      })}
+     
 
       {/* Comment Form */}
       <Card className="mb-3" style={{ width: "66%" }}>
@@ -106,4 +80,4 @@ function CommentApiComponent({ postId }) {
   );
 }
 
-export default CommentApiComponent;
+export default CreateNewComment;
