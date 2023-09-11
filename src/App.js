@@ -21,6 +21,8 @@ import { Route, Switch } from "react-router-dom";
 
 
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import EditMyComment from "./project-features/comments/EditMyComment";
+import SingleComment from "./project-features/comments/SingleComment";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -58,6 +60,11 @@ function App() {
           <Route exact path="/createnewpost" render={() => <CreateNewPost />} />
           <Route exact path="/posts/:postId" component={SinglePost} />
           <Route exact path="/edit-post/:postId" component={EditMyPost} />
+
+          <Route exact path="/comments/:commentId" component={SingleComment} />
+
+          <Route path="/edit-comment/:commentId" component={EditMyComment} />
+
 
           <Route exact path="/pages" component={PagesApiComponent} />
           <Route exact path="/pages/:pageId" component={SinglePage} />
