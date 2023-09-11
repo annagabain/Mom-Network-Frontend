@@ -7,9 +7,6 @@ import Modal from "react-bootstrap/Modal";
 import CreateNewComment from "../comments/CreateNewComment";
 import CommentsApiComponent from "../comments/CommentsApiComponent";
 
-
-// import TestPostsWithComments from "./TestPostsWithComments";
-
 function SinglePost() {
   const { postId } = useParams();
   const history = useHistory();
@@ -17,8 +14,10 @@ function SinglePost() {
   const [post, setPost] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  // State to manage the confirmation modal
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  // State to manage the confirmation modals
+  const [showDeletePostModal, setShowDeletePostModal] = useState(false);
+  const [showDeleteCommentModal, setShowDeleteCommentModal] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
 
   useEffect(() => {
     axiosReq
@@ -32,20 +31,53 @@ function SinglePost() {
       });
   }, [postId]);
 
-  const handleDelete = () => {
-    // Close the delete modal
-    setShowDeleteModal(false);
+  const handleDeletePost = () => {
+    setShowDeletePostModal(false);
 
     axiosReq.delete(`/posts/${postId}`).then(() => {
       history.push("/feed");
     });
   };
 
+  const handleDeleteComment = (commentId) => {
+    // Open the delete modal and set the commentToDelete
+    setShowDeleteCommentModal(true);
+    setItemToDelete({ id: commentId, isComment: true });
+  };
+
+  const handleConfirmDeletePost = () => {
+    setShowDeletePostModal(false);
+
+    axiosReq.delete(`/posts/${postId}`).then(() => {
+      history.push("/feed");
+    });
+  };
+
+  const handleConfirmDeleteComment = () => {
+    setShowDeleteCommentModal(false);
+
+    if (itemToDelete !== null && itemToDelete.isComment) {
+      const commentIdInt = parseInt(itemToDelete.id, 10);
+
+      axiosReq
+        .delete(`/comments/${commentIdInt}`)
+        .then(() => {
+          console.log("Comment deleted successfully.");
+          // Refresh the page
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Error deleting comment:", error);
+        });
+
+      setItemToDelete(null);
+    }
+  };
+
   return (
     <div>
       <br />
       <br />
-      {/* <h2>Single Post</h2> */}
       <Button
         className="button left"
         onClick={() => {
@@ -86,13 +118,11 @@ function SinglePost() {
             )}
             <h4>{post.content}</h4>
 
-            {/* Conditionally render the Delete button */}
             {post.is_owner && (
               <div>
                 <Button
                   className="button right"
                   onClick={() => {
-                    // Navigate to the edit page for this post
                     history.push(`/edit-post/${post.id}`);
                   }}
                 >
@@ -101,32 +131,53 @@ function SinglePost() {
                 <Button
                   variant="danger"
                   className="right"
-                  onClick={() => setShowDeleteModal(true)}
+                  onClick={() => {
+                    setShowDeletePostModal(true);
+                    setItemToDelete({ id: postId, isComment: false });
+                  }}
                 >
-                  Delete
+                  Delete Post
                 </Button>
               </div>
             )}
 
-            {/* POST Delete Confirmation Modal */}
             <Modal
-              show={showDeleteModal}
-              onHide={() => setShowDeleteModal(false)}
+              show={showDeletePostModal}
+              onHide={() => setShowDeletePostModal(false)}
             >
               <Modal.Header closeButton>
                 <Modal.Title>Confirm Deletion</Modal.Title>
               </Modal.Header>
-              <Modal.Body>
-                Are you sure you want to delete this post?
-              </Modal.Body>
+              <Modal.Body>Are you sure you want to delete this post?</Modal.Body>
               <Modal.Footer>
                 <Button
                   variant="secondary"
-                  onClick={() => setShowDeleteModal(false)}
+                  onClick={() => setShowDeletePostModal(false)}
                 >
                   Cancel
                 </Button>
-                <Button variant="danger" onClick={handleDelete}>
+                <Button variant="danger" onClick={handleConfirmDeletePost}>
+                  Delete
+                </Button>
+              </Modal.Footer>
+            </Modal>
+
+            <Modal
+              show={showDeleteCommentModal}
+              onHide={() => setShowDeleteCommentModal(false)}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Confirm Deletion</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>Are you sure you want to delete this comment?</Modal.Body>
+              <Modal.Footer>
+                <Button
+                  variant="secondary"
+                  onClick={() => setShowDeleteCommentModal(false)}
+                >
+                  Cancel
+                </Button>
+                <Button variant="danger" onClick={handleConfirmDeleteComment}>
                   Delete
                 </Button>
               </Modal.Footer>
@@ -134,13 +185,12 @@ function SinglePost() {
           </Card.Body>
         </Card>
       )}
-      
-      {/* contains create  comment form */}
+
       <CreateNewComment postId={postId} />
-
-      {/* contains all comments to this post */}
-      <CommentsApiComponent postId={postId} />
-
+      <CommentsApiComponent
+        postId={postId}
+        onDeleteComment={handleDeleteComment}
+      />
     </div>
   );
 }

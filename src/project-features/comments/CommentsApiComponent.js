@@ -31,7 +31,7 @@ function CommentsApiComponent({ postId, onDeleteComment }) {
           allComments.push(...data.results);
           page++;
         }
-        console.log("Fetched comments:", allComments); // Log the fetched comments
+        // console.log("Fetched comments:", allComments); // Log the fetched comments
         setComments(allComments);
         setIsLoading(false); // Set loading state to false when comments are loaded
       } catch (error) {
@@ -72,12 +72,11 @@ function CommentsApiComponent({ postId, onDeleteComment }) {
                       <Link to={`/edit-comment/${comment.id}`}>
                         <Button className="button right">Edit</Button>
                       </Link>
+                      {/* {console.log(comment.id)} */}
                       <Button
-                        onClick={() =>
-                          console.log("Delete Comment button clicked")
-                        }
                         variant="danger"
                         className="right"
+                        onClick={() => onDeleteComment(comment.id)}
                       >
                         D
                       </Button>
