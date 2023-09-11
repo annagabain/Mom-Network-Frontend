@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext"; // Import the CurrentUserContext
 
-function CommentsApiComponent({ postId }) {
+function CommentsApiComponent({ postId, onDeleteComment }) {
   const [comments, setComments] = useState([]);
   const [filteredComments, setFilteredComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const currentUser = useContext(CurrentUserContext); // Get the currentUser from the context
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -61,25 +63,19 @@ function CommentsApiComponent({ postId }) {
             <Card className="mb-3" key={comment.id} style={{ width: "66%" }}>
               <Card.Body>
                 <div>
-                <p>ID: {comment.id}</p>
-
+                  <p>ID: {comment.id}</p>
                   <p>{comment.owner} says:</p>
                   <p>{comment.comment_text}</p>
-                  <p>{comment.is_owner} Delete here: </p>
+                  {currentUser?.username === comment.owner && (
+                    <div>
+                      <Button className="button right">E</Button>{" "}
+                      <Button onClick={() => console.log('Delete Comment button clicked')} variant="danger" className="right">
+                        D
+                        
+                      </Button>
+                    </div>
+                  )}
                 </div>
-
-                {/* Console.log comment.is_owner here */}
-                {console.log(comment.is_owner)}
-
-                {/* Placeholder for Edit and Delete Options */}
-                {comment.is_owner && (
-                  <div>
-                    <Button className="button right">E</Button>{" "}
-                    <Button variant="danger" className="right">
-                      D
-                    </Button>
-                  </div>
-                )}
               </Card.Body>
             </Card>
           ))}
