@@ -60,5 +60,64 @@ npm start
 <img width="68%" alt="wireframe" src="src/readme-images/test_api_in_postman.png">
 <img width="68%" alt="wireframe" src="src/readme-images/Screenshot 2023-07-11 110116.png">
 
-- rendering bug ->>>> solved with index.js react DOM
-- refresh token bug -->>>>> logs out upon page refresh 
+-----------------------------------------------------------------------------------
+
+:lady_beetle: - refresh token bug -
+
+*Before: logs out upon page refresh*
+
+
+
+:mag:  
+
+<img width="70%" alt="debugging" src=""> 
+
+:bulb:
+
+<img width="70%" alt="debugging" src=""> 
+
+*After*
+
+<img width="70%" alt="debugging" src=""> 
+
+-----------------------------------------------------------------------------------
+
+:lady_beetle: - rendering problem
+
+
+*Before: *
+
+
+
+:mag:  
+
+<img width="70%" alt="debugging" src=""> 
+
+:bulb: -->>>> solved with index.js react DOM
+
+<img width="70%" alt="debugging" src=""> 
+
+*After*
+
+<img width="70%" alt="debugging" src=""> 
+
+-----------------------------------------------------------------------------------
+
+:lady_beetle: data.results wrong access code
+
+*Before: console.log(data)* 
+
+<img width="70%" alt="debugging" src="src/readme-images/pagination-api-not-rendering-frontend-BUG.png"> 
+
+
+:mag: 
+
+<img width="70%" alt="debugging" src="src/readme-images/pagination-api-not-rendering-frontend-BUG-console-logging.png"> 
+
+:bulb: added .results to access the desired array of data
+
+*After onsole.log(data.results)*
+
+<img width="70%" alt="debugging" src=""> 
+
+-----------------------------------------------------------------------------------
