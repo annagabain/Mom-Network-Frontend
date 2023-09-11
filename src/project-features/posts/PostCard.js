@@ -2,7 +2,12 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, handleLike }) => {
+  const handleLikeClick = () => {
+    // Call the handleLike function when the like button is clicked
+    handleLike(post.id);
+  };
+
   return (
     <Card className="mb-3" style={{ width: "100%" }}>
       <Card.Body>
@@ -21,8 +26,8 @@ const PostCard = ({ post }) => {
           )}
           {post.owner} | {post.updated_at}
         </span>
-        <br></br>
-        <br></br>
+        <br />
+        <br />
 
         {post.post_image && (
           <img
@@ -42,21 +47,23 @@ const PostCard = ({ post }) => {
           {post.likes_count} likes
           <span> {post.comments_count} Comments </span>
         </div>
-        <br></br>
+        <br />
 
         {/* Add like and comment logic here */}
         <p>
-          <span>
-            {/* haveliked */}
-            LIKE <i class="fa fa-thumbs-up" style={{ fontSize: "36px" }} />
-            {/* tolike */}
-            <i class="fa fa-thumbs-o-up" style={{ fontSize: "24px" }} />
+          <span onClick={handleLikeClick}>
+            {/* Display the thumbs-up icons */}
+            {post.hasLiked ? (
+              <i className="fa fa-thumbs-up" style={{ fontSize: "36px" }} />
+            ) : (
+              <i className="fa fa-thumbs-o-up" style={{ fontSize: "24px" }} />
+            )}
           </span>
           <Link to={`/posts/${post.id}`} className="post-link" key={post.id}>
             COMMENT
           </Link>
           <i
-            class="fa fa-comment-o"
+            className="fa fa-comment-o"
             style={{ fontSize: "24px" }}
             aria-hidden="true"
           ></i>
