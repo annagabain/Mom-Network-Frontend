@@ -28,7 +28,7 @@ function CommentsApiComponent({ postId }) {
           allComments.push(...data.results);
           page++;
         }
-
+        console.log("Fetched comments:", allComments); // Log the fetched comments
         setComments(allComments);
         setIsLoading(false); // Set loading state to false when comments are loaded
       } catch (error) {
@@ -43,41 +43,47 @@ function CommentsApiComponent({ postId }) {
   useEffect(() => {
     if (postId) {
       const postIdInt = parseInt(postId, 10);
-      const filtered = comments.filter((comment) => comment.post === postIdInt);
+      const filtered = comments
+        .filter((comment) => comment.post === postIdInt)
+        .reverse(); // Reverse the order to show newest comments first
       setFilteredComments(filtered);
     }
   }, [postId, comments]);
 
   return (
     <div>
-      {/* <h1>Comments</h1> */}
+      <h1>Comments</h1>
       {isLoading ? (
         <p>Loading comments...</p>
       ) : (
         <>
-        {filteredComments.map((comment) => (
+          {filteredComments.map((comment) => (
+            <Card className="mb-3" key={comment.id} style={{ width: "66%" }}>
+              <Card.Body>
+                <div>
+                <p>ID: {comment.id}</p>
 
-              <Card className="mb-3" key={comment.id} style={{ width: "66%" }}>
-                <Card.Body>
+                  <p>{comment.owner} says:</p>
+                  <p>{comment.comment_text}</p>
+                  <p>{comment.is_owner} Delete here: </p>
+                </div>
+
+                {/* Console.log comment.is_owner here */}
+                {console.log(comment.is_owner)}
+
+                {/* Placeholder for Edit and Delete Options */}
+                {comment.is_owner && (
                   <div>
-                    <p>{comment.owner} says:</p>
-                    <p>{comment.comment_text}</p>
+                    <Button className="button right">E</Button>{" "}
+                    <Button variant="danger" className="right">
+                      D
+                    </Button>
                   </div>
-  
-                  {/* Placeholder for Edit and Delete Options */}
-                  {comment.is_owner && (
-                    <div>
-                      <Button className="button right">E</Button>{" "}
-                      <Button variant="danger" className="right">
-                        D
-                      </Button>
-                    </div>
-                  )}
-                </Card.Body>
-              </Card>
-
-              ))}
-              </>
+                )}
+              </Card.Body>
+            </Card>
+          ))}
+        </>
       )}
     </div>
   );
