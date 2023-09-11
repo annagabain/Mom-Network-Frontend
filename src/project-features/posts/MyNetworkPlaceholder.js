@@ -5,7 +5,7 @@ import groupImage from "../../wireframes/group.png";
 function MyNetworkPlaceholder() {
   return (
     <div className="my-network">
-    <h3>Following</h3>
+    <h3>Following <i class="fa-solid fa-user-plus"></i></h3>
     <div>
       <span>
         Henry{" "}

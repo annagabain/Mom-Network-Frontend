@@ -30,7 +30,7 @@ function SingleProfile() {
       <div>
         <br />
         <br />
-        <h2>Profile Details</h2>
+        {/* <h2>Profile Details</h2> */}
         <Button
           className="button left"
           onClick={() => {

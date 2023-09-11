@@ -1,6 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Lemonada:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
 
+/* Colours of the Project
+
+    #9C9FA6   - Grey
+
+    #FAF7F4   - Off White
+
+    #D8CBC4   - Mokka Beige
+
+    #455359   - Sea Green
+
+    #A67153(old)  #6A4C39(new)   - Brown
+
+    #0D0D0D   - Black-Brown */
+
 body {
   background-color: #faf7f4;
 }
@@ -41,6 +55,9 @@ body {
   padding: 50px 0 10px 10px;
 }
 
+i {
+  color: #6a4c39;
+}
 .button {
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
@@ -53,9 +70,9 @@ body {
   padding: 0.4rem;
 }
 
-
 .button:hover,
-.btn:hover {
+.btn:hover,
+i:hover {
   background-color: #faf7f4 !important;
   color: #6a4c39 !important;
   border-color: #6a4c39;
@@ -75,7 +92,6 @@ a:hover,
   color: #faf7f4 !important;
   border-radius: 5%;
 }
-
 
 .text-same-line {
   white-space: nowrap; /* Prevent text from wrapping to a new line */

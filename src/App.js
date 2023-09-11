@@ -19,7 +19,6 @@ import LogInForm from "./components/auth/LogInForm";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
 
-
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import EditMyComment from "./project-features/comments/EditMyComment";
 import SingleComment from "./project-features/comments/SingleComment";
@@ -34,11 +33,13 @@ function App() {
           <NavigationBar />
         </header>
       )}
+      <p className="footer left">
+        Created by Anna Gabain. Educational purposes only
+      </p>
 
       {/* <TestApiComponent /> */}
 
       <Container>
-
         <Switch>
           {!currentUser && ( // Render the Intro and with the Login form as a Homepage if there is no logged in user yet
             <Route exact path="/" render={() => <HomePageIntro />} />
@@ -60,36 +61,13 @@ function App() {
           <Route exact path="/createnewpost" render={() => <CreateNewPost />} />
           <Route exact path="/posts/:postId" component={SinglePost} />
           <Route exact path="/edit-post/:postId" component={EditMyPost} />
-
           <Route exact path="/comments/:commentId" component={SingleComment} />
-
           <Route path="/edit-comment/:commentId" component={EditMyComment} />
-
-
           <Route exact path="/pages" component={PagesApiComponent} />
           <Route exact path="/pages/:pageId" component={SinglePage} />
-          
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
-
       </Container>
-      <footer className="footer left">
-        <div>
-          <div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-
-            <p>
-              Created by Anna Gabain as a Final Portfolio Project for
-              CodeInstitute Fullstack Web Development diploma Prgramme,
-              Educational purposes only
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

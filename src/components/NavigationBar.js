@@ -90,7 +90,7 @@ const NavigationBar = () => {
                 <NavLink exact to="/mom-network">
                   Mom-Network
                 </NavLink>
-                <NavDropdown title="Thematic-Pages" id="basic-nav-dropdown">
+                <NavDropdown title="Thematic-Groups" id="basic-nav-dropdown">
                   <NavLink exact to="/pages">
                     All
                   </NavLink>
