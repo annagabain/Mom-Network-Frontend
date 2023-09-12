@@ -32,7 +32,7 @@ const SinglePage = ({ match }) => {
       <br></br>
       <br></br>
 
-      <button className="button left" onClick={goBackToPages}>
+      <button className="button btn left" onClick={goBackToPages}>
         Go to pages overview
       </button>
       <br></br>
@@ -43,38 +43,51 @@ const SinglePage = ({ match }) => {
         <p>Loading...</p>
       ) : (
         <div>
-          {page.image && (
-            <img
-              src={page.image}
-              alt={`Page: ${page.title}`}
-              style={{
-                width: "100%",
-                height: "400px",
-                objectFit: "cover",
-              }}
-            />
-          )}
-          <h2>{page.title}</h2>
-          {/* 
-          <p>id{page.id}</p> */}
-          <p>Admin: {page.admin_username}</p>
-          <h4>{page.description}</h4>
-          {/* <h2>followers{page.followers}</h2> */}
-          <p>This page has {page.followers_count} followers</p>
+          <Card>
+            <Card.Body>
+              <h2>{page.title} Group</h2>
+              {page.image && (
+                <img
+                  src={page.image}
+                  alt={`Page: ${page.title}`}
+                  style={{
+                    width: "100%",
+                    height: "400px",
+                    objectFit: "cover",
+                  }}
+                />
+              )}{" "}
+              <p>Admin: {page.admin_username}</p>
+              <h4>{page.description}</h4>
+              <p>This page has {page.followers_count} followers</p>
+              {/* A placeholder for following a Group (Page) */}
+              <p>
+                {" "}
+                FOLLOW{" "}
+                <i
+                  class="fa-solid fa-people-group"
+                  style={{ fontSize: "36px", color: "beige" }}
+                ></i>
+              </p>
+            </Card.Body>
+          </Card>
+          <br></br>
+
           <br></br>
           <h4 className="left">Related Posts:</h4>
           <br></br>
           <br></br>
           <Card>
-            {page.posts.map((post) => (
-              <div key={post.id}>
-                <h5>{post.title}</h5>
-                <p>
-                  {post.owner} says: {post.content}
-                </p>
-                {/* Render other post details as needed */}
-              </div>
-            ))}
+            <Card.Body>
+              {page.posts.map((post) => (
+                <div key={post.id}>
+                  <h5>{post.title}</h5>
+                  <p>
+                    {post.owner} says: {post.content}
+                  </p>
+                </div>
+              ))}
+            </Card.Body>
           </Card>
         </div>
       )}

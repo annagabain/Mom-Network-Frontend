@@ -71,6 +71,16 @@ function SingleProfile() {
                       <p>Bio: {profile.content}</p>
                     </Col>
                   </Row>
+
+                  {/* A placeholder for following a Profile (User) */}
+                  <p>
+                    {" "}
+                    FOLLOW{" "}
+                    <i
+                      class="fa-solid fa-user-plus"
+                      style={{ fontSize: "36px", color: "beige" }}
+                    ></i>
+                  </p>
                 </Card.Body>
               </Card>
             </Col>

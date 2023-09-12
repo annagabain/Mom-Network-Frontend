@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const PageApiComponent = () => {
@@ -27,7 +28,7 @@ const PageApiComponent = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <br />
       <br />
       <h2>Pages</h2>
@@ -40,27 +41,33 @@ const PageApiComponent = () => {
         <div className="row">
           {pages.map((page) => (
             <div className="col-md-4" key={page.id}>
-              <Link to={`/pages/${page.id}`}>
-                <div style={{ marginBottom: "20px", cursor: "pointer" }}>
+              <Card>
+                <Card.Body>
                   <h4>{page.title}</h4>
-                  {page.image && (
-                    <img
-                      src={page.image}
-                      alt={`Page: ${page.title}`}
-                      style={{
-                        width: "400px",
-                        height: "200px",
-                        objectFit: "cover",
-                      }}
-                    />
-                  )}
-                </div>
-              </Link>
+
+                  <Link to={`/pages/${page.id}`}>
+                    <div style={{ marginBottom: "20px", cursor: "pointer" }}>
+                      {page.image && (
+                        <img
+                          src={page.image}
+                          alt={`Page: ${page.title}`}
+                          style={{
+                            width: "100%",
+                            height: "200px",
+                            objectFit: "cover",
+                          }}
+                        />
+                      )}
+                    </div>
+                  </Link>
+                </Card.Body>
+              </Card>
+              <br></br>
             </div>
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 };
 
