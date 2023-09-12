@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-const PostCard = ({ post, handleLike }) => {
+const PostCard = ({ post, handleLike, handleUnlike }) => {
+  const currentUser = useCurrentUser();
+  const [isLiked, setIsLiked] = useState(post.like_id !== null); // Initialize based on API data
+
+  useEffect(() => {
+    // Update the local isLiked state based on the API data
+    setIsLiked(post.like_id !== null);
+  }, [post.like_id]);
+
+  
   const handleLikeClick = () => {
-    // Call the handleLike function when the like button is clicked
-    handleLike(post.id);
+  
+    console.log("handleLikeClick called"); 
+  
+    if (!isLiked) {
+      handleLike(post.id);
+      setIsLiked(true); // Update local state when liked
+    } else {
+      handleUnlike(post.id, post.like_id);
+      setIsLiked(false); // Update local state when unliked
+    }
   };
+  
+  
 
   return (
     <Card className="mb-3" style={{ width: "100%" }}>
@@ -49,16 +70,28 @@ const PostCard = ({ post, handleLike }) => {
         </div>
         <br />
 
-        {/* Add like and comment logic here */}
         <p>
-          <span onClick={handleLikeClick}>
-            {/* Display the thumbs-up icons */}
-            {post.hasLiked ? (
-              <i className="fa fa-thumbs-up" style={{ fontSize: "36px" }} />
+          {currentUser ? ( 
+            isLiked ? (
+              // <span onClick={handleUnlike(post.id, post.like_id)}>
+              <span onClick={handleLikeClick}>
+
+                <i className="fa fa-thumbs-up" style={{ fontSize: "36px", color: "green" }} />
+              </span>
             ) : (
-              <i className="fa fa-thumbs-o-up" style={{ fontSize: "24px" }} />
-            )}
-          </span>
+              <span onClick={handleLikeClick}>
+                <i className="fa fa-thumbs-o-up" style={{ fontSize: "24px", color: "orange" }} />
+              </span>
+            )
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to like posts!</Tooltip>}
+            >
+              <i className="fa fa-thumbs-o-up" style={{ fontSize: "24px", color: "red" }} />
+            </OverlayTrigger>
+          )}
+
           <Link to={`/posts/${post.id}`} className="post-link" key={post.id}>
             COMMENT
           </Link>

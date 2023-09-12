@@ -77,7 +77,7 @@ function SingleProfile() {
                     {" "}
                     FOLLOW{" "}
                     <i
-                      class="fa-solid fa-user-plus"
+                      className="fa-solid fa-user-plus"
                       style={{ fontSize: "36px", color: "beige" }}
                     ></i>
                   </p>

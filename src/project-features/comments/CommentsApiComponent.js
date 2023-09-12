@@ -81,7 +81,7 @@ function CommentsApiComponent({ postId, onDeleteComment }) {
                         className="right"
                         onClick={() => onDeleteComment(comment.id)}
                       >
-                        <i class="fa-regular fa-trash-can" style={{color: "white"}}></i>
+                        <i className="fa-regular fa-trash-can" style={{color: "white"}}></i>
                       </Button>
                     </div>
                   )}

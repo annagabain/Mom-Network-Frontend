@@ -65,7 +65,7 @@ const SinglePage = ({ match }) => {
                 {" "}
                 FOLLOW{" "}
                 <i
-                  class="fa-solid fa-people-group"
+                  className="fa-solid fa-people-group"
                   style={{ fontSize: "36px", color: "beige" }}
                 ></i>
               </p>
