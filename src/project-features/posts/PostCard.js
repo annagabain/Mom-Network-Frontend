@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -6,28 +6,9 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const PostCard = ({ post, handleLike, handleUnlike }) => {
   const currentUser = useCurrentUser();
-  const [isLiked, setIsLiked] = useState(post.like_id !== null); // Initialize based on API data
-
-  useEffect(() => {
-    // Update the local isLiked state based on the API data
-    setIsLiked(post.like_id !== null);
-  }, [post.like_id]);
-
-  
-  const handleLikeClick = () => {
-  
-    console.log("handleLikeClick called"); 
-  
-    if (!isLiked) {
-      handleLike(post.id);
-      setIsLiked(true); // Update local state when liked
-    } else {
-      handleUnlike(post.id, post.like_id);
-      setIsLiked(false); // Update local state when unliked
-    }
-  };
-  
-  
+  const is_owner = currentUser?.username === post.owner;
+  // console.log(currentUser?.username)
+  // console.log(post.owner)
 
   return (
     <Card className="mb-3" style={{ width: "100%" }}>
@@ -71,24 +52,36 @@ const PostCard = ({ post, handleLike, handleUnlike }) => {
         <br />
 
         <p>
-          {currentUser ? ( 
-            isLiked ? (
-              // <span onClick={handleUnlike(post.id, post.like_id)}>
-              <span onClick={handleLikeClick}>
-
-                <i className="fa fa-thumbs-up" style={{ fontSize: "36px", color: "green" }} />
-              </span>
-            ) : (
-              <span onClick={handleLikeClick}>
-                <i className="fa fa-thumbs-o-up" style={{ fontSize: "24px", color: "orange" }} />
-              </span>
-            )
+          {is_owner ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Can't like own posts</Tooltip>}
+            >
+              <i
+                className="fa fa-heart"
+                style={{ fontSize: "24px", color: "blue" }}
+              />
+            </OverlayTrigger>
+          ) : post.like_id ? (
+            <span onClick={handleUnlike}>
+              <i
+                className="fa fa-thumbs-up"
+                style={{ fontSize: "36px", color: "green" }}
+              />
+            </span>
+          ) : currentUser ? (
+            <span onClick={handleLike}>
+              <i className="fa fa-thumbs-o-up"  style={{ fontSize: "24px" }} />
+            </span>
           ) : (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>Log in to like posts!</Tooltip>}
             >
-              <i className="fa fa-thumbs-o-up" style={{ fontSize: "24px", color: "red" }} />
+              <i
+                className="fa fa-thumbs-o-up"
+                style={{ fontSize: "24px", color: "red" }}
+              />
             </OverlayTrigger>
           )}
 
