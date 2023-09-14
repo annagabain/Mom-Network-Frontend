@@ -46,7 +46,8 @@ function CreateNewPost() {
 
     try {
       await axiosReq.post("/posts/", formData);
-      history.push(`/feed`);
+      history.push(`/feed`, null);
+      window.location.reload();
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
