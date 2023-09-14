@@ -24,6 +24,7 @@ import { Route, Switch } from "react-router-dom";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import EditMyComment from "./project-features/comments/EditMyComment";
 import SingleComment from "./project-features/comments/SingleComment";
+import SubscribeToNewsletter from "./project-features/newsletters/SubscribeToNewsletter";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -69,6 +70,9 @@ function App() {
           <Route path="/edit-comment/:commentId" component={EditMyComment} />
           <Route exact path="/pages" component={PagesApiComponent} />
           <Route exact path="/pages/:pageId" component={SinglePage} />
+
+          <Route exact path="/newsletter" component={SubscribeToNewsletter} />
+
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

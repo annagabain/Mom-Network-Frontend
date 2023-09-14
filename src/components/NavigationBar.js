@@ -119,6 +119,9 @@ const NavigationBar = () => {
                     General Activities
                   </NavLink>
                 </NavDropdown>
+                <NavLink exact to="/newsletter">
+                  Newletter
+                </NavLink>
                 {/* Conditionally show "+ New Post" NavLink only on xs screens */}
                 <NavLink
                   exact
