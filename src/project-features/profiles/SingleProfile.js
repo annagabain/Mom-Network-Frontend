@@ -64,9 +64,21 @@ function SingleProfile() {
                       )}
                     </Col>
                     <Col xs={12} md={8}>
+                      {profile.is_owner && (
+                        <div>
+                          <Button
+                            className="button right"
+                            onClick={() => {
+                              history.push(`/edit-profile/${profile.id}`);
+                            }}
+                          >
+                            Edit Profile
+                          </Button>{" "}
+                        </div>
+                      )}
                       <h4>{profile.owner}</h4>
 
-                      {/* <p>Name: {profile.name}</p> */}
+                      <p>Name: {profile.name}</p>
                       <p>Member since: {profile.created_at}</p>
                       <p>Bio: {profile.content}</p>
                     </Col>

@@ -2,6 +2,8 @@ import "./App.css";
 // import TestApiComponent from "./components/TestApiComponent";
 import ProfilesApiComponent from "./project-features/profiles/ProfilesApiComponent";
 import SingleProfile from "./project-features/profiles//SingleProfile";
+import EditMyProfileForm from "./project-features/profiles/EditMyProfile";
+
 
 import PostsApiComponent from "./project-features/posts/PostsApiComponent";
 import SinglePost from "./project-features/posts/SinglePost";
@@ -58,6 +60,8 @@ function App() {
             render={() => <ProfilesApiComponent />}
           />
           <Route exact path="/profiles/:profileId" component={SingleProfile} />
+          <Route exact path="/edit-profile/:profileId" component={EditMyProfileForm} />
+
           <Route exact path="/createnewpost" render={() => <CreateNewPost />} />
           <Route exact path="/posts/:postId" component={SinglePost} />
           <Route exact path="/edit-post/:postId" component={EditMyPost} />
