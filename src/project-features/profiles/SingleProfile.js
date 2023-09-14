@@ -47,8 +47,25 @@ function SingleProfile() {
         ) : (
           <Row>
             <Col xs={12} md={8}>
-              <Card className="mb-3" style={{ backgroundColor: "pink" }}>
+              <Card className="mb-3">
                 <Card.Body>
+                  {/* Edit profile if owner */}
+                  <Row>
+                    {profile.is_owner && (
+                      <div>
+                        {" "}
+                        {/* Edit */}
+                        <i
+                          className="fa-solid fa-pen btn right"
+                          onClick={() => {
+                            history.push(`/edit-profile/${profile.id}`);
+                          }}
+                        ></i>
+                      </div>
+                    )}
+                  </Row>
+                  <br />
+
                   <Row>
                     <Col xs={6} md={4}>
                       {profile.image && (
@@ -64,18 +81,6 @@ function SingleProfile() {
                       )}
                     </Col>
                     <Col xs={12} md={8}>
-                      {profile.is_owner && (
-                        <div>
-                          <Button
-                            className="button right"
-                            onClick={() => {
-                              history.push(`/edit-profile/${profile.id}`);
-                            }}
-                          >
-                            Edit Profile
-                          </Button>{" "}
-                        </div>
-                      )}
                       <h4>{profile.owner}</h4>
 
                       <p>Name: {profile.name}</p>
@@ -83,6 +88,7 @@ function SingleProfile() {
                       <p>Bio: {profile.content}</p>
                     </Col>
                   </Row>
+                  <br></br>
 
                   {/* A placeholder for following a Profile (User) */}
                   <p>

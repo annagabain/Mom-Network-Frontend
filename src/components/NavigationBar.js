@@ -15,6 +15,7 @@ import {
 import axios from "axios";
 import { Container } from "react-bootstrap";
 
+
 const NavigationBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -53,6 +54,10 @@ const NavigationBar = () => {
           )
         }
       >
+        <NavLink to="/edit-profile/:profileId">
+          Edit profile
+        </NavLink>
+        <br></br>
         <NavLink to="/" onClick={handleSignOut}>
           Log out
         </NavLink>
