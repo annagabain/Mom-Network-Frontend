@@ -55,30 +55,35 @@ function SubscribeToNewsletter() {
     <div>
         <br></br>
       <h2>Subscribe to Newsletter</h2>
+      <br></br>
       {successMessage && <Alert variant="success">{successMessage}</Alert>}
       {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="name">
-          <Form.Label>Name</Form.Label>
+          <Form.Label style={{display: "none"}}>Name</Form.Label>
           <Form.Control
             type="text"
             name="name"
+            placeholder="Your name:"
             value={formData.name}
             onChange={handleChange}
             required
           />
         </Form.Group>
+        <br></br>
         <Form.Group controlId="email">
-          <Form.Label>Email</Form.Label>
+        <Form.Label style={{display: "none"}}>Email</Form.Label>
           <Form.Control
             type="email"
             name="email"
+            placeholder="Emal address:"
             value={formData.email}
             onChange={handleChange}
             required
           />
         </Form.Group>
-        <Button type="submit">Subscribe</Button>
+        <br></br>
+        <Button className="button btn" type="submit">Subscribe</Button>
       </Form>
     </div>
   );

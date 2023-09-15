@@ -7,7 +7,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import MyNetworkPlaceholder from "./MyNetworkPlaceholder";
 import MyPagesPlaceholder from "./MyPagesPlaceholder";
 import PostCard from "./PostCard";
-import { axiosRes } from "../../api/axiosDefaults"; // Import axiosRes
 
 const PostsApiComponent = () => {
   const [posts, setPosts] = useState([]);
@@ -42,51 +41,6 @@ const PostsApiComponent = () => {
     setSearchQuery(event.target.value);
   };
 
-  const handleLike = async (postId) => {
-    try {
-      // Send a POST request to like the post with the given postId
-      const { data } = await axiosRes.post("/likes/", { post: postId });
-
-      // Update the likes count and like_id in the posts state
-      setPosts((prevPosts) =>
-        prevPosts.map((post) => {
-          if (post.id === postId) {
-            return {
-              ...post,
-              likes_count: post.likes_count + 1,
-              like_id: data.id,
-            };
-          }
-          return post;
-        })
-      );
-    } catch (err) {
-      console.error("Error liking post:", err);
-    }
-  };
-
-  const handleUnlike = async (postId, likeId) => {
-    try {
-      // Send a DELETE request to unlike the post with the given postId and likeId
-      await axiosRes.delete(`/likes/${likeId}/`);
-
-      // Update the likes count and like_id in the posts state
-      setPosts((prevPosts) =>
-        prevPosts.map((post) => {
-          if (post.id === postId) {
-            return {
-              ...post,
-              likes_count: post.likes_count - 1,
-              like_id: null,
-            };
-          }
-          return post;
-        })
-      );
-    } catch (err) {
-      console.error("Error unliking post:", err);
-    }
-  };
 
   const filteredPosts = posts.filter((post) => {
     const contentMatch = post.content
@@ -125,11 +79,11 @@ const PostsApiComponent = () => {
             loader={hasMore ? <p>The Posts are Loading...</p> : null}
             endMessage={<p>No more posts to show</p>}
           >
+
+            {/* Contents of each post Displayed on frontend */}
             {filteredPosts.map((post, index) => (
               <PostCard
                 post={post}
-                handleLike={handleLike}
-                handleUnlike={handleUnlike}
                 key={`${post.id}-${index}`}
               />
             ))}

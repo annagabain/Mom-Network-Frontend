@@ -1,15 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { Link } from "react-router-dom";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const PostCard = ({ post, handleLike, handleUnlike }) => {
-  const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === post.owner;
-  // console.log(currentUser?.username)
-  // console.log(post.owner)
-
+const PostCard = ({ post }) => {
   return (
     <Card className="mb-3" style={{ width: "100%" }}>
       <Card.Body>
@@ -51,40 +44,11 @@ const PostCard = ({ post, handleLike, handleUnlike }) => {
         </div>
         <br />
 
-        <p>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Can't like own posts</Tooltip>}
-            >
-              <i
-                className="fa fa-heart"
-                style={{ fontSize: "24px", color: "blue" }}
-              />
-            </OverlayTrigger>
-          ) : post.like_id ? (
-            <span onClick={handleUnlike}>
-              <i
-                className="fa fa-thumbs-up"
-                style={{ fontSize: "36px", color: "green" }}
-              />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleLike}>
-              <i className="fa fa-thumbs-o-up"  style={{ fontSize: "24px" }} />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to like posts!</Tooltip>}
-            >
-              <i
-                className="fa fa-thumbs-o-up"
-                style={{ fontSize: "24px", color: "red" }}
-              />
-            </OverlayTrigger>
-          )}
+        <p>{/* like functionality placeholder */}</p>
+        {/* <Likes/> */}
 
+        {/* Link to comments */}
+        <p>
           <Link to={`/posts/${post.id}`} className="post-link" key={post.id}>
             COMMENT
           </Link>
