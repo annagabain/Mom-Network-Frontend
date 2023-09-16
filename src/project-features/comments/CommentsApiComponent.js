@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext"; // Import the CurrentUserContext
+import { CurrentUserContext } from "../../contexts/CurrentUserContext"; 
 import { useHistory } from "react-router-dom";
 
 function CommentsApiComponent({ postId, onDeleteComment }) {
@@ -9,7 +9,7 @@ function CommentsApiComponent({ postId, onDeleteComment }) {
   const [comments, setComments] = useState([]);
   const [filteredComments, setFilteredComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const currentUser = useContext(CurrentUserContext); // Get the currentUser from the context
+  const currentUser = useContext(CurrentUserContext);
 
   useEffect(() => {
     const fetchComments = async () => {

@@ -1,9 +1,11 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import Likes from "../likes/Likes";
+// import Likes from "../likes/Likes";
 
-const PostCard = ({ post, handleLike, handleUnlike, setPosts }) => {
+// const PostCard = ({ post, handleLike, handleUnlike, setPosts }) => {
+const PostCard = ({ post }) => {
+
   
 
   return (
@@ -42,7 +44,7 @@ const PostCard = ({ post, handleLike, handleUnlike, setPosts }) => {
         <h4>{post.content}</h4>
 
         <div>
-          {post.likes_count} likes
+          {/* {post.likes_count} likes */}
           <span> {post.comments_count} Comments </span>
         </div>
         <br />
@@ -51,14 +53,14 @@ const PostCard = ({ post, handleLike, handleUnlike, setPosts }) => {
           {/* like functionality placeholder */}
 
           {/* <Likes/> */}
-          <Likes
+          {/* <Likes
             post={post}
             handleLike={handleLike}  
             handleUnlike={handleUnlike}  
             // handleLikeClick={handleLikeClick}  
             setPosts={setPosts}
 
-          />
+          /> */}
         </p>
 
         {/* Link to comments */}

@@ -60,6 +60,17 @@ npm start
 <img width="68%" alt="wireframe" src="src/readme-images/test_api_in_postman.png">
 <img width="68%" alt="wireframe" src="src/readme-images/Screenshot 2023-07-11 110116.png">
 
+
+writing a sample message with hard-coded sender and recipient in the api backend and displaying it on front-end
+
+<img width="68%" alt="wireframe" src="src/readme-images/Add-message-from-admin-testing1.png">
+
+<img width="68%" alt="wireframe" src="src/readme-images/Add-message-from-admin-testing2.png">
+<img width="68%" alt="wireframe" src="src/readme-images/Add-message-from-admin-testing3withclg.png">
+<img width="68%" alt="wireframe" src="src/readme-images/Add-message-from-admin-testing4withclg.png">
+
+
+
 -----------------------------------------------------------------------------------
 
 :lady_beetle: - refresh token bug -
