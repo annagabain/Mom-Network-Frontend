@@ -10,10 +10,10 @@ const MessagesApiComponent = (profileId, profileOwner) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("Current User:", currentUser);
-    console.log("Profile Owner:", profileOwner);
-    console.log("ProfileId:", profileId);
-    console.log("ProfileId Owner:", profileId.profileOwner); //the username of the profile that is currently displayed
+    // console.log("Current User:", currentUser);
+    // console.log("Profile Owner:", profileOwner);
+    // console.log("ProfileId:", profileId);
+    // console.log("ProfileId Owner:", profileId.profileOwner); //the username of the profile that is currently displayed
 
     setLoading(true);
 

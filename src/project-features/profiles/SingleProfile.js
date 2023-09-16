@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import { Col, Form, Row } from "react-bootstrap";
 import MessagesApiComponent from "../messages/MessagesApiComponent";
 // import SingleMessage from "../messages/SingleMessage";
-// import CreateNewMessage from "../messages/CreateNewMessage";
+import CreateNewMessage from "../messages/CreateNewMessage";
 
 function SingleProfile() {
   const { profileId } = useParams();
@@ -106,37 +106,17 @@ function SingleProfile() {
               </Card>
             </Col>
             <Col xs={12} md={4}>
-              create new message component will be here with this placeholder
-              grey box style
-              {/* <CreateNewMessage/> */}
+              <CreateNewMessage
+                profileId={profileId}
+                profileOwner={profile.owner}
+              />
               <br></br>
               <br></br>
-              <Card style={{ backgroundColor: "lightgrey" }}>
-                <Card.Body>
-                  {/* <Form onSubmit={handleSubmit}> */}
-                  <Form>
-                    <Form.Group className="mb-3">
-                      <Form.Label>Message component here &#9993;</Form.Label>
-                      <Form.Control
-                        as="textarea"
-                        rows={3}
-                        // type="text"
-                        // name="username"
-                        // placeholder="Enter username"
-                        // value={username}
-                        // onChange={handleChange}
-                      />
-                    </Form.Group>
-                    <Button className="button" variant="primary" type="submit">
-                      Send message
-                    </Button>
-                  </Form>
-                </Card.Body>
-              </Card>
               <br></br>
-              <br></br>
-              <MessagesApiComponent profileId={profileId} profileOwner={profile.owner}  />
-
+              <MessagesApiComponent
+                profileId={profileId}
+                profileOwner={profile.owner}
+              />
               <br></br>
               {/* <SingleMessage/> */}
             </Col>

@@ -7,19 +7,6 @@ import Form from "react-bootstrap/Form";
 function CreateNewComment({ postId }) {
   const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [comments, setComments] = useState([]);
-
-  // useEffect(() => {
-  //   // Fetch comments for the current post
-  //   axiosReq
-  //     .get(`/comments/?post=${postId}`)
-  //     .then((response) => {
-  //       setComments(response.data.results);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, [postId]);
 
   const handleCommentSubmit = () => {
     setIsSubmitting(true);

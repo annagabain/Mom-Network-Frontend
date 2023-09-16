@@ -1,60 +1,66 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function CreateNewMessage({ profileId }) {
+const CreateMessageComponent = ({ profileId, profileOwner }) => {
+  const currentUser = useCurrentUser();
   const [newMessage, setNewMessage] = useState("");
+  const [newTitle, setNewTitle] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [messages, setMessages] = useState([]);
 
-  // useEffect(() => {
-  //   // Fetch messages for the current profile
-  //   axiosReq
-  //     .get(`/messages/?profile=${profileId}`)
-  //     .then((response) => {
-  //       setMessages(response.data.results);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, [profileId]);
+  console.log("Current User:", currentUser.pk);
+  console.log("ProfileId:", profileId);
+  console.log("Profile Owner (will become recipient_username):", profileOwner);
 
-  const handleMessageSubmit = () => {
+  const handleMessageSubmit = async () => {
     setIsSubmitting(true);
 
-    // Create the message object to send to the API
     const messageData = {
-      profile: profileId,
-      message_text: newMessage,
+      title: newTitle,
+      sender: currentUser.pk,
+      recipient: profileId,
+      recipient_username: profileOwner,
+      message_content: newMessage,
     };
 
     axiosReq
-      .profile("/messages/", messageData)
+      .post("/messages/", messageData)
       .then(() => {
-        // Refresh the messages after adding a new message
-        axiosReq.get(`/messages/?profile=${profileId}`).then((response) => {
-          // setMessages(response.data.results);
+        axiosReq.get(`/messages/`).then((response) => {
           setIsSubmitting(false);
-          setNewMessage(""); // Clear the message input field
+          setNewMessage("");
+          setNewTitle("");
+          // Handle the response data if needed
+          console.log(response.data.results);
+          console.log("Profile Owner (now recipient_username):", profileOwner);
         });
       })
       .catch((error) => {
-        console.log(error);
+        console.error("Error sending message:", error);
         setIsSubmitting(false);
       });
   };
 
-
   return (
     <div>
-     <p>CreateNewMessage component</p>
-
-      {/* Message Form */}
-      <Card className="mb-3" style={{ width: "66%" }}>
+      <p>CreateNewMessage component</p>
+      <Card
+        style={{ backgroundColor: "lightgrey" }}
+      >
         <Card.Body>
           <Form>
+            <Form.Group controlId="title" className="mb-3">
+              <Form.Label>Write a Message &#9993;</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter message title"
+                value={newTitle}
+                onChange={(e) => setNewTitle(e.target.value)}
+              />
+            </Form.Group>
             <Form.Group controlId="message">
               <Form.Control
                 as="textarea"
@@ -64,10 +70,11 @@ function CreateNewMessage({ profileId }) {
                 onChange={(e) => setNewMessage(e.target.value)}
               />
             </Form.Group>
-            <br></br>
+            <br />
             <Button
               className="button"
-              type="submit"
+              variant="primary"
+              type="button"
               onClick={handleMessageSubmit}
               disabled={isSubmitting}
             >
@@ -78,6 +85,6 @@ function CreateNewMessage({ profileId }) {
       </Card>
     </div>
   );
-}
+};
 
-export default CreateNewMessage;
+export default CreateMessageComponent;
