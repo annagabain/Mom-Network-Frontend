@@ -127,7 +127,7 @@ const PostsApiComponent = () => {
           <br />
           <br />
 
-          {/* Placeholder for My pages */}
+          {/* Placeholder for My thematic-groups */}
           <MyPagesPlaceholder />
 
           <br />

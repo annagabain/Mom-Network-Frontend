@@ -2,7 +2,7 @@ import React from 'react'
 
 function MyPagesPlaceholder() {
   return (
-    <div className="my-pages">
+    <div className="my-thematic-groups">
     <h3> My Groups <i className="fa-solid fa-people-group" style={{ fontSize: "36px"}}></i></h3>
     <div></div>
     <p><i className="fa-solid fa-baby-carriage"></i> Baby </p>

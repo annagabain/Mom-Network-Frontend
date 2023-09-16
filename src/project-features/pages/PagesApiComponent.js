@@ -31,7 +31,9 @@ const PageApiComponent = () => {
     <>
       <br />
       <br />
-      <h2>Pages</h2>
+      {/* <h2>Pages</h2> */}
+      <h2>Thematic Groups</h2>
+
       <br />
       <br />
 
@@ -45,7 +47,7 @@ const PageApiComponent = () => {
                 <Card.Body>
                   <h4>{page.title}</h4>
 
-                  <Link to={`/pages/${page.id}`}>
+                  <Link to={`/thematic-groups/${page.id}`}>
                     <div style={{ marginBottom: "20px", cursor: "pointer" }}>
                       {page.image && (
                         <img

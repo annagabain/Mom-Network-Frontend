@@ -68,8 +68,8 @@ function App() {
           <Route exact path="/edit-post/:postId" component={EditMyPost} />
           <Route exact path="/comments/:commentId" component={SingleComment} />
           <Route path="/edit-comment/:commentId" component={EditMyComment} />
-          <Route exact path="/pages" component={PagesApiComponent} />
-          <Route exact path="/pages/:pageId" component={SinglePage} />
+          <Route exact path="/thematic-groups" component={PagesApiComponent} />
+          <Route exact path="/thematic-groups/:pageId" component={SinglePage} />
 
           <Route exact path="/newsletter" component={SubscribeToNewsletter} />
 

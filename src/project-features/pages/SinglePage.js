@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const SinglePage = ({ match }) => {
   const history = useHistory();
   const goBackToPages = () => {
-    history.push("/pages");
+    history.push("/thematic-groups");
   };
   const [page, setPage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,7 +33,7 @@ const SinglePage = ({ match }) => {
       <br></br>
 
       <button className="button btn left" onClick={goBackToPages}>
-        Go to pages overview
+        Go to thematic-groups overview
       </button>
       <br></br>
       <br></br>
@@ -79,7 +79,7 @@ const SinglePage = ({ match }) => {
           <br></br>
           <Card>
             <Card.Body>
-              {page.posts.map((post) => (
+              {page?.posts?.map((post) => (
                 <div key={post.id}>
                   <h5>{post.title}</h5>
                   <p>

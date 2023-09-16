@@ -96,26 +96,26 @@ const NavigationBar = () => {
                   Mom-Network
                 </NavLink>
                 <NavDropdown title="Thematic-Groups" id="basic-nav-dropdown">
-                  <NavLink exact to="/pages">
+                  <NavLink exact to="/thematic-groups">
                     All
                   </NavLink>
-                  <NavLink exact to="/pages/1">
+                  <NavLink exact to="/thematic-groups/1">
                     Baby
                   </NavLink>
 
-                  <NavLink exact to="/pages/2">
+                  <NavLink exact to="/thematic-groups/2">
                     Toddler
                   </NavLink>
 
-                  <NavLink exact to="/pages/3">
+                  <NavLink exact to="/thematic-groups/3">
                     Small Child
                   </NavLink>
 
-                  <NavLink exact to="/pages/4">
+                  <NavLink exact to="/thematic-groups/4">
                     Healthcare
                   </NavLink>
 
-                  <NavLink exact to="/pages/5">
+                  <NavLink exact to="/thematic-groups/5">
                     General Activities
                   </NavLink>
                 </NavDropdown>
