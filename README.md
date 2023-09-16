@@ -51,6 +51,66 @@ Conditional rendering - experience flow:
 
 <img width="78%" alt="wireframe" src="src/readme-images/conditional_rendering-homepage1.png">
 
+### Features
+
+#### Superhero Mom Logo
+
+<img width="30%" alt="wireframe" src="src/readme-images/superhero-mom-logo.png">
+
+#### **All parents are every day super heroes and the logo shows their strength when joining the powers in a network together!**
+
+
+#### Register and Login at the landing page
+
+<img width="100%" alt="wireframe" src="src/readme-images/logn-register.png">
+
+#### Navigation
+
+<img width="100%" alt="wireframe" src="src/readme-images/navbar1.png">
+
+<img width="100%" alt="wireframe" src="src/readme-images/navbar2.png">
+
+#### Posts
+
+<img width="100%" alt="wireframe" src="src/readme-images/posts.png">
+
+<img width="50%" alt="wireframe" src="src/readme-images/create-post.png">
+
+#### Comments
+
+<img width="50%" alt="wireframe" src="src/readme-images/comment1.png">
+
+<img width="100%" alt="wireframe" src="src/readme-images/comment2.png">
+
+#### Profiles
+
+<img width="50%" alt="wireframe" src="src/readme-images/profiles.png">
+
+
+#### Thematic Interest Groups
+
+User's personal selection of groups
+
+<img width="50%" alt="wireframe" src="src/readme-images/groups1.png">
+
+All thematic groups directly accessible through the navigation panel
+
+<img width="50%" alt="wireframe" src="src/readme-images/groups2.png">
+
+Groups overview
+
+<img width="100%" alt="wireframe" src="src/readme-images/groups3.png">
+
+Selected specific group page
+
+<img width="100%" alt="wireframe" src="src/readme-images/groups4.png">
+
+
+#### Newsletter Subscription
+
+To recieve the highlights and invitations per email. Even if one had no time to participate in networking activities, they can stay engaged with Mom network. 
+
+<img width="100%" alt="wireframe" src="src/readme-images/newsletter.png">
 
 ### Initial Terminal commands
 
