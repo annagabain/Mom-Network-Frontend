@@ -1,5 +1,8 @@
 # LIVE LINK: https://mom-network-frontend.herokuapp.com/
 
+<img width="100%" alt="wireframe" src="src/readme-images/Nest_Hub_Max_Device_view.png">
+
+
 # Mom-Network
 Portfolio Project nr. 5 for Code Institute Assessment. Mom Network - Communication Tool for Busy Mothers.
 
