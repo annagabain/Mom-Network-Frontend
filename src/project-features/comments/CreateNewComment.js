@@ -25,6 +25,7 @@ function CreateNewComment({ postId }) {
           // setComments(response.data.results);
           setIsSubmitting(false);
           setNewComment(""); // Clear the comment input field
+          window.location.reload();
         });
       })
       .catch((error) => {

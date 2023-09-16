@@ -4,7 +4,6 @@ import ProfilesApiComponent from "./project-features/profiles/ProfilesApiCompone
 import SingleProfile from "./project-features/profiles//SingleProfile";
 import EditMyProfileForm from "./project-features/profiles/EditMyProfile";
 
-
 import PostsApiComponent from "./project-features/posts/PostsApiComponent";
 import SinglePost from "./project-features/posts/SinglePost";
 import CreateNewPost from "./project-features/posts/CreateNewPost";
@@ -31,11 +30,14 @@ function App() {
 
   return (
     <div className="App">
-      {currentUser && ( // Render the header and the Navigation bar only if a user is logged in
+      {/* {currentUser && ( // Render the header and the Navigation bar only if a user is logged in
         <header className="App-header">
           <NavigationBar />
         </header>
-      )}
+      )} */}
+      <header className="App-header">
+        <NavigationBar />
+      </header>
       <p className="footer left">
         Created by Anna Gabain. Educational purposes only
       </p>
@@ -61,8 +63,11 @@ function App() {
             render={() => <ProfilesApiComponent />}
           />
           <Route exact path="/profiles/:profileId" component={SingleProfile} />
-          <Route exact path="/edit-profile/:profileId" component={EditMyProfileForm} />
-
+          <Route
+            exact
+            path="/edit-profile/:profileId"
+            component={EditMyProfileForm}
+          />
           <Route exact path="/createnewpost" render={() => <CreateNewPost />} />
           <Route exact path="/posts/:postId" component={SinglePost} />
           <Route exact path="/edit-post/:postId" component={EditMyPost} />
@@ -70,9 +75,7 @@ function App() {
           <Route path="/edit-comment/:commentId" component={EditMyComment} />
           <Route exact path="/pages" component={PagesApiComponent} />
           <Route exact path="/pages/:pageId" component={SinglePage} />
-
           <Route exact path="/newsletter" component={SubscribeToNewsletter} />
-
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

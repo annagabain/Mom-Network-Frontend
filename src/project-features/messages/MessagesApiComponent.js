@@ -78,7 +78,7 @@ const MessagesApiComponent = (profileId, profileOwner) => {
           <>
             {" "}
             <p>
-              No messages between you {currentlyDisplayedProfileUsername} just
+              No messages between you and {currentlyDisplayedProfileUsername} just
               yet.
             </p>
             <p>Be the first to send a message!</p>
