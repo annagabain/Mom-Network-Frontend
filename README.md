@@ -32,26 +32,8 @@ The platform should enable users to create, read, comment and vote on content.
 Content should be searchable and categorized.
 Search results can be filtered on username, popularity, date created, title, content keywords and category.
 
-### Wireframes
 
-<img width="68%" alt="wireframe" src="src/wireframes/homepage-public.png">
-<img width="68%" alt="wireframe" src="src/wireframes/homepage-logged-in.png">
-<img width="80%" alt="wireframe" src="src/wireframes/post.png">
-<img width="80%" alt="wireframe" src="src/wireframes/group.png">
-<img width="78%" alt="wireframe" src="src/wireframes/profile.png">
-
-
-### UX and UI
-
-User Stories: https://github.com/users/annagabain/projects/10/views/1
-
-Conditional rendering - experience flow:
-
-<img width="78%" alt="wireframe" src="src/readme-images/conditional_rendering-homepage2.png">
-
-<img width="78%" alt="wireframe" src="src/readme-images/conditional_rendering-homepage1.png">
-
-### Features
+## Features
 
 #### Superhero Mom Logo
 
@@ -111,6 +93,27 @@ Selected specific group page
 To recieve the highlights and invitations per email. Even if one had no time to participate in networking activities, they can stay engaged with Mom network. 
 
 <img width="100%" alt="wireframe" src="src/readme-images/newsletter.png">
+
+## Planning
+
+### Wireframes
+
+<img width="68%" alt="wireframe" src="src/wireframes/homepage-public.png">
+<img width="68%" alt="wireframe" src="src/wireframes/homepage-logged-in.png">
+<img width="80%" alt="wireframe" src="src/wireframes/post.png">
+<img width="80%" alt="wireframe" src="src/wireframes/group.png">
+<img width="78%" alt="wireframe" src="src/wireframes/profile.png">
+
+
+### UX and UI
+
+User Stories: https://github.com/users/annagabain/projects/10/views/1
+
+Conditional rendering - experience flow:
+
+<img width="78%" alt="wireframe" src="src/readme-images/conditional_rendering-homepage2.png">
+
+<img width="78%" alt="wireframe" src="src/readme-images/conditional_rendering-homepage1.png">
 
 ### Initial Terminal commands
 
