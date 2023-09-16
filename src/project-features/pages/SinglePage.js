@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
+// PAGE IS DISPLAYED AS A THEMATIC GROUP IN THE FRONTEND
+
 const SinglePage = ({ match }) => {
   const history = useHistory();
   const goBackToPages = () => {
@@ -72,23 +74,33 @@ const SinglePage = ({ match }) => {
             </Card.Body>
           </Card>
           <br></br>
-
           <br></br>
           <h4 className="left">Related Posts:</h4>
           <br></br>
           <br></br>
-          <Card>
-            <Card.Body>
-              {page?.posts?.map((post) => (
-                <div key={post.id}>
-                  <h5>{post.title}</h5>
+          {page?.posts?.map((post) => (
+            <div key={post.id}>
+              <Card>
+                <Card.Body>
                   <p>
-                    {post.owner} says: {post.content}
+                    {post.owner} says: <h3>{post.content}</h3>
                   </p>
-                </div>
-              ))}
-            </Card.Body>
-          </Card>
+                  {post.post_image && (
+                    <img
+                      src={post.post_image}
+                      alt={`Page: ${post.content}`}
+                      style={{
+                        width: "50%",
+                        height: "400px",
+                        objectFit: "cover",
+                      }}
+                    />
+                  )}{" "}
+                </Card.Body>
+              </Card>
+              <br></br>
+            </div>
+          ))}{" "}
         </div>
       )}
     </div>

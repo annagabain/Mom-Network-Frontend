@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom"; 
+
+// PAGES ARE DISPLAYED AS THEMATIC GROUPS IN THE FRONTEND
 
 const PageApiComponent = () => {
   const [pages, setPages] = useState([]);
