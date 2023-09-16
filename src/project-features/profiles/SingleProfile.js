@@ -3,17 +3,23 @@ import { useParams, useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { Col, Form, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import MessagesApiComponent from "../messages/MessagesApiComponent";
 // import SingleMessage from "../messages/SingleMessage";
 import CreateNewMessage from "../messages/CreateNewMessage";
 
-function SingleProfile() {
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
+const SingleProfile = () => {
+  const currentUser = useCurrentUser();
+  
   const { profileId } = useParams();
   const history = useHistory();
 
   const [profile, setProfile] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+  // console.log("profileId", profileId)
 
   useEffect(() => {
     // Fetch the specific profile using the profileId parameter
@@ -107,6 +113,7 @@ function SingleProfile() {
             </Col>
             <Col xs={12} md={4}>
               <CreateNewMessage
+              profile={profile}
                 profileId={profileId}
                 profileOwner={profile.owner}
               />

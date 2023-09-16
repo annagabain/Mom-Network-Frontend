@@ -30,7 +30,7 @@ const MessagesApiComponent = (profileId, profileOwner) => {
         .then((response) => response.json())
         .then((responseData) => {
           setData(responseData.results);
-          console.log("data", responseData.results);
+          // console.log("data", responseData.results);
           setLoading(false);
         })
         .catch((error) => {

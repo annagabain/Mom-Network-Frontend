@@ -54,7 +54,7 @@ const NavigationBar = () => {
           )
         }
       >
-        <NavLink to="/edit-profile/:profileId">
+        <NavLink to={`/edit-profile/${currentUser.pk}`}>
           Edit profile
         </NavLink>
         <br></br>

@@ -64,7 +64,7 @@ function CreateNewPost() {
           as="textarea"
           rows={6}
           name="content"
-          // id="content"
+          id="content"
           value={content}
           onChange={handleChange}
         />
@@ -74,7 +74,7 @@ function CreateNewPost() {
         <Form.Control
           type="file"
           name="image"
-          id="image" // Add an "id" matching the "htmlFor" attribute in the label
+          id="image"
           onChange={handleChange}
         />
       </Form.Group>

@@ -5,15 +5,21 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-const CreateMessageComponent = ({ profileId, profileOwner }) => {
+const CreateMessageComponent = ({profile, profileId, profileOwner }) => {
   const currentUser = useCurrentUser();
   const [newMessage, setNewMessage] = useState("");
   const [newTitle, setNewTitle] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  console.log("Current User:", currentUser.pk);
-  console.log("ProfileId:", profileId);
-  console.log("Profile Owner (will become recipient_username):", profileOwner);
+  console.log("Current User Id:", currentUser.pk);
+  console.log("Current User Id: type", typeof(currentUser.pk));
+
+  console.log("Current User Username:", currentUser.username);
+
+  console.log("ProfileId: Profile owner", profileId);
+  console.log("ProfileId: type", typeof(profileId));
+
+  console.log("Profile Owner Username (will become recipient_username):", profile.owner);
 
   const handleMessageSubmit = async () => {
     setIsSubmitting(true);
@@ -36,6 +42,7 @@ const CreateMessageComponent = ({ profileId, profileOwner }) => {
           // Handle the response data if needed
           console.log(response.data.results);
           console.log("Profile Owner (now recipient_username):", profileOwner);
+          window.location.reload();
         });
       })
       .catch((error) => {
@@ -47,13 +54,17 @@ const CreateMessageComponent = ({ profileId, profileOwner }) => {
   return (
     <div>
       <p>CreateNewMessage component</p>
-      <Card
-        style={{ backgroundColor: "lightgrey" }}
-      >
+      <Card style={{ backgroundColor: "lightgrey" }}>
         <Card.Body>
+          <i className="fa-regular fa-envelope fa-lg"></i>
           <Form>
             <Form.Group controlId="title" className="mb-3">
-              <Form.Label>Write a Message &#9993;</Form.Label>
+              <Form.Label>
+                Write a Message to{" "}
+                <span style={{ fontWeight: "bold" }}>{profileOwner}</span>
+              </Form.Label>{" "}
+              <br></br>
+              <br></br>
               <Form.Control
                 type="text"
                 placeholder="Enter message title"
