@@ -5,8 +5,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Col, Form, Row } from "react-bootstrap";
 import MessagesApiComponent from "../messages/MessagesApiComponent";
-import SingleMessage from "../messages/SingleMessage";
-import CreateNewMessage from "../messages/CreateNewMessage";
+// import SingleMessage from "../messages/SingleMessage";
+// import CreateNewMessage from "../messages/CreateNewMessage";
 
 function SingleProfile() {
   const { profileId } = useParams();
@@ -106,6 +106,11 @@ function SingleProfile() {
               </Card>
             </Col>
             <Col xs={12} md={4}>
+              create new message component will be here with this placeholder
+              grey box style
+              {/* <CreateNewMessage/> */}
+              <br></br>
+              <br></br>
               <Card style={{ backgroundColor: "lightgrey" }}>
                 <Card.Body>
                   {/* <Form onSubmit={handleSubmit}> */}
@@ -128,9 +133,11 @@ function SingleProfile() {
                   </Form>
                 </Card.Body>
               </Card>
-              <MessagesApiComponent/>
               <br></br>
-              <CreateNewMessage/>
+              <br></br>
+              <MessagesApiComponent profileId={profileId} profileOwner={profile.owner}  />
+
+              <br></br>
               {/* <SingleMessage/> */}
             </Col>
           </Row>
