@@ -4,6 +4,9 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Col, Form, Row } from "react-bootstrap";
+import MessagesApiComponent from "../messages/MessagesApiComponent";
+import SingleMessage from "../messages/SingleMessage";
+import CreateNewMessage from "../messages/CreateNewMessage";
 
 function SingleProfile() {
   const { profileId } = useParams();
@@ -125,6 +128,10 @@ function SingleProfile() {
                   </Form>
                 </Card.Body>
               </Card>
+              <MessagesApiComponent/>
+              <br></br>
+              <CreateNewMessage/>
+              {/* <SingleMessage/> */}
             </Col>
           </Row>
         )}
