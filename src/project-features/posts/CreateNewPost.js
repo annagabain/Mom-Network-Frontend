@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { Card } from "react-bootstrap";
 
 function CreateNewPost() {
   const [errors, setErrors] = useState({});
@@ -57,48 +58,62 @@ function CreateNewPost() {
   };
 
   const textFields = (
-    <div className="text-center">
-      <Form.Group className="mb-3">
-        <Form.Label htmlFor="content">Content</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={6}
-          name="content"
-          id="content"
-          value={content}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label htmlFor="image">Image</Form.Label>
-        <Form.Control
-          type="file"
-          name="image"
-          id="image"
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {errors?.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-      {/* <Button onClick={() => history.goBack()} className="button">
+    <>
+      <Card style={{ backgroundColor: "lightgrey" }}>
+        <Card.Body>
+          <Form.Group className="mb-3">
+            <p>
+              Share your thoughts! Create a <span style={{ fontWeight: "bold" }}>New post</span>
+            </p>
+            <i className="fa-regular fa-square-plus fa-2xl"></i>
+            <br></br>
+            <br></br>
+
+            <Form.Label htmlFor="content" style={{ display: "none" }}>
+              Content
+            </Form.Label>
+
+            <Form.Control
+              as="textarea"
+              rows={6}
+              name="content"
+              id="content"
+              placeholder="Post Content"
+              value={content}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="image" style={{ display: "none" }}>
+              Image
+            </Form.Label>
+            <Form.Control
+              type="file"
+              name="image"
+              id="image"
+              onChange={handleChange}
+            />
+          </Form.Group>
+          {errors?.content?.map((message, idx) => (
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
+          {/* <Button onClick={() => history.goBack()} className="button">
         Cancel 
       </Button> */}
-      <span> </span>
-      <Button type="submit" className="button">
-        Post
-      </Button>
-    </div>
+          <span> </span>
+          <Button type="submit" className="button">
+            Post
+          </Button>
+        </Card.Body>
+      </Card>
+    </>
   );
 
   return (
     <>
-      {/* <br></br>
-      <br></br>
-      <br></br> */}
-      <h2>+ Create a Post</h2>
+      {/* <h2>+ Create a Post</h2> */}
       <Form onSubmit={handleSubmit}>
         <Container>
           <div>{textFields}</div>

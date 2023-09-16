@@ -5,21 +5,24 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-const CreateMessageComponent = ({profile, profileId, profileOwner }) => {
+const CreateMessageComponent = ({ profile, profileId, profileOwner }) => {
   const currentUser = useCurrentUser();
   const [newMessage, setNewMessage] = useState("");
   const [newTitle, setNewTitle] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   console.log("Current User Id:", currentUser.pk);
-  console.log("Current User Id: type", typeof(currentUser.pk));
+  console.log("Current User Id: type", typeof currentUser.pk);
 
   console.log("Current User Username:", currentUser.username);
 
   console.log("ProfileId: Profile owner", profileId);
-  console.log("ProfileId: type", typeof(profileId));
+  console.log("ProfileId: type", typeof profileId);
 
-  console.log("Profile Owner Username (will become recipient_username):", profile.owner);
+  console.log(
+    "Profile Owner Username (will become recipient_username):",
+    profile.owner
+  );
 
   const handleMessageSubmit = async () => {
     setIsSubmitting(true);
@@ -56,12 +59,14 @@ const CreateMessageComponent = ({profile, profileId, profileOwner }) => {
       <p>CreateNewMessage component</p>
       <Card style={{ backgroundColor: "lightgrey" }}>
         <Card.Body>
-          <i className="fa-regular fa-envelope fa-lg"></i>
           <Form>
             <Form.Group controlId="title" className="mb-3">
               <Form.Label>
                 Write a Message to{" "}
                 <span style={{ fontWeight: "bold" }}>{profileOwner}</span>
+                <br></br>
+                <br></br>
+                <i className="fa-regular fa-envelope fa-2xl"></i>
               </Form.Label>{" "}
               <br></br>
               <br></br>
