@@ -35,11 +35,14 @@ Search results can be filtered on username, popularity, date created, title, con
 
 ## Features
 
-#### Superhero Mom Logo
-
 <img width="30%" alt="wireframe" src="src/readme-images/superhero-mom-logo.png">
 
+#### Superhero Mom Logo   
+
 #### **All parents are every day super heroes and the logo shows their strength when joining the powers in a network together!**
+
+
+-------------------------------------------------
 
 
 #### Register and Login at the landing page
@@ -77,7 +80,7 @@ User's personal selection of groups
 
 All thematic groups directly accessible through the navigation panel
 
-<img width="50%" alt="wireframe" src="src/readme-images/groups2.png">
+<img width="30%" alt="wireframe" src="src/readme-images/groups2.png">
 
 Groups overview
 
