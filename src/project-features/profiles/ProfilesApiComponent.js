@@ -64,7 +64,7 @@ const ProfilesApiComponent = () => {
                   {/* Wrap each profile card with a Link */}
                   <h4>{profile.owner}</h4>
 
-                  <Link to={`/profiles/${profile.id}`}>
+                  
                     {profile.image && (
                       <img
                         src={profile.image}
@@ -83,7 +83,7 @@ const ProfilesApiComponent = () => {
                         My Profile
                       </span>
                     )}
-                  </Link>
+                 <Link className="btn" to={`/profiles/${profile.id}`}> View Profile </Link>
 
                   <br></br>
                   <br></br>

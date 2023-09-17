@@ -22,7 +22,7 @@ const SingleProfile = () => {
     axiosReq
       .get(`/profiles/${profileId}`)
       .then((response) => {
-        console.log("Profile API Response:", response.data); // Log the response data
+        // console.log("Profile API Response:", response.data);
         setProfile(response.data);
         setIsLoading(false);
       })
@@ -65,21 +65,11 @@ const SingleProfile = () => {
               >
                 <Card className="mb-3">
                   <Card.Body>
-
                     {/* Edit profile if owner */}
                     <Row>
                       {profile.is_owner && (
                         <div>
                           <h2>My Profile</h2>
-                          <Button
-                            className="button btn right"
-                            onClick={() => {
-                              history.push(`/edit-profile/${profile.id}`);
-                            }}
-                          >
-                            <i className="fa-solid fa-pen icon-inside-button"></i>
-                            Edit
-                          </Button>
                         </div>
                       )}
                     </Row>
@@ -104,7 +94,18 @@ const SingleProfile = () => {
                         Username: <h4>{profile.owner}</h4>
                         <p>Full Name: {profile.name}</p>
                         <p>Member since: {profile.created_at}</p>
-                        <p>Bio: {profile.content}</p>
+                        <p>Bio: {profile.content}</p>{" "}
+                        {profile.is_owner && (
+                          <Button
+                            className="button btn right"
+                            onClick={() => {
+                              history.push(`/edit-profile/${profile.id}`);
+                            }}
+                          >
+                            <i className="fa-solid fa-pen icon-inside-button"></i>
+                            Edit
+                          </Button>
+                        )}
                       </Col>
                     </Row>
                     <br></br>
