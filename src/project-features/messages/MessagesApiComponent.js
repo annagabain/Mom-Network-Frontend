@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Card from "react-bootstrap/Card";
 import CreateNewMessage from "../messages/CreateNewMessage";
+import { Container } from "react-bootstrap";
 
 const MessagesApiComponent = (profile, profileId, profileOwner) => {
   const [data, setData] = useState(null);
   const currentUser = useCurrentUser();
 
-  // console.log("Profile Owner:", profile.profileOwner);
-
+  console.log("Profile Owner:", profile.profileOwner);
+  console.log("Current User's username:", currentUser.username);
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
     setLoading(true);
 
     if (currentUser) {
@@ -44,7 +44,7 @@ const MessagesApiComponent = (profile, profileId, profileOwner) => {
 
   return (
     <>
-      {currentUser && currentUser.username !== profileOwner && (
+      {currentUser && currentUser.username !== profile.profileOwner && (
         <CreateNewMessage
           profile={profile}
           profileId={profileId}
@@ -70,20 +70,31 @@ const MessagesApiComponent = (profile, profileId, profileOwner) => {
                 message.recipient_username === profile.profileOwner
             )
             .map((message) => (
-              <Card>
-                <Card.Body>
-                  <div key={message.id}>
-                    <p>Title: {message.title}</p>
-                    <p>Sender: {message.sender_username}</p>
-                    <p>Recipient: {message.recipient_username}</p>
-                    <p>Message: {message.message_content}</p>
-                  </div>
-                </Card.Body>
-              </Card>
+              <Container key={message.id}>
+                <Card>
+                  <Card.Body>
+                    <div style={{ backgroundColor: "pink" }}>
+                      <p className="left">From: {message.sender_username}</p>
+                      <br></br>
+                      <br></br>
+                      <p className="left">To: {message.recipient_username}</p>
+                      <br></br>
+                    </div>
+
+                    <div>
+                    <br></br>
+
+                      <p>Title: {message.title}</p>
+                      <p>Message: {message.message_content}</p>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Container>
             ))
         )}
 
         {!loading &&
+          profile.profileOwner !== currentUser.username &&
           !data.some(
             (message) =>
               message.sender === currentUser.pk &&
@@ -92,8 +103,7 @@ const MessagesApiComponent = (profile, profileId, profileOwner) => {
             <>
               {" "}
               <p>
-                No messages between you and {profile.profileOwner}{" "}
-                just yet.
+                No messages between you and {profile.profileOwner} just yet.
               </p>
               <p>Be the first to send a message!</p>
             </>
