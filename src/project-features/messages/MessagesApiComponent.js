@@ -55,8 +55,8 @@ const MessagesApiComponent = (profile, profileId, profileOwner) => {
       <br></br>
       <br></br>
 
-      <div className="left">
-        <i style={{ color: "green" }}>Fetching Messages Test:</i>
+      <div className="left" style={{ width: "100%" }}>
+        {/* <i style={{ color: "green" }}>Fetching Messages Test:</i> */}
         <br></br>
         <br></br>
 
@@ -73,22 +73,29 @@ const MessagesApiComponent = (profile, profileId, profileOwner) => {
               <Container key={message.id}>
                 <Card>
                   <Card.Body>
-                    <div style={{ backgroundColor: "pink" }}>
-                      <p className="left">From: {message.sender_username}</p>
-                      <br></br>
-                      <br></br>
-                      <p className="left">To: {message.recipient_username}</p>
-                      <br></br>
-                    </div>
-
-                    <div>
+                    <Card.Text className="mb-2 left">Title: {message.title}</Card.Text>
+                    <br></br>
                     <br></br>
 
-                      <p>Title: {message.title}</p>
-                      <p>Message: {message.message_content}</p>
-                    </div>
+
+                    <Card.Subtitle className="mb-2 text-muted left">
+                      From: {message.sender_username} Add Avatar here
+                    </Card.Subtitle>
+
+                    <br></br>
+
+                    <Card.Subtitle className="mb-2 text-muted left">
+                      To: {message.recipient_username}
+                    </Card.Subtitle>
+
+                    <br></br>
+                    <br></br>
+
+                    <Card.Title>{message.message_content}</Card.Title>
                   </Card.Body>
-                </Card>
+                </Card>{" "}
+                <br></br>
+                <br></br>
               </Container>
             ))
         )}

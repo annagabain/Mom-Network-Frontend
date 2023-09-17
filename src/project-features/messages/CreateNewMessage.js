@@ -51,7 +51,7 @@ const CreateMessageComponent = ({ profile, profileId, profileOwner }) => {
 
   return (
     <>
-      <p style={{ color: "green" }}>CreateNewMessage component sits inside the MessagesApiComponent:</p>
+      {/* <p style={{ color: "green" }}>CreateNewMessage component sits inside the MessagesApiComponent:</p> */}
 
       <Card style={{ backgroundColor: "lightgrey" }}>
         <Card.Body>
