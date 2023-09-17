@@ -36,6 +36,7 @@ function App() {
           <NavigationBar />
         </header>
       )}
+      
       <p className="footer left">
         Created by Anna Gabain. Educational purposes only
       </p>

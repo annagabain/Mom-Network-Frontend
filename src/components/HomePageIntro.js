@@ -49,6 +49,9 @@ const HomePageIntro = () => {
             </Col>
           </Row>
         </Container>
+        <br></br>
+        <br></br>
+
       </div>
       <footer className="footer left fixed">
         <div>Image credit: pexels-pixabay-51953</div>

@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Card from "react-bootstrap/Card";
+import CreateNewMessage from "../messages/CreateNewMessage";
 
-const MessagesApiComponent = (profileId, profileOwner) => {
+const MessagesApiComponent = (profile, profileId, profileOwner) => {
   const [data, setData] = useState(null);
   const currentUser = useCurrentUser();
-  const currentlyDisplayedProfileUsername = profileId
-    ? profileId.profileOwner
-    : null;
+
+  // console.log("Profile Owner:", profile.profileOwner);
+
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // console.log("Current User:", currentUser);
-    // console.log("Profile Owner:", profileOwner);
-    // console.log("ProfileId:", profileId);
-    // console.log("ProfileId Owner:", profileId.profileOwner); //the username of the profile that is currently displayed
 
     setLoading(true);
 
@@ -41,50 +40,66 @@ const MessagesApiComponent = (profileId, profileOwner) => {
           setLoading(false);
         });
     }
-  }, [currentUser]);
+  }, [currentUser, profileOwner]);
 
   return (
-    <div className="left">
-      <i style={{ color: "green" }}>Fetching Messages Test:</i>
-      <br></br>
-      <br></br>
-
-      {loading ? (
-        <p>Loading messages...</p>
-      ) : (
-        data
-          .filter(
-            (message) =>
-              message.sender === currentUser.pk &&
-              message.recipient_username === currentlyDisplayedProfileUsername
-          )
-          .map((message) => (
-            <div key={message.id}>
-              <p>Title: {message.title}</p>
-              <p>Sender: {message.sender_username}</p>
-              <p>Recipient: {message.recipient_username}</p>
-              <p>Message: {message.message_content}</p>
-              <hr />
-            </div>
-          ))
+    <>
+      {currentUser && currentUser.username !== profileOwner && (
+        <CreateNewMessage
+          profile={profile}
+          profileId={profileId}
+          profileOwner={profileOwner}
+        />
       )}
 
-      {!loading &&
-        !data.some(
-          (message) =>
-            message.sender === currentUser.pk &&
-            message.recipient_username === currentlyDisplayedProfileUsername
-        ) && (
-          <>
-            {" "}
-            <p>
-              No messages between you and {currentlyDisplayedProfileUsername} just
-              yet.
-            </p>
-            <p>Be the first to send a message!</p>
-          </>
+      <br></br>
+      <br></br>
+
+      <div className="left">
+        <i style={{ color: "green" }}>Fetching Messages Test:</i>
+        <br></br>
+        <br></br>
+
+        {loading ? (
+          <p>Loading messages...</p>
+        ) : (
+          data
+            .filter(
+              (message) =>
+                // message.sender === currentUser.pk &&
+                message.recipient_username === profile.profileOwner
+            )
+            .map((message) => (
+              <Card>
+                <Card.Body>
+                  <div key={message.id}>
+                    <p>Title: {message.title}</p>
+                    <p>Sender: {message.sender_username}</p>
+                    <p>Recipient: {message.recipient_username}</p>
+                    <p>Message: {message.message_content}</p>
+                  </div>
+                </Card.Body>
+              </Card>
+            ))
         )}
-    </div>
+
+        {!loading &&
+          !data.some(
+            (message) =>
+              message.sender === currentUser.pk &&
+              message.recipient_username === profile.profileOwner
+          ) && (
+            <>
+              {" "}
+              <p>
+                No messages between you and {profile.profileOwner}{" "}
+                just yet.
+              </p>
+              <p>Be the first to send a message!</p>
+            </>
+          )}
+      </div>
+    </>
   );
 };
 

@@ -5,19 +5,18 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Col, Row } from "react-bootstrap";
 import MessagesApiComponent from "../messages/MessagesApiComponent";
-// import SingleMessage from "../messages/SingleMessage";
-import CreateNewMessage from "../messages/CreateNewMessage";
 
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+// import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const SingleProfile = () => {
-  const currentUser = useCurrentUser();
-  
+  // const currentUser = useCurrentUser();
+
   const { profileId } = useParams();
   const history = useHistory();
 
   const [profile, setProfile] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  
 
   // console.log("profileId", profileId)
 
@@ -26,6 +25,7 @@ const SingleProfile = () => {
     axiosReq
       .get(`/profiles/${profileId}`)
       .then((response) => {
+        console.log("Profile API Response:", response.data); // Log the response data
         setProfile(response.data);
         setIsLoading(false);
       })
@@ -33,6 +33,9 @@ const SingleProfile = () => {
         console.log(error);
       });
   }, [profileId]);
+
+
+  const profileOwner = profile.owner;
 
   return (
     <>
@@ -112,26 +115,18 @@ const SingleProfile = () => {
               </Card>
             </Col>
             <Col xs={12} md={4}>
-              <CreateNewMessage
-              profile={profile}
-                profileId={profileId}
-                profileOwner={profile.owner}
-              />
-              <br></br>
-              <br></br>
-              <br></br>
               <MessagesApiComponent
+                profile={profile}
                 profileId={profileId}
-                profileOwner={profile.owner}
+                profileOwner={profileOwner}
               />
               <br></br>
-              {/* <SingleMessage/> */}
             </Col>
           </Row>
         )}
       </div>
     </>
   );
-}
+};
 
 export default SingleProfile;
