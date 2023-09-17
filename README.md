@@ -118,6 +118,11 @@ Conditional rendering - experience flow:
 
 <img width="78%" alt="wireframe" src="src/readme-images/conditional_rendering-homepage1.png">
 
+
+<img width="78%" alt="wireframe" src="src/readme-images/userfriendly-alreadyloggedin-message.png">
+<img width="78%" alt="wireframe" src="src/readme-images/userfriendly-need-to-logout-to-register-message.png">
+
+
 ### Initial Terminal commands
 
 npx create-react-app . --use-npm
