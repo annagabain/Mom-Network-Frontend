@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import { Container } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 
 const MessagesApiComponent = (profile, profileId, profileOwner) => {
   const [data, setData] = useState(null);
@@ -106,7 +107,6 @@ const MessagesApiComponent = (profile, profileId, profileOwner) => {
                         </Row>
                       </Col>
                       <Col sm={12}>
-                        {" "}
                         <Card.Text className="mb-2">
                           Subject: {message.title}{" "}
                         </Card.Text>
@@ -121,7 +121,14 @@ const MessagesApiComponent = (profile, profileId, profileOwner) => {
                       </Col>
                       <Col sm={12}>
                         <Card.Title>{message.message_content}</Card.Title>
-                      </Col>
+                      </Col>{" "}
+                      <Link
+                        className="btn right"
+                        to={`/profiles/${message.sender}`}
+                      >
+                        View {message.sender_username}'s Profile and leave a
+                        message
+                      </Link>
                     </Row>
                   </Card.Body>
                 </Card>{" "}

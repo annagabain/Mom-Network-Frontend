@@ -5,14 +5,14 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-const CreateMessageComponent = ({ profile, profileId, profileOwner }) => {
+const CreateMessageComponent = ({ profile }) => {
   const currentUser = useCurrentUser();
   const [newMessage, setNewMessage] = useState("");
   const [newTitle, setNewTitle] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  //  console.log(profile.profileOwner)
-  //  console.log(profile.profileId)
+  console.log("profile.owner", profile.owner);
+  console.log("profile.id", profile.id);
 
   const handleMessageSubmit = async () => {
     setIsSubmitting(true);
@@ -20,8 +20,8 @@ const CreateMessageComponent = ({ profile, profileId, profileOwner }) => {
     const messageData = {
       title: newTitle,
       sender: currentUser.pk,
-      recipient: profile.profileId,
-      recipient_username: profile.profileOwner,
+      recipient: profile.id,
+      recipient_username: profile.owner,
       message_content: newMessage,
     };
 
@@ -34,19 +34,13 @@ const CreateMessageComponent = ({ profile, profileId, profileOwner }) => {
           setNewTitle("");
           // Handle the response data if needed
           console.log(response.data.results);
-          console.log(
-            "Profile Owner (now recipient_username):",
-            profile.profileOwner
-          );
+          console.log("Profile Owner (now recipient_username):", profile.owner);
           window.location.reload();
         });
       })
       .catch((error) => {
         console.error("Error sending message:", error);
-        console.log(
-          "Profile Owner (now recipient_username):",
-          profile.profileOwner
-        );
+        console.log("Profile Owner (now recipient_username):", profile.owner);
 
         setIsSubmitting(false);
       });
@@ -62,9 +56,7 @@ const CreateMessageComponent = ({ profile, profileId, profileOwner }) => {
             <Form.Group controlId="title" className="mb-3">
               <Form.Label>
                 Write a Message to{" "}
-                <span style={{ fontWeight: "bold" }}>
-                  {profile.profileOwner}
-                </span>
+                <span style={{ fontWeight: "bold" }}>{profile.owner}</span>
                 <br></br>
                 <br></br>
                 <i className="fa-regular fa-envelope fa-2xl"></i>

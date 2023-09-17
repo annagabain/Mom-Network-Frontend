@@ -61,7 +61,8 @@ const ProfilesApiComponent = () => {
             <div className="col-md-4" key={columnIndex}>
               {column.map((profile) => (
                 <div key={profile.id} style={{ marginBottom: "20px" }}>
-                  {/* Wrap each profile card with a Link */}
+
+                  
                   <h4>{profile.owner}</h4>
 
                   
@@ -83,7 +84,7 @@ const ProfilesApiComponent = () => {
                         My Profile
                       </span>
                     )}
-                 <Link className="btn" to={`/profiles/${profile.id}`}> View Profile </Link>
+                 <Link className="btn button" to={`/profiles/${profile.id}`}> View Profile </Link>
 
                   <br></br>
                   <br></br>
