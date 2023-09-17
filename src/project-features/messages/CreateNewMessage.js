@@ -3,6 +3,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert"; 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const CreateMessageComponent = ({ profile }) => {
@@ -10,6 +11,7 @@ const CreateMessageComponent = ({ profile }) => {
   const [newMessage, setNewMessage] = useState("");
   const [newTitle, setNewTitle] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   console.log("profile.owner", profile.owner);
   console.log("profile.id", profile.id);
@@ -32,10 +34,11 @@ const CreateMessageComponent = ({ profile }) => {
           setIsSubmitting(false);
           setNewMessage("");
           setNewTitle("");
+          setShowSuccess(true); 
           // Handle the response data if needed
           console.log(response.data.results);
           console.log("Profile Owner (now recipient_username):", profile.owner);
-          window.location.reload();
+          // window.location.reload();
         });
       })
       .catch((error) => {
@@ -90,6 +93,12 @@ const CreateMessageComponent = ({ profile }) => {
               {isSubmitting ? "Submitting..." : "Submit Message"}
             </Button>
           </Form>
+           {/* Success message */}
+           {showSuccess && (
+            <Alert variant="success" className="mt-3">
+              Message successfully sent!
+            </Alert>
+          )}
         </Card.Body>
       </Card>
     </>

@@ -138,11 +138,13 @@ const SingleProfile = () => {
 
             {/* Existing messages to this profile owner are here */}
             <Row>
+            {profile.is_owner && (
               <MessagesApiComponent
                 profile={profile}
-                profileId={profileId}
+                // profileId={profileId}
                 profileOwner={profileOwner}
               />
+            )}
             </Row>
           </>
         )}

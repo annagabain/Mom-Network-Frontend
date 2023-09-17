@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 
-const MessagesApiComponent = (profile, profileId, profileOwner) => {
+const MessagesApiComponent = (profile, profileOwner) => {
   const [data, setData] = useState(null);
   const currentUser = useCurrentUser();
   const [loading, setLoading] = useState(true);
@@ -78,11 +78,9 @@ const MessagesApiComponent = (profile, profileId, profileOwner) => {
         ) : (
           data
             .filter(
-              (message) =>
-                // message.sender === currentUser.pk &&
-                message.recipient_username === profile.profileOwner
+              (message) => message.recipient_username === profile.profileOwner
             )
-            // .filter((message) => message.recipient_username === profileId)
+
             .map((message) => (
               <Container key={message.id}>
                 <Card>
