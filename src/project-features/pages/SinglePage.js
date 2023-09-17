@@ -61,16 +61,16 @@ const SinglePage = ({ match }) => {
               )}{" "}
               <p>Admin: {page.admin_username}</p>
               <h4>{page.description}</h4>
-              <p>This page has {page.followers_count} followers</p>
+              {/* <p>This page has {page.followers_count} followers</p> */}
               {/* A placeholder for following a Group (Page) */}
-              <p>
+              {/* <p>
                 {" "}
                 FOLLOW{" "}
                 <i
                   className="fa-solid fa-people-group"
                   style={{ fontSize: "36px", color: "beige" }}
                 ></i>
-              </p>
+              </p> */}
             </Card.Body>
           </Card>
           <br></br>

@@ -15,7 +15,6 @@ import {
 import axios from "axios";
 import { Container } from "react-bootstrap";
 
-
 const NavigationBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -54,9 +53,7 @@ const NavigationBar = () => {
           )
         }
       >
-        <NavLink to={`/edit-profile/${currentUser.pk}`}>
-          Edit profile
-        </NavLink>
+        <NavLink to={`/profiles/${currentUser.pk}`}>My profile</NavLink>
         <br></br>
         <NavLink to="/" onClick={handleSignOut}>
           Log out
@@ -100,23 +97,25 @@ const NavigationBar = () => {
                     All
                   </NavLink>
                   <NavLink exact to="/thematic-groups/1">
-                    Baby
+                    <i className="fa-solid fa-baby-carriage"></i> Baby
                   </NavLink>
 
                   <NavLink exact to="/thematic-groups/2">
-                    Toddler
+                    <i className="fa-solid fa-baby"> </i> Toddler
                   </NavLink>
 
                   <NavLink exact to="/thematic-groups/3">
-                    Small Child
+                    <i className="fa-solid fa-child-dress"></i> Small Child
                   </NavLink>
 
                   <NavLink exact to="/thematic-groups/4">
+                    <i className="fa-solid fa-hands-holding-child"></i>{" "}
                     Healthcare
                   </NavLink>
 
                   <NavLink exact to="/thematic-groups/5">
-                    General Activities
+                    <i className="fa-regular fa-calendar"></i> General
+                    Activities
                   </NavLink>
                 </NavDropdown>
                 <NavLink exact to="/newsletter">

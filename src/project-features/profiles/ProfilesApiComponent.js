@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const ProfilesApiComponent = () => {
   const [profiles, setProfiles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     fetch("https://mom-network-backend.herokuapp.com/profiles")
@@ -61,6 +63,7 @@ const ProfilesApiComponent = () => {
                 <div key={profile.id} style={{ marginBottom: "20px" }}>
                   {/* Wrap each profile card with a Link */}
                   <h4>{profile.owner}</h4>
+
                   <Link to={`/profiles/${profile.id}`}>
                     {profile.image && (
                       <img
@@ -73,9 +76,15 @@ const ProfilesApiComponent = () => {
                         }}
                       />
                     )}
+                    <br></br>
+                    {/* Display "My Profile" under the logged-in user's profile */}
+                    {profile.owner === currentUser.username && (
+                      <span style={{ fontSize: "12px", color: "green" }}>
+                        My Profile
+                      </span>
+                    )}
                   </Link>
-                  {/* <p>Bio: {profile.bio}</p>
-                  <hr></hr> */}
+
                   <br></br>
                   <br></br>
                   <br></br>

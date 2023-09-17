@@ -4,8 +4,8 @@ import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import CreateNewPost from "./CreateNewPost";
 import InfiniteScroll from "react-infinite-scroll-component";
-import MyNetworkPlaceholder from "./MyNetworkPlaceholder";
-import MyPagesPlaceholder from "./MyPagesPlaceholder";
+// import MyNetworkPlaceholder from "./MyNetworkPlaceholder";
+// import MyPagesPlaceholder from "./MyPagesPlaceholder";
 import PostCard from "./PostCard";
 // import Likes from "../likes/Likes";
 
@@ -14,26 +14,7 @@ const PostsApiComponent = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  // const [postState, setPostState] = useState(...);
 
-  // const fetchData = useCallback(() => {
-  //   fetch(`https://mom-network-backend.herokuapp.com/posts/?page=${page}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data && data.results && data.results.length === 0) {
-  //         setHasMore(false);
-  //       } else if (data && data.results) {
-  //         setPosts((prevPosts) => [...prevPosts, ...data.results]);
-  //         setPage(page + 1);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.log(
-  //         "Could not fetch the Mom Network API because of this error: ",
-  //         error.message
-  //       );
-  //     });
-  // }, [page]);
 
   const fetchData = useCallback(() => {
     fetch(`https://mom-network-backend.herokuapp.com/posts/?page=${page}`)
@@ -42,11 +23,10 @@ const PostsApiComponent = () => {
         if (data && data.results && data.results.length === 0) {
           setHasMore(false);
         } else if (data && data.results) {
-          // Assuming the API response structure is something like:
-          // { id: 1, content: 'Post content', like_id: 123, ... }
+
           const updatedPosts = data.results.map((post) => ({
             ...post,
-            like_id: post.like_id, // Ensure that like_id is coming from the API
+            like_id: post.like_id,
            
           }));
           setPosts((prevPosts) => [...prevPosts, ...updatedPosts]);
@@ -128,13 +108,13 @@ const PostsApiComponent = () => {
           <br />
 
           {/* Placeholder for My thematic-groups */}
-          <MyPagesPlaceholder />
+          {/* <MyPagesPlaceholder /> */}
 
           <br />
           <br />
 
           {/* Placeholder for My Network */}
-          <MyNetworkPlaceholder />
+          {/* <MyNetworkPlaceholder /> */}
         </Col>
       </Row>
     </div>

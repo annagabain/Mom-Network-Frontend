@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Card from "react-bootstrap/Card";
-import CreateNewMessage from "../messages/CreateNewMessage";
 import { Container } from "react-bootstrap";
 
 const MessagesApiComponent = (profile, profileId, profileOwner) => {
@@ -44,17 +43,6 @@ const MessagesApiComponent = (profile, profileId, profileOwner) => {
 
   return (
     <>
-      {currentUser && currentUser.username !== profile.profileOwner && (
-        <CreateNewMessage
-          profile={profile}
-          profileId={profileId}
-          profileOwner={profileOwner}
-        />
-      )}
-
-      <br></br>
-      <br></br>
-
       <div className="left" style={{ width: "100%" }}>
         {/* <i style={{ color: "green" }}>Fetching Messages Test:</i> */}
         <br></br>
@@ -73,10 +61,11 @@ const MessagesApiComponent = (profile, profileId, profileOwner) => {
               <Container key={message.id}>
                 <Card>
                   <Card.Body>
-                    <Card.Text className="mb-2 left">Title: {message.title}</Card.Text>
+                    <Card.Text className="mb-2 left">
+                      Title: {message.title}
+                    </Card.Text>
                     <br></br>
                     <br></br>
-
 
                     <Card.Subtitle className="mb-2 text-muted left">
                       From: {message.sender_username} Add Avatar here

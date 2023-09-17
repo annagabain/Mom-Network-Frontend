@@ -11,9 +11,8 @@ const CreateMessageComponent = ({ profile, profileId, profileOwner }) => {
   const [newTitle, setNewTitle] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-//  console.log(profile.profileOwner)
-//  console.log(profile.profileId)
-
+  //  console.log(profile.profileOwner)
+  //  console.log(profile.profileId)
 
   const handleMessageSubmit = async () => {
     setIsSubmitting(true);
@@ -35,19 +34,23 @@ const CreateMessageComponent = ({ profile, profileId, profileOwner }) => {
           setNewTitle("");
           // Handle the response data if needed
           console.log(response.data.results);
-          console.log("Profile Owner (now recipient_username):", profile.profileOwner);
+          console.log(
+            "Profile Owner (now recipient_username):",
+            profile.profileOwner
+          );
           window.location.reload();
         });
       })
       .catch((error) => {
         console.error("Error sending message:", error);
-        console.log("Profile Owner (now recipient_username):", profile.profileOwner);
+        console.log(
+          "Profile Owner (now recipient_username):",
+          profile.profileOwner
+        );
 
         setIsSubmitting(false);
       });
   };
-
-  
 
   return (
     <>
@@ -59,7 +62,9 @@ const CreateMessageComponent = ({ profile, profileId, profileOwner }) => {
             <Form.Group controlId="title" className="mb-3">
               <Form.Label>
                 Write a Message to{" "}
-                <span style={{ fontWeight: "bold" }}>{profile.profileOwner}</span>
+                <span style={{ fontWeight: "bold" }}>
+                  {profile.profileOwner}
+                </span>
                 <br></br>
                 <br></br>
                 <i className="fa-regular fa-envelope fa-2xl"></i>
@@ -95,8 +100,6 @@ const CreateMessageComponent = ({ profile, profileId, profileOwner }) => {
           </Form>
         </Card.Body>
       </Card>
-
-
     </>
   );
 };

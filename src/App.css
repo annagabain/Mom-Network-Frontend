@@ -55,9 +55,14 @@ body {
   padding: 50px 0 10px 10px;
 }
 
-i {
+i,
+.icon-inside-button:hover {
   color: #6a4c39;
 }
+.icon-inside-button {
+  color: #faf7f4;
+}
+
 .button {
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
@@ -71,8 +76,7 @@ i {
 }
 
 .button:hover,
-.btn:hover,
-i:hover {
+.btn:hover {
   background-color: #faf7f4 !important;
   color: #6a4c39 !important;
   border-color: #6a4c39;

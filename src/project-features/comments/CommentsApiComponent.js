@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext"; 
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useHistory } from "react-router-dom";
 
 function CommentsApiComponent({ postId, onDeleteComment }) {
@@ -73,15 +73,15 @@ function CommentsApiComponent({ postId, onDeleteComment }) {
                           history.push(`/edit-comment/${comment.id}`)
                         }
                       >
-                        &#9998;
+                        <i className="fa-solid fa-pen icon-inside-button"> </i>
                       </Button>
-                      {/* {console.log(comment.id)} */}
+
                       <Button
                         variant="danger"
                         className="right"
                         onClick={() => onDeleteComment(comment.id)}
                       >
-                        <i className="fa-regular fa-trash-can" style={{color: "white"}}></i>
+                        <i className="fa-regular fa-trash-can icon-inside-button"></i>
                       </Button>
                     </div>
                   )}
