@@ -54,7 +54,7 @@ const SinglePage = ({ match }) => {
                   alt={`Page: ${page.title}`}
                   style={{
                     width: "100%",
-                    height: "400px",
+                    height: "25rem",
                     objectFit: "cover",
                   }}
                 />
@@ -91,7 +91,6 @@ const SinglePage = ({ match }) => {
                       alt={`Page: ${post.content}`}
                       style={{
                         width: "50%",
-                        height: "400px",
                         objectFit: "cover",
                       }}
                     />

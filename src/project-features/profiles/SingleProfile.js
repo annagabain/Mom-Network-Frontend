@@ -77,7 +77,7 @@ const SingleProfile = () => {
                     <br />
 
                     <Row>
-                      <Col xs={6} md={4}>
+                      <Col xs={12} md={4}>
                         {profile.image && (
                           <img
                             src={profile.image}
@@ -89,6 +89,7 @@ const SingleProfile = () => {
                             }}
                           />
                         )}
+
                       </Col>
                       <Col xs={12} md={8}>
                         Username: <h4>{profile.owner}</h4>
