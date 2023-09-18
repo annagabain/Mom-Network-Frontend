@@ -46,8 +46,8 @@ This is the fifth and final Portfolio Project in frames of the Code Institute Fu
     - [Manual Testing](#manual-testing)
     - [Debugging](#debugging)
     - [Remaining Issues](#remaining-issues)
-- [Deployment]()
-    - [Heroku]()
+- [Deployment](#deployment)
+    - [Heroku](#creating-the-heroku-app)
 - [Sources & Credits]()
     - [Sources]()
     - [Tools]()
@@ -256,4 +256,28 @@ Remaining issues are documented and marked as bugs or enhancement in the project
 https://github.com/users/annagabain/projects/10/
 
 
+## Deployment
 
+The project is deployed to GitHub via Gitpod Terminal with an integrated VScode editor. Then it is connected to the Heroku app to be reached via a web browser for user convenience.
+
+
+### Creating the Heroku app
+The project was deployed to Heroku as follows:
+
+- Create an account and log in to https://www.heroku.com/
+- Click 'New' from the dashboard, and from the drop-down menu select "Create new app"
+- Make a unique app name: mom-network-frontend
+- Choose a relevant geographical region, Europe
+- Click "Create app"
+- In the settings menu, go to "Config Vars" section
+- Click "Reveal Config Vars", where dependencies are installed
+- In "Deploy" tab, select Github as the deployment method
+- Connect to GitHub
+- Find the project repository and click "connect" next to it
+- "Enable Automatic Deploys" for automatic deployment with every new change
+
+
+## Sources & Credits
+Sources
+Tools
+Acknowledgments
