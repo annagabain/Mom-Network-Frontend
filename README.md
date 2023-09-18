@@ -27,16 +27,16 @@ This is the fifth and final Portfolio Project in frames of the Code Institute Fu
     - [User Stories](#user-stories)
     - [Responsivity](#responsivity)
     - [User Friendly Messages](#user-friendly-messages)
-- [Features]()
-    - [Homepage]()
-    - [Site Header and Log in]()
-    - [Authentication and Authorization]()
-    - [Site Navigation]()
-        - [Sidebar]()
-        - [My Tasks]()
-    - [Contact Us]()
-    - [New Task]()
-    - [Future Features]()
+- [Features](#features)
+    - [Superhero Mom Logo](#superhero-mom-logo)
+    - [ Register and Login at the landing page](#register-and-login-at-the-landing-page)
+    - [Navigation](#navigation)
+    - [Posts](#posts)
+    - [Comments](#comments)
+    - [Profiles](#profiles)
+    - [Thematic Interest Groups](#thematic-interest-groups)
+    - [Newsletter Subscription](#newsletter-subscription)
+    - [Future Features](#future-features)
 - [Development Stages]()
     - [Planning]()
     - [Structure]()
@@ -103,44 +103,39 @@ In order to reassure the user for the actions they have taken, as well as to gui
 
 ## Features
 
+### Superhero Mom Logo   
+
 <img width="30%" alt="wireframe" src="src/readme-images/superhero-mom-logo.png">
 
-#### Superhero Mom Logo   
+**All parents are every day super heroes and the logo shows their strength when joining the powers in a network together!**
 
-#### **All parents are every day super heroes and the logo shows their strength when joining the powers in a network together!**
-
-
--------------------------------------------------
-
-
-#### Register and Login at the landing page
+### Register and Login at the landing page
 
 <img width="100%" alt="wireframe" src="src/readme-images/logn-register.png">
 
-#### Navigation
+### Navigation
 
 <img width="100%" alt="wireframe" src="src/readme-images/navbar1.png">
 
 <img width="100%" alt="wireframe" src="src/readme-images/navbar2.png">
 
-#### Posts
+### Posts
 
 <img width="100%" alt="wireframe" src="src/readme-images/posts.png">
 
 <img width="50%" alt="wireframe" src="src/readme-images/create-post.png">
 
-#### Comments
+### Comments
 
 <img width="50%" alt="wireframe" src="src/readme-images/comment1.png">
 
 <img width="100%" alt="wireframe" src="src/readme-images/comment2.png">
 
-#### Profiles
+### Profiles
 
 <img width="50%" alt="wireframe" src="src/readme-images/profiles.png">
 
-
-#### Thematic Interest Groups
+### Thematic Interest Groups
 
 User's personal selection of groups
 
@@ -159,11 +154,17 @@ Selected specific group page
 <img width="100%" alt="wireframe" src="src/readme-images/groups4.png">
 
 
-#### Newsletter Subscription
+### Newsletter Subscription
 
 To recieve the highlights and invitations per email. Even if one had no time to participate in networking activities, they can stay engaged with Mom network. 
 
 <img width="100%" alt="wireframe" src="src/readme-images/newsletter.png">
+
+### Future Features
+
+- Like/unlike
+- Follow/unfollow
+
 
 ## Planning
 
