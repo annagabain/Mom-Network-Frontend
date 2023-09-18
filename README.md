@@ -23,10 +23,10 @@ This is the fifth and final Portfolio Project in frames of the Code Institute Fu
 
 
 ## Contents:
-- [UX]()
-    - [User Stories]()
-    - [Responsivity]()
-    - [User Friendly Messages]()
+- [UX](#ux-and-ui)
+    - [User Stories](#user-stories)
+    - [Responsivity](#responsivity)
+    - [User Friendly Messages](#user-friendly-messages)
 - [Features]()
     - [Homepage]()
     - [Site Header and Log in]()
@@ -55,6 +55,51 @@ This is the fifth and final Portfolio Project in frames of the Code Institute Fu
     - [Tools]()
     - [Acknowledgments]()
 
+## UX and UI
+
+It is crucial to identify and get to know the website user in order to enhance the user experience. A Persona method helps 'bringing to life' a real-life individual with personality traits, favourite choices and preferences. Jane Smith (the Persona) is a working mother that loves bio products and enjoys walks in the nature. She will like the Mom Network colour pallette in natural tones. 
+
+More about this user Persona is described in my previous project, called Mom Lifehacks: https://github.com/annagabain/Mom-Lifehacks#User-Experience-and-User-Interface-Design-UX-and-UI
+
+### User Stories:
+
+Some of the most important user stories are:
+
+- As a site user, I can register and log in so that I can view my news feed and profile.
+
+- As a user, I can see a navigation bar so that I can easily find the desired path to interact with.
+
+- As a site user I can **Create** a post so that I can share my experiences with others.
+
+- As a site user, I can **View** an individual post so that I can read the comments to it.
+
+- As a site user, I can **Edit** my own post so that I can correct the information.
+
+- As a site user I can **Delete** my own post so that I can remove the no longer needed information.
+
+All user stories as part of a project: https://github.com/users/annagabain/projects/10
+
+
+### Responsivity
+
+
+There have been two main device views considered for the responsivity of Mom Schedule: Mobile and Larger Monitor. Some efforts have been made for the application to be mobile friendly. However there is room for implovement.
+The Methods to achieve desired device responsivity level include Bootstrap5 features and custom CSS.
+
+Initial test result: Am I responsive?
+
+<img width="78%" alt="wireframe" src="src/readme-images/responsivity.png">
+
+
+### User Friendly Messages
+
+In order to reassure the user for the actions they have taken, as well as to guide them, user-friendly messages have been created.
+
+<img width="50%" alt="logged" src="src/readme-images/userfriendly-alreadyloggedin-message.png">
+
+<img width="50%" alt="logouttoregister" src="src/readme-images/userfriendly-need-to-logout-to-register-message.png">
+
+<img width="50%" alt="success" src="src/readme-images/message-sent-successfully.png">
 
 ## Features
 
@@ -131,19 +176,7 @@ To recieve the highlights and invitations per email. Even if one had no time to 
 <img width="78%" alt="wireframe" src="src/wireframes/profile.png">
 
 
-### UX and UI
 
-User Stories: https://github.com/users/annagabain/projects/10/views/1
-
-Conditional rendering - experience flow:
-
-<img width="78%" alt="wireframe" src="src/readme-images/conditional_rendering-homepage2.png">
-
-<img width="78%" alt="wireframe" src="src/readme-images/conditional_rendering-homepage1.png">
-
-
-<img width="78%" alt="wireframe" src="src/readme-images/userfriendly-alreadyloggedin-message.png">
-<img width="78%" alt="wireframe" src="src/readme-images/userfriendly-need-to-logout-to-register-message.png">
 
 
 ### Initial Terminal commands
@@ -152,7 +185,7 @@ npx create-react-app . --use-npm
 
 npm start
 
-### Testing and Debugging
+## Testing and Debugging
 
 <img width="68%" alt="wireframe" src="src/readme-images/test_api_in_postman.png">
 <img width="68%" alt="wireframe" src="src/readme-images/Screenshot 2023-07-11 110116.png">
