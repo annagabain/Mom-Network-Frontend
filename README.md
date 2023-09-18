@@ -38,10 +38,10 @@ This is the fifth and final Portfolio Project in frames of the Code Institute Fu
     - [Newsletter Subscription](#newsletter-subscription)
     - [Future Features](#future-features)
 - [Development Stages]()
-    - [Planning]()
-    - [Structure]()
-    - [Using Frameworks and Libraries]()
-    - [Using Source code]()
+    - [Planning and wireframes](#wireframes)
+    - [Database Structure](#database-structure)
+    - [Using Frameworks and Libraries](#using-frameworks-and-libraries)
+    - [Using Source Code](#using-source-code)
 - [Testing]()
     - [Validators]()
     - [Manual Testing]()
@@ -165,8 +165,7 @@ To recieve the highlights and invitations per email. Even if one had no time to 
 - Like/unlike
 - Follow/unfollow
 
-
-## Planning
+## Development Stages
 
 ### Wireframes
 
@@ -176,15 +175,27 @@ To recieve the highlights and invitations per email. Even if one had no time to 
 <img width="80%" alt="wireframe" src="src/wireframes/group.png">
 <img width="78%" alt="wireframe" src="src/wireframes/profile.png">
 
+### Database Structure
 
+For this project there have been two github repositories created - the current one for frontend development and another one for backend development of the database structure:
 
+:point_down: Click the link below for the database structure: 
 
+https://github.com/annagabain/mom-network-backend
 
-### Initial Terminal commands
+### Using Frameworks and Libraries
 
-npx create-react-app . --use-npm
+- React Bootstrap 
 
-npm start
+<img width="30%" alt="wireframe" src="src/readme-images/reactbotstrap.png">
+
+- Font awesome
+
+<img width="30%" alt="wireframe" src="src/readme-images/fontawesome.png">
+
+### Using Source code
+
+Some parts of the project have been created using sections of code from other sources. An example of this is code generated through AI technologies - "GPT-3.5" by OpenAI.
 
 ## Testing and Debugging
 
