@@ -42,12 +42,10 @@ This is the fifth and final Portfolio Project in frames of the Code Institute Fu
     - [Database Structure](#database-structure)
     - [Using Frameworks and Libraries](#using-frameworks-and-libraries)
     - [Using Source Code](#using-source-code)
-- [Testing]()
-    - [Validators]()
-    - [Manual Testing]()
-    - [Automatic Testing - Writing Functions]()
-    - [Debugging]()
-    - [Remaining Issues]()
+- [Testing and Debugging](#testing-and-debugging)
+    - [Manual Testing](#manual-testing)
+    - [Debugging](#debugging)
+    - [Remaining Issues](#remaining-issues)
 - [Deployment]()
     - [Heroku]()
 - [Sources & Credits]()
@@ -137,10 +135,6 @@ In order to reassure the user for the actions they have taken, as well as to gui
 
 ### Thematic Interest Groups
 
-User's personal selection of groups
-
-<img width="50%" alt="wireframe" src="src/readme-images/groups1.png">
-
 All thematic groups directly accessible through the navigation panel
 
 <img width="30%" alt="wireframe" src="src/readme-images/groups2.png">
@@ -162,8 +156,8 @@ To recieve the highlights and invitations per email. Even if one had no time to 
 
 ### Future Features
 
-- Like/unlike
-- Follow/unfollow
+- Like/unlike post
+- Follow/unfollow a profile and a thematic group
 
 ## Development Stages
 
@@ -199,62 +193,42 @@ Some parts of the project have been created using sections of code from other so
 
 ## Testing and Debugging
 
+### Manual Testing
+
+- In the browser by running the local server.
+
+- Testing project feature functionality from the admin panel.
+
+- console.logging for the api responses
+
+- writing test components for the basic api fetching
+
+- Three devices for responsivoty: a larger monitor, a laptop and an iPhone 8.
+
+- A user experience walkthrough with decision making logic.
+
+
+Writing a sample message with hard-coded sender and recipient in the api backend and displaying it on front-end
+
 <img width="68%" alt="wireframe" src="src/readme-images/test_api_in_postman.png">
 <img width="68%" alt="wireframe" src="src/readme-images/Screenshot 2023-07-11 110116.png">
 
 
-writing a sample message with hard-coded sender and recipient in the api backend and displaying it on front-end
+Admin panel
 
 <img width="68%" alt="wireframe" src="src/readme-images/Add-message-from-admin-testing1.png">
 
 <img width="68%" alt="wireframe" src="src/readme-images/Add-message-from-admin-testing2.png">
+
+Displaying a test rersponse on the frontend
+
 <img width="68%" alt="wireframe" src="src/readme-images/Add-message-from-admin-testing3withclg.png">
 <img width="68%" alt="wireframe" src="src/readme-images/Add-message-from-admin-testing4withclg.png">
 
 
+### Debugging
 
------------------------------------------------------------------------------------
-
-:lady_beetle: - refresh token bug -
-
-*Before: logs out upon page refresh*
-
-
-
-:mag:  
-
-<img width="70%" alt="debugging" src=""> 
-
-:bulb:
-
-<img width="70%" alt="debugging" src=""> 
-
-*After*
-
-<img width="70%" alt="debugging" src=""> 
-
------------------------------------------------------------------------------------
-
-:lady_beetle: - rendering problem
-
-
-*Before: *
-
-
-
-:mag:  
-
-<img width="70%" alt="debugging" src=""> 
-
-:bulb: -->>>> solved with index.js react DOM
-
-<img width="70%" alt="debugging" src=""> 
-
-*After*
-
-<img width="70%" alt="debugging" src=""> 
-
------------------------------------------------------------------------------------
+An example of debuggin process:
 
 :lady_beetle: data.results wrong access code
 
@@ -273,4 +247,13 @@ writing a sample message with hard-coded sender and recipient in the api backend
 
 <img width="70%" alt="debugging" src=""> 
 
------------------------------------------------------------------------------------
+
+
+### Remaining Issues
+
+Remaining issues are documented and marked as bugs or enhancement in the project backlog: 
+
+https://github.com/users/annagabain/projects/10/
+
+
+
