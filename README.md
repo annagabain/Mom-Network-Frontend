@@ -48,10 +48,10 @@ This is the fifth and final Portfolio Project in frames of the Code Institute Fu
     - [Remaining Issues](#remaining-issues)
 - [Deployment](#deployment)
     - [Heroku](#creating-the-heroku-app)
-- [Sources & Credits]()
-    - [Sources]()
-    - [Tools]()
-    - [Acknowledgments]()
+- [Sources & Credits](#sources--credits)
+    - [Sources](#sources)
+    - [Tools](#tools)
+    - [Acknowledgments](#acknowledgments)
 
 ## UX and UI
 
@@ -278,6 +278,30 @@ The project was deployed to Heroku as follows:
 
 
 ## Sources & Credits
-Sources
-Tools
-Acknowledgments
+
+### Sources
+
+Moments walkthrough project for basic component examples
+
+Bootstrap navigation bar: https://react-bootstrap.netlify.app/docs/components/navbar/
+
+Bootstrap cards: https://react-bootstrap.netlify.app/docs/components/cards/
+
+CSS tricks: https://css-tricks.com/snippets/css/a-guide-to-flexbox/#top-of-site
+
+
+### Tools
+
+"GPT-3.5" by OpenAI - artificial intelligence platform for generaing basic component, discussing the co-dependencies and revealing bugs
+
+Wireframes: balsamiq
+
+Diff Checker: https://www.diffchecker.com/text-compare/
+
+### Acknowledgments
+
+Seán Murphy  - the course tutor for friendly help with database reset and refactoring some code 
+
+Richard Wells - the course mentor for friendly guidance and a project initiation session
+
+Jakob Lövhall - help with maintaining the study schedule, countless hours of babysitting and motivational encouragement
