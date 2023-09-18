@@ -121,14 +121,7 @@ const NavigationBar = () => {
                 <NavLink exact to="/newsletter">
                   Newletter
                 </NavLink>
-                {/* Conditionally show "+ New Post" NavLink only on xs screens */}
-                <NavLink
-                  exact
-                  to="/createnewpost"
-                  className="d-md-none" // This class hides the NavLink on screens larger than xs
-                >
-                  + New Post
-                </NavLink>
+
               </Navbar.Collapse>
             </Navbar>
           </Col>

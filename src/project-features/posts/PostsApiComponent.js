@@ -15,7 +15,6 @@ const PostsApiComponent = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-
   const fetchData = useCallback(() => {
     fetch(`https://mom-network-backend.herokuapp.com/posts/?page=${page}`)
       .then((response) => response.json())
@@ -23,11 +22,9 @@ const PostsApiComponent = () => {
         if (data && data.results && data.results.length === 0) {
           setHasMore(false);
         } else if (data && data.results) {
-
           const updatedPosts = data.results.map((post) => ({
             ...post,
             like_id: post.like_id,
-           
           }));
           setPosts((prevPosts) => [...prevPosts, ...updatedPosts]);
           setPage(page + 1);
@@ -63,6 +60,10 @@ const PostsApiComponent = () => {
     <div>
       <br />
       <br />
+      {/* Anchor tag to CreateNewPost, visible only on xs screens */}
+      <a href="#createNewPost" className="sticky d-md-none">
+      + New Post
+      </a>
       <Form.Group>
         <Form.Control
           type="text"
@@ -101,7 +102,7 @@ const PostsApiComponent = () => {
           </InfiniteScroll>
         </Col>
         <Col md={4}>
-          <div>
+          <div id="createNewPost">
             <CreateNewPost />
           </div>
           <br />

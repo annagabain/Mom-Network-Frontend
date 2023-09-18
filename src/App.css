@@ -156,3 +156,12 @@ h2 {
 .fixed {
   position: fixed;
 }
+
+.sticky {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background-color: white;
+  z-index: 5;
+}
