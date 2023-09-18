@@ -243,9 +243,8 @@ An example of debuggin process:
 
 :bulb: added .results to access the desired array of data
 
-*After onsole.log(data.results)*
+*After console.log(data.results)*
 
-<img width="70%" alt="debugging" src=""> 
 
 
 
