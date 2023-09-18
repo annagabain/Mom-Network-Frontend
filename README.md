@@ -1,36 +1,59 @@
-# LIVE LINK: https://mom-network-frontend.herokuapp.com/
-
-<img width="100%" alt="wireframe" src="src/readme-images/Nest_Hub_Max_Device_view.png">
-
-
 # Mom-Network
-Portfolio Project nr. 5 for Code Institute Assessment. Mom Network - Communication Tool for Busy Mothers.
+## Communication Tool for Busy Mothers.
 
+*All parents and especially Mothers are every day super heroes!*
 
-### Project purpose:
+Mom-Network is a content-sharing social platform for Busy Mothers. The application allows users to browse each other's content as well as add, edit and delete their posts, comments, profiles. They can write messages to each other and exchange information about their children's specific age and interest related issues. They can subscribe to a newsletter to recieve the highlights of the social network per email to stay engaged even outside the platform.
 
-In this project, you will design and build a content-sharing web application with React and an API (Django Rest Framework) Back-End. This will allow your users to browse and comment/ like each other's content as well as add, edit and delete their own. The users will also be able to follow one another.
-
-The data is presented in a way that makes it easy for users to find what they're looking for.
-
-
-### Main Technologies
+Main Technologies are:
 
 - HTML, CSS, JavaScript
 - React.js
 - Bootstrap.js
-- Django REST Framework
+- Django REST Framework API 
+
+This is the fifth and final Portfolio Project in frames of the Code Institute Full Stack Web Developer Course Assessment.
+
+:point_down: Click the link below for the live view: 
+
+# [Live View](https://mom-network-frontend.herokuapp.com/)
 
 
-### Project Idea: Content Platform
+<img width="100%" alt="wireframe" src="src/readme-images/Nest_Hub_Max_Device_view.png">
 
-Create a community-based publishing platform to share ideas, stories, tutorials and journalistic articles. Now that you're a fully-fledged web developer you've decided it's probably time for you to start your very own cool, modern content platform, offering a publishing portal to a global audience. To provide the best user experience, the platform will be available via a browser-based interface.
 
-Suggested functionality:
-
-The platform should enable users to create, read, comment and vote on content.
-Content should be searchable and categorized.
-Search results can be filtered on username, popularity, date created, title, content keywords and category.
+## Contents:
+- [UX]()
+    - [User Stories]()
+    - [Responsivity]()
+    - [User Friendly Messages]()
+- [Features]()
+    - [Homepage]()
+    - [Site Header and Log in]()
+    - [Authentication and Authorization]()
+    - [Site Navigation]()
+        - [Sidebar]()
+        - [My Tasks]()
+    - [Contact Us]()
+    - [New Task]()
+    - [Future Features]()
+- [Development Stages]()
+    - [Planning]()
+    - [Structure]()
+    - [Using Frameworks and Libraries]()
+    - [Using Source code]()
+- [Testing]()
+    - [Validators]()
+    - [Manual Testing]()
+    - [Automatic Testing - Writing Functions]()
+    - [Debugging]()
+    - [Remaining Issues]()
+- [Deployment]()
+    - [Heroku]()
+- [Sources & Credits]()
+    - [Sources]()
+    - [Tools]()
+    - [Acknowledgments]()
 
 
 ## Features
